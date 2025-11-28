@@ -16,9 +16,12 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     && curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
     && apt-get install -y nodejs \
-    # LibreOffice core and writer module for PDF → DOCX conversions
-    # libreoffice-writer provides the DOCX export functionality
+    # LibreOffice packages for PDF → DOCX conversions
+    # libreoffice-common contains the export filters (CRITICAL for DOCX export)
+    # libreoffice-writer provides the Writer module
+    # libreoffice-core provides core components
     libreoffice \
+    libreoffice-common \
     libreoffice-writer \
     libreoffice-core \
     # Fonts required for proper document rendering
@@ -41,8 +44,10 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Verify LibreOffice installation and log the soffice path
-RUN which soffice && soffice --version || echo "WARNING: soffice not found in PATH"
+# Verify LibreOffice installation and check for DOCX export filter
+# libreoffice-common contains the export filters needed for DOCX conversion
+RUN which soffice && soffice --version || echo "WARNING: soffice not found in PATH" && \
+    dpkg -l | grep -E "libreoffice-(common|writer)" || echo "WARNING: LibreOffice packages may be missing"
 
 # Create working directory
 WORKDIR /app

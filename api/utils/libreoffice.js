@@ -52,10 +52,16 @@ export async function convertWithLibreOffice(
 
     // LibreOffice conversion command
     // --headless: Run without GUI
-    // --convert-to: Target format
+    // --nofirststartwizard: Skip first-run wizard (prevents initialization issues)
+    // --nodefault: Don't load default document
+    // --nolockcheck: Don't check for file locks
+    // --nologo: Don't show splash screen
+    // --norestore: Don't restore previous session
+    // --convert-to: Target format (requires libreoffice-common for filters)
     // --outdir: Output directory
     const args = [
       '--headless',
+      '--nofirststartwizard',
       '--nodefault',
       '--nolockcheck',
       '--nologo',
@@ -131,10 +137,20 @@ export async function convertWithLibreOffice(
           resolve();
         } else if (code === 0) {
           // Exit code 0 but file doesn't exist - this is an error
-          reject(new Error(`LibreOffice exited with code 0 but output file not found at ${expectedOutputPath}. stderr: ${stderr || 'none'}`));
+          // Check for common error messages in stderr
+          if (stderr.includes('no export filter') || stderr.includes('export filter')) {
+            reject(new Error(`LibreOffice DOCX export filter not found. Make sure 'libreoffice-common' and 'libreoffice-writer' are installed. stderr: ${stderr}`));
+          } else {
+            reject(new Error(`LibreOffice exited with code 0 but output file not found at ${expectedOutputPath}. stderr: ${stderr || 'none'}`));
+          }
         } else {
           // Non-zero exit code and file doesn't exist
-          reject(new Error(`LibreOffice conversion failed with code ${code}. Output file not found at ${expectedOutputPath}. stderr: ${stderr || stdout || 'none'}`));
+          // Check for filter errors
+          if (stderr.includes('no export filter') || stderr.includes('export filter')) {
+            reject(new Error(`LibreOffice DOCX export filter not found. Install 'libreoffice-common' and 'libreoffice-writer'. stderr: ${stderr}`));
+          } else {
+            reject(new Error(`LibreOffice conversion failed with code ${code}. Output file not found at ${expectedOutputPath}. stderr: ${stderr || stdout || 'none'}`));
+          }
         }
       });
 
