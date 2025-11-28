@@ -1,0 +1,222 @@
+================================================================================
+PDFStation - Open-Source Conversion Backend
+================================================================================
+
+BACKEND IMPLEMENTATION COMPLETE
+================================
+
+All file conversions now use 100% FREE, open-source tools:
+- LibreOffice (soffice) for Office ↔ PDF
+- ImageMagick (magick) for Image ↔ PDF  
+- Ghostscript (gs) for PDF compression
+- qpdf for PDF merging
+
+NO PAID APIs REQUIRED!
+
+================================================================================
+LOCAL DEVELOPMENT
+================================================================================
+
+1. Install Required Tools:
+
+   macOS:
+   $ brew install libreoffice imagemagick ghostscript qpdf
+
+   Ubuntu/Debian:
+   $ sudo apt-get update
+   $ sudo apt-get install -y libreoffice imagemagick ghostscript qpdf
+
+   Windows:
+   - Download and install from official websites
+   - Add to PATH
+
+2. Start Backend:
+   $ npm run start
+   # Server runs on http://localhost:3001
+
+3. Start Frontend (separate terminal):
+   $ npm run dev
+   # Frontend runs on http://localhost:5173
+
+4. Or Start Both:
+   $ npm run dev:all
+
+================================================================================
+RAILWAY DEPLOYMENT (FREE)
+================================================================================
+
+STEP 1: Push to GitHub
+-----------------------
+$ git add .
+$ git commit -m "Add open-source conversion backend"
+$ git push origin main
+
+STEP 2: Deploy to Railway
+--------------------------
+1. Go to https://railway.app
+2. Sign in with GitHub
+3. Click "New Project" → "Deploy from GitHub repo"
+4. Select your PDFStation repository
+5. Railway auto-detects Dockerfile
+6. Wait for build (5-10 minutes)
+7. Get your deployment URL
+
+STEP 3: Configure Frontend
+---------------------------
+Update frontend API URL:
+- Set VITE_API_BASE_URL environment variable
+- Or update src/services/conversionClient.ts
+
+STEP 4: Test
+------------
+$ curl https://your-project.up.railway.app/health
+
+Should return:
+{
+  "status": "ok",
+  "tools": {
+    "libreoffice": "soffice",
+    "imagemagick": "magick",
+    "ghostscript": "gs",
+    "qpdf": "qpdf"
+  }
+}
+
+================================================================================
+API ENDPOINTS
+================================================================================
+
+POST /api/convert
+  - Converts files between formats
+  - Body: multipart/form-data
+    - file: File to convert
+    - toolSlug: Tool identifier (e.g., "pdf-to-word")
+  - Returns: Binary file
+
+POST /api/compress
+  - Compresses PDF files
+  - Body: multipart/form-data
+    - file: PDF file
+    - quality: Optional ("screen", "ebook", "printer", "prepress")
+  - Returns: Compressed PDF binary
+
+POST /api/merge
+  - Merges multiple PDFs
+  - Body: multipart/form-data
+    - files: Array of PDF files
+  - Returns: Merged PDF binary
+
+================================================================================
+CONVERSION MAPPING
+================================================================================
+
+LibreOffice (soffice):
+  - PDF → DOCX
+  - DOCX → PDF
+  - XLSX → PDF
+  - PPTX → PDF
+
+ImageMagick (magick):
+  - PDF → JPG/PNG/WebP
+  - JPG/PNG/WebP → PDF
+
+Ghostscript (gs):
+  - PDF → PDF (compressed)
+
+qpdf:
+  - PDF + PDF → PDF (merged)
+
+================================================================================
+FILE STRUCTURE
+================================================================================
+
+server.js                          # Main Express server
+api/
+  ├── routes/
+  │   └── conversionRoutes.js      # API endpoints
+  ├── utils/
+  │   ├── fileUtils.js             # Temp file management
+  │   ├── libreoffice.js           # LibreOffice wrapper
+  │   ├── imagemagick.js            # ImageMagick wrapper
+  │   ├── ghostscript.js            # Ghostscript wrapper
+  │   └── qpdf.js                  # qpdf wrapper
+  └── config/
+      └── toolConversions.js       # Tool mapping
+
+Dockerfile                         # Docker configuration for Railway
+.dockerignore                      # Files to exclude from Docker build
+
+================================================================================
+ENVIRONMENT VARIABLES
+================================================================================
+
+PORT              Server port (default: 3001 dev, 3000 prod)
+FRONTEND_URL      Frontend URL for CORS (default: http://localhost:5173)
+SOFFICE_CMD       LibreOffice command (default: soffice)
+MAGICK_CMD        ImageMagick command (default: magick)
+GS_CMD            Ghostscript command (default: gs)
+QPDF_CMD          qpdf command (default: qpdf)
+
+================================================================================
+TESTING
+================================================================================
+
+Test Conversion:
+$ curl -X POST http://localhost:3001/api/convert \
+  -F "file=@test.pdf" \
+  -F "toolSlug=pdf-to-word" \
+  --output converted.docx
+
+Test Compression:
+$ curl -X POST http://localhost:3001/api/compress \
+  -F "file=@large.pdf" \
+  --output compressed.pdf
+
+Test Merge:
+$ curl -X POST http://localhost:3001/api/merge \
+  -F "files=@file1.pdf" \
+  -F "files=@file2.pdf" \
+  --output merged.pdf
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Problem: "Failed to spawn LibreOffice"
+Solution: Verify tool is installed: which soffice gs magick qpdf
+
+Problem: Conversion fails
+Solution: Check file format, size (<500MB), and server logs
+
+Problem: Permission errors
+Solution: Ensure temp directory is writable
+
+Problem: Railway build fails
+Solution: Check Dockerfile, verify all packages are listed
+
+================================================================================
+COST
+================================================================================
+
+✅ 100% FREE
+- All tools are open-source
+- No API keys required
+- Railway free tier: $5 credit/month
+- No credit card needed
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+1. Test locally with sample files
+2. Deploy to Railway
+3. Update frontend API URL
+4. Monitor performance
+5. Scale as needed
+
+For detailed documentation, see:
+- OPEN_SOURCE_BACKEND.md
+- RAILWAY_DEPLOY.md
+
+================================================================================
+

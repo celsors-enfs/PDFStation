@@ -348,6 +348,12 @@ export interface Translations {
   'error.rate.limit.exceeded': string;
   'error.rate.limit.retry': string;
   'error.upload.failed': string;
+  'error.conversion.failed': string;
+  'error.conversion.service.unavailable': string;
+  'error.file.too.large': string;
+  'error.invalid.file': string;
+  'error.too.many.requests': string;
+  'error.request.timeout': string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -699,6 +705,12 @@ const translations: Record<Language, Translations> = {
     'error.rate.limit.exceeded': 'Upload limit reached for your IP. Please try again later.',
     'error.rate.limit.retry': 'Please wait {seconds} seconds before trying again.',
     'error.upload.failed': 'Upload failed. Please try again.',
+    'error.conversion.failed': 'Conversion failed. Please try again.',
+    'error.conversion.service.unavailable': 'Conversion service is temporarily unavailable. Please try again later.',
+    'error.file.too.large': 'File too large. Maximum allowed size is 500MB.',
+    'error.invalid.file': 'Invalid file or parameters.',
+    'error.too.many.requests': 'Too many conversions from your IP. Please try again later.',
+    'error.request.timeout': 'Request timed out. Please try again.',
   },
   'pt-BR': {
     // Common UI
@@ -1048,6 +1060,12 @@ const translations: Record<Language, Translations> = {
     'error.rate.limit.exceeded': 'Limite de upload atingido para seu IP. Por favor, tente novamente mais tarde.',
     'error.rate.limit.retry': 'Por favor, aguarde {seconds} segundos antes de tentar novamente.',
     'error.upload.failed': 'Upload falhou. Por favor, tente novamente.',
+    'error.conversion.failed': 'Conversão falhou. Por favor, tente novamente.',
+    'error.conversion.service.unavailable': 'Serviço de conversão temporariamente indisponível. Por favor, tente novamente mais tarde.',
+    'error.file.too.large': 'Arquivo muito grande. Tamanho máximo permitido é 500MB.',
+    'error.invalid.file': 'Arquivo ou parâmetros inválidos.',
+    'error.too.many.requests': 'Muitas conversões do seu IP. Por favor, tente novamente mais tarde.',
+    'error.request.timeout': 'Tempo de requisição esgotado. Por favor, tente novamente.',
   },
   es: {
     // Common UI
@@ -1397,6 +1415,12 @@ const translations: Record<Language, Translations> = {
     'error.rate.limit.exceeded': 'Límite de carga alcanzado para tu IP. Por favor, intenta de nuevo más tarde.',
     'error.rate.limit.retry': 'Por favor, espera {seconds} segundos antes de intentar de nuevo.',
     'error.upload.failed': 'La carga falló. Por favor, intenta de nuevo.',
+    'error.conversion.failed': 'La conversión falló. Por favor, intenta de nuevo.',
+    'error.conversion.service.unavailable': 'El servicio de conversión no está disponible temporalmente. Por favor, intenta de nuevo más tarde.',
+    'error.file.too.large': 'Archivo demasiado grande. El tamaño máximo permitido es 500MB.',
+    'error.invalid.file': 'Archivo o parámetros inválidos.',
+    'error.too.many.requests': 'Demasiadas conversiones desde tu IP. Por favor, intenta de nuevo más tarde.',
+    'error.request.timeout': 'Tiempo de solicitud agotado. Por favor, intenta de nuevo.',
   },
   fr: {
     // Common UI
@@ -1746,6 +1770,12 @@ const translations: Record<Language, Translations> = {
     'error.rate.limit.exceeded': 'Limite de téléchargement atteint pour votre IP. Veuillez réessayer plus tard.',
     'error.rate.limit.retry': 'Veuillez attendre {seconds} secondes avant de réessayer.',
     'error.upload.failed': 'Le téléchargement a échoué. Veuillez réessayer.',
+    'error.conversion.failed': 'La conversion a échoué. Veuillez réessayer.',
+    'error.conversion.service.unavailable': 'Le service de conversion est temporairement indisponible. Veuillez réessayer plus tard.',
+    'error.file.too.large': 'Fichier trop volumineux. La taille maximale autorisée est de 500 Mo.',
+    'error.invalid.file': 'Fichier ou paramètres invalides.',
+    'error.too.many.requests': 'Trop de conversions depuis votre IP. Veuillez réessayer plus tard.',
+    'error.request.timeout': 'Délai d\'attente de la requête dépassé. Veuillez réessayer.',
   },
   it: {
     // Common UI
@@ -2095,6 +2125,12 @@ const translations: Record<Language, Translations> = {
     'error.rate.limit.exceeded': 'Limite di caricamento raggiunto per il tuo IP. Riprova più tardi.',
     'error.rate.limit.retry': 'Attendi {seconds} secondi prima di riprovare.',
     'error.upload.failed': 'Caricamento fallito. Riprova.',
+    'error.conversion.failed': 'Conversione fallita. Riprova.',
+    'error.conversion.service.unavailable': 'Servizio di conversione temporaneamente non disponibile. Riprova più tardi.',
+    'error.file.too.large': 'File troppo grande. La dimensione massima consentita è 500MB.',
+    'error.invalid.file': 'File o parametri non validi.',
+    'error.too.many.requests': 'Troppe conversioni dal tuo IP. Riprova più tardi.',
+    'error.request.timeout': 'Timeout della richiesta. Riprova.',
   },
 };
 

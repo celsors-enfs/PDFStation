@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Upload, X, CheckCircle2, Loader2, Download, ChevronDown, AlertCircle } from 'lucide-react';
-import { useFileUpload } from '@/hooks/useFileUpload';
+import { useFileConversion } from '@/hooks/useFileConversion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from './ui/button';
 import {
@@ -51,19 +51,24 @@ export const UploadBox: React.FC<UploadBoxProps> = ({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [urlDialogOpen, setUrlDialogOpen] = useState(false);
   const [urlInput, setUrlInput] = useState('');
-  const {
-    files,
-    isDragging,
-    setIsDragging,
-    addFile,
-    removeFile,
-    startConversion,
-  } = useFileUpload();
+  const [isDragging, setIsDragging] = useState(false);
 
   // Determine action mode based on tool category
   const actionMode = tool?.category === 'compress' ? 'compress' 
     : tool?.category === 'merge' ? 'merge' 
     : 'convert';
+
+  const {
+    files,
+    isProcessing,
+    addFile,
+    removeFile,
+    startConversion,
+    downloadFileById,
+  } = useFileConversion({
+    tool: tool || undefined,
+    mode: actionMode,
+  });
 
   // Determine if we should show dropdown or button
   const showDropdown = tool && !['compress', 'merge'].includes(tool.category) && 
@@ -80,7 +85,7 @@ export const UploadBox: React.FC<UploadBoxProps> = ({
 
   // Get accepted file types based on input type
   const getAcceptedFileTypes = (): string => {
-    if (!tool) return '';
+    if (!tool) return '.pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.webp';
     const inputType = tool.inputType.toLowerCase();
     switch (inputType) {
       case 'jpg':
@@ -158,9 +163,10 @@ export const UploadBox: React.FC<UploadBoxProps> = ({
   const formatToUse = defaultTargetFormat || defaultFormat || formats[0]?.value || 'pdf';
   const defaultFormatValue = formatToUse.toLowerCase();
 
-  // Check if any file is uploaded and ready for action
-  const hasUploadedFiles = files.some(f => f.status === 'uploaded');
-  const canAction = hasUploadedFiles;
+  // Check if any file is ready for action (idle status means ready to convert)
+  const hasReadyFiles = files.some(f => f.status === 'idle');
+  // Disable action if no tool is specified (e.g., on homepage)
+  const canAction = hasReadyFiles && !isProcessing && !!tool;
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
@@ -184,29 +190,22 @@ export const UploadBox: React.FC<UploadBoxProps> = ({
   };
 
   const handleAction = () => {
-    // Start conversion for all uploaded files
+    // If no tool is specified, show a message or redirect
+    if (!tool) {
+      console.warn('No tool specified. Please select a conversion tool first.');
+      return;
+    }
+    
+    // Start conversion for all ready files
     files.forEach(file => {
-      if (file.status === 'uploaded') {
+      if (file.status === 'idle') {
         startConversion(file.id);
       }
     });
   };
 
   const handleDownload = (fileId: string) => {
-    // Mock download - in real app, this would download the converted file
-    const file = files.find(f => f.id === fileId);
-    if (file) {
-      // Create a fake blob and download it
-      const blob = new Blob(['Mock converted file content'], { type: 'application/octet-stream' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = file.name.replace(/\.[^/.]+$/, '') + '_converted';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
+    downloadFileById(fileId);
   };
 
   const handleFromDevice = () => {
@@ -324,12 +323,12 @@ export const UploadBox: React.FC<UploadBoxProps> = ({
                   </Select>
                 </div>
               ) : (
-                <Button
-                  onClick={handleAction}
-                  disabled={!canAction}
-                >
-                  {getActionLabel()}
-                </Button>
+              <Button
+                onClick={handleAction}
+                disabled={!canAction || isProcessing}
+              >
+                {isProcessing ? t('converting') : getActionLabel()}
+              </Button>
               )}
             </div>
           </div>
@@ -346,12 +345,10 @@ export const UploadBox: React.FC<UploadBoxProps> = ({
                     <div className="flex items-center gap-3 flex-1 min-w-0">
                       {file.status === 'ready' ? (
                         <CheckCircle2 className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      ) : file.status === 'converting' ? (
+                      ) : file.status === 'converting' || file.status === 'compressing' || file.status === 'merging' ? (
                         <Loader2 className="h-5 w-5 text-primary animate-spin flex-shrink-0" />
-                      ) : file.status === 'uploaded' ? (
+                      ) : file.status === 'idle' ? (
                         <CheckCircle2 className="h-5 w-5 text-blue-500 flex-shrink-0" />
-                      ) : file.status === 'processing' ? (
-                        <Loader2 className="h-5 w-5 text-primary animate-spin flex-shrink-0" />
                       ) : file.status === 'error' ? (
                         <AlertCircle className="h-5 w-5 text-destructive flex-shrink-0" />
                       ) : (
@@ -362,13 +359,20 @@ export const UploadBox: React.FC<UploadBoxProps> = ({
                         <p className={`text-xs ${file.status === 'error' ? 'text-destructive' : 'text-muted-foreground'}`}>
                           {file.status === 'error' 
                             ? (file.errorCode === 429 
-                                ? t('error.rate.limit.exceeded')
-                                : file.error || t('error.upload.failed'))
-                            : `${formatFileSize(file.size)} • ${file.status === 'uploaded' ? t('completed') : file.status === 'converting' ? t('converting') : file.status === 'ready' ? t('ready') : file.status}`}
+                                ? t('error.too.many.requests')
+                                : file.error || t('error.conversion.failed'))
+                            : `${formatFileSize(file.size)} • ${
+                                file.status === 'idle' ? t('ready') 
+                                : file.status === 'converting' ? t('converting')
+                                : file.status === 'compressing' ? t('compress')
+                                : file.status === 'merging' ? t('merge')
+                                : file.status === 'ready' ? t('ready')
+                                : file.status
+                              }`}
                         </p>
                       </div>
                     </div>
-                    {(file.status === 'ready' || file.status === 'error') && (
+                    {(file.status === 'ready' || file.status === 'error' || file.status === 'idle') && (
                       <Button
                         variant="ghost"
                         size="icon"
@@ -380,25 +384,26 @@ export const UploadBox: React.FC<UploadBoxProps> = ({
                     )}
                   </div>
 
-                  {/* Progress bar for converting */}
-                  {file.status === 'converting' && file.conversionProgress !== undefined && (
+                  {/* Progress bar for converting/compressing/merging */}
+                  {(file.status === 'converting' || file.status === 'compressing' || file.status === 'merging') && (
                     <div className="space-y-1">
-                      <Progress value={file.conversionProgress} className="h-2" />
+                      <Progress value={file.progress || 0} className="h-2" />
                       <p className="text-xs text-muted-foreground text-right">
-                        {file.conversionProgress}%
+                        {file.progress || 0}%
                       </p>
                     </div>
                   )}
 
                   {/* Action buttons */}
                   <div className="flex gap-2">
-                    {file.status === 'uploaded' && (
+                    {file.status === 'idle' && (
                       <Button
                         size="sm"
                         onClick={() => startConversion(file.id)}
                         className="flex-1"
+                        disabled={isProcessing}
                       >
-                        {t('convert')}
+                        {actionMode === 'compress' ? t('compress') : actionMode === 'merge' ? t('merge') : t('convert')}
                       </Button>
                     )}
                     {file.status === 'ready' && (
