@@ -46,7 +46,14 @@ export async function pdfToImage(inputBuffer, outputFormat = 'jpg') {
       outputPath
     ];
 
-    console.log(`[ImageMagick] Running: ${CONVERT_CMD} ${args.join(' ')}`);
+    // Log command without exposing full paths (for security)
+    const logArgs = args.map(arg => {
+      if (arg.includes('/app/temp/') || arg.includes('temp_')) {
+        return path.basename(arg);
+      }
+      return arg;
+    });
+    console.log(`[ImageMagick] Running: ${CONVERT_CMD} ${logArgs.join(' ')}`);
 
     await new Promise((resolve, reject) => {
       const magick = spawn(CONVERT_CMD, args, {
@@ -72,13 +79,15 @@ export async function pdfToImage(inputBuffer, outputFormat = 'jpg') {
         if (code === 0) {
           resolve();
         } else {
-          reject(new Error(`ImageMagick conversion failed with code ${code}: ${stderr || stdout}`));
+          const errorMsg = stderr || stdout || 'Unknown error';
+          console.error(`[ImageMagick] Conversion failed with exit code ${code}: ${errorMsg}`);
+          reject(new Error(`ImageMagick conversion failed with code ${code}: ${errorMsg}`));
         }
       });
 
       magick.on('error', (error) => {
         console.error(`[ImageMagick] Spawn error:`, error);
-        reject(new Error(`Failed to spawn ImageMagick: ${error.message}`));
+        reject(new Error(`Failed to execute convert command: ${error.message}. Make sure ImageMagick is installed.`));
       });
     });
 
@@ -146,7 +155,14 @@ export async function imageToPdf(inputBuffer, inputFormat = 'jpg') {
       outputPath
     ];
 
-    console.log(`[ImageMagick] Running: ${CONVERT_CMD} ${args.join(' ')}`);
+    // Log command without exposing full paths (for security)
+    const logArgs = args.map(arg => {
+      if (arg.includes('/app/temp/') || arg.includes('temp_')) {
+        return path.basename(arg);
+      }
+      return arg;
+    });
+    console.log(`[ImageMagick] Running: ${CONVERT_CMD} ${logArgs.join(' ')}`);
 
     await new Promise((resolve, reject) => {
       const magick = spawn(CONVERT_CMD, args, {
@@ -172,13 +188,15 @@ export async function imageToPdf(inputBuffer, inputFormat = 'jpg') {
         if (code === 0) {
           resolve();
         } else {
-          reject(new Error(`ImageMagick conversion failed with code ${code}: ${stderr || stdout}`));
+          const errorMsg = stderr || stdout || 'Unknown error';
+          console.error(`[ImageMagick] Conversion failed with exit code ${code}: ${errorMsg}`);
+          reject(new Error(`ImageMagick conversion failed with code ${code}: ${errorMsg}`));
         }
       });
 
       magick.on('error', (error) => {
         console.error(`[ImageMagick] Spawn error:`, error);
-        reject(new Error(`Failed to spawn ImageMagick: ${error.message}`));
+        reject(new Error(`Failed to execute convert command: ${error.message}. Make sure ImageMagick is installed.`));
       });
     });
 
