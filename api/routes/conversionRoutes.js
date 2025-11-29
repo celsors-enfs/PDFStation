@@ -255,20 +255,34 @@ router.post('/compress', upload.single('file'), async (req, res) => {
 /**
  * POST /api/merge
  * Merge multiple PDF files into one
+ * 
+ * Accepts multiple files via form-data field "file" or "files"
+ * Example curl:
+ *   curl -X POST "..." -F "file=@file1.pdf" -F "file=@file2.pdf" -o merged.pdf
  */
-router.post('/merge', upload.array('files'), async (req, res) => {
+router.post('/merge', upload.fields([
+  { name: 'file', maxCount: 10 },
+  { name: 'files', maxCount: 10 }
+]), async (req, res) => {
   let inputBuffers = null;
   let outputBuffer = null;
 
   try {
-    // Validate files were provided
-    const files = req.files || [];
+    // Extract files from either 'file' or 'files' field
+    // Multer with fields() returns: { file: [...], files: [...] }
+    const fileArray = req.files?.file || req.files?.files || [];
+    const files = Array.isArray(fileArray) ? fileArray : [];
     
+    console.log('[Merge] Body keys:', Object.keys(req.body || {}));
+    console.log('[Merge] Files received:', files.length);
+    console.log('[Merge] File paths:', files.map(f => f.originalname || f.path));
+
+    // Validate files were provided
     if (!files || files.length === 0) {
       return res.status(400).json({
         success: false,
         error: 'No files provided',
-        detail: 'Please upload at least one PDF file to merge',
+        detail: 'Please upload at least two PDF files to merge. Use form-data field "file" or "files".',
       });
     }
 
@@ -301,10 +315,10 @@ router.post('/merge', upload.array('files'), async (req, res) => {
       }
     }
 
-    // Prepare buffers
+    // Prepare buffers from uploaded files
     inputBuffers = files.map(file => file.buffer);
 
-    console.log(`Merging ${inputBuffers.length} PDF files`);
+    console.log(`[Merge] Merging ${inputBuffers.length} PDF files (total size: ${inputBuffers.reduce((sum, buf) => sum + buf.length, 0)} bytes)`);
 
     // Merge using qpdf
     outputBuffer = await mergePdfs(inputBuffers);
@@ -324,18 +338,19 @@ router.post('/merge', upload.array('files'), async (req, res) => {
     // Generate output filename
     const outputFilename = `merged_${Date.now()}.pdf`;
 
-    // Set response headers
+    // Set response headers for binary PDF
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', `attachment; filename="${outputFilename}"`);
     res.setHeader('Content-Length', outputBuffer.length.toString());
 
-    // Send binary response
+    // Send binary response (NOT JSON)
     res.send(outputBuffer);
   } catch (error) {
-    console.error('Merge error:', error);
-    res.status(500).json({
+    console.error('[Merge] Error merging PDFs:', error);
+    // Return JSON error (NOT a corrupted PDF)
+    return res.status(500).json({
       success: false,
-      error: 'Merge failed',
+      error: 'PDF merge failed',
       detail: error.message || 'An error occurred during merge',
     });
   }

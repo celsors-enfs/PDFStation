@@ -31,17 +31,18 @@ export async function mergePdfs(inputBuffers) {
       }
     }
 
-    console.log(`[qpdf] Starting merge of ${inputBuffers.length} PDF files`);
+    console.log(`[QPDF] Starting merge of ${inputBuffers.length} PDF files`);
 
-    // Write all input PDFs
+    // Write all input PDFs to temporary files
     for (let i = 0; i < inputBuffers.length; i++) {
       const inputPath = getTempFilePath('pdf');
       await writeFileBuffer(inputPath, inputBuffers[i]);
       inputPaths.push(inputPath);
-      console.log(`[qpdf] Written input file ${i + 1}: ${inputPath} (${inputBuffers[i].length} bytes)`);
+      console.log(`[QPDF] Written input file ${i + 1}: ${inputPath} (${inputBuffers[i].length} bytes)`);
     }
 
     // qpdf merge command
+    // Format: qpdf --empty --pages file1.pdf file2.pdf ... -- out.pdf
     // --empty: Start with empty PDF
     // --pages: Specify pages from each file
     // file1.pdf file2.pdf ...: Input files
@@ -55,7 +56,9 @@ export async function mergePdfs(inputBuffers) {
       outputPath
     ];
 
-    console.log(`[qpdf] Running: ${QPDF_CMD} ${args.join(' ')}`);
+    console.log(`[QPDF] Running: ${QPDF_CMD} ${args.join(' ')}`);
+    console.log(`[QPDF] Input files:`, inputPaths);
+    console.log(`[QPDF] Output file:`, outputPath);
 
     await new Promise((resolve, reject) => {
       const qpdf = spawn(QPDF_CMD, args, {
@@ -74,19 +77,23 @@ export async function mergePdfs(inputBuffers) {
       });
 
       qpdf.on('close', (code) => {
-        console.log(`[qpdf] Process exited with code ${code}`);
-        if (stdout) console.log(`[qpdf] stdout: ${stdout}`);
-        if (stderr) console.log(`[qpdf] stderr: ${stderr}`);
+        console.log(`[QPDF] Process exited with code ${code}`);
+        if (stdout) console.log(`[QPDF] stdout: ${stdout}`);
+        if (stderr) console.log(`[QPDF] stderr: ${stderr}`);
         
         if (code === 0) {
           resolve();
         } else {
-          reject(new Error(`qpdf merge failed with code ${code}: ${stderr || stdout}`));
+          const errorMsg = stderr || stdout || 'Unknown error';
+          console.error(`[QPDF] Merge failed with exit code ${code}: ${errorMsg}`);
+          reject(new Error(`qpdf merge failed with code ${code}: ${errorMsg}`));
         }
       });
 
       qpdf.on('error', (error) => {
-        console.error(`[qpdf] Spawn error:`, error);
+        console.error(`[QPDF] Spawn error:`, error);
+        console.error(`[QPDF] Attempted command: ${QPDF_CMD}`);
+        console.error(`[QPDF] Error code: ${error.code}, syscall: ${error.syscall}, path: ${error.path}`);
         reject(new Error(`Failed to spawn qpdf: ${error.message}`));
       });
     });
@@ -104,7 +111,7 @@ export async function mergePdfs(inputBuffers) {
       throw new Error(`Merged PDF is empty at ${outputPath}`);
     }
 
-    console.log(`[qpdf] Successfully read output file (${outputBuffer.length} bytes)`);
+    console.log(`[QPDF] Successfully read output file (${outputBuffer.length} bytes)`);
 
     // Cleanup
     await deleteFiles(inputPaths);
@@ -112,7 +119,7 @@ export async function mergePdfs(inputBuffers) {
 
     return outputBuffer;
   } catch (error) {
-    console.error(`[qpdf] Merge error:`, error);
+    console.error(`[QPDF] Merge error:`, error);
     // Cleanup on error
     await deleteFiles(inputPaths);
     await deleteFile(outputPath);
