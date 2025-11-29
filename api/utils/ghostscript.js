@@ -32,11 +32,12 @@ export async function compressPdf(inputBuffer, quality = 'ebook') {
     await writeFileBuffer(inputPath, inputBuffer);
 
     // Ghostscript compression command
+    // Format: gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=out.pdf in.pdf
     // -sDEVICE=pdfwrite: Output device
     // -dCompatibilityLevel=1.4: PDF version
     // -dPDFSETTINGS: Compression level
     //   /screen: 72 dpi (lowest quality, smallest size)
-    //   /ebook: 150 dpi (good balance)
+    //   /ebook: 150 dpi (good balance) - default
     //   /printer: 300 dpi (high quality)
     //   /prepress: 300 dpi (highest quality)
     // -dNOPAUSE: Don't pause between pages
@@ -47,8 +48,8 @@ export async function compressPdf(inputBuffer, quality = 'ebook') {
       '-dCompatibilityLevel=1.4',
       `-dPDFSETTINGS=/${quality}`,
       '-dNOPAUSE',
-      '-dBATCH',
       '-dQUIET',
+      '-dBATCH',
       '-sOutputFile=' + outputPath,
       inputPath
     ];

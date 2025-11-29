@@ -133,9 +133,16 @@ export async function imageToPdf(inputBuffer, inputFormat = 'jpg') {
     await writeFileBuffer(inputPath, inputBuffer);
 
     // ImageMagick convert image to PDF
+    // Use density 150x150 and A4 page size as specified
+    // -units PixelsPerInch: Set unit type
+    // -density 150x150: Set DPI for better quality
+    // -page A4: Set page size to A4
     const args = [
       'convert',
       inputPath,
+      '-units', 'PixelsPerInch',
+      '-density', '150x150',
+      '-page', 'A4',
       outputPath
     ];
 
