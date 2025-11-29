@@ -55,6 +55,7 @@ router.post('/convert', upload.single('file'), async (req, res) => {
     // Validate file was provided
     if (!req.file) {
       return res.status(400).json({
+        success: false,
         error: 'No file provided',
         detail: 'Please upload a file to convert',
       });
@@ -63,6 +64,7 @@ router.post('/convert', upload.single('file'), async (req, res) => {
     // Validate file size
     if (req.file.size > MAX_FILE_SIZE) {
       return res.status(413).json({
+        success: false,
         error: 'File too large',
         detail: 'Maximum file size is 500MB',
       });
@@ -77,6 +79,7 @@ router.post('/convert', upload.single('file'), async (req, res) => {
 
     if (!toolSlug) {
       return res.status(400).json({
+        success: false,
         error: 'Missing toolSlug',
         detail: 'toolSlug parameter is required',
       });
@@ -86,6 +89,7 @@ router.post('/convert', upload.single('file'), async (req, res) => {
     const conversionConfig = getConversionConfig(toolSlug);
     if (!conversionConfig) {
       return res.status(400).json({
+        success: false,
         error: 'Invalid tool',
         detail: `Unknown tool slug: ${toolSlug}`,
       });
@@ -118,6 +122,7 @@ router.post('/convert', upload.single('file'), async (req, res) => {
       );
     } else {
       return res.status(400).json({
+        success: false,
         error: 'Unsupported conversion',
         detail: `Conversion from ${finalFromFormat} to ${finalToFormat} is not supported`,
       });
@@ -127,6 +132,7 @@ router.post('/convert', upload.single('file'), async (req, res) => {
     if (!outputBuffer || outputBuffer.length === 0) {
       console.error(`[Convert] ERROR: Output buffer is empty for ${finalFromFormat} → ${finalToFormat}`);
       return res.status(500).json({
+        success: false,
         error: 'Conversion produced empty result',
         detail: 'The conversion completed but produced an empty file. Please try again or use a different file.',
       });
@@ -148,6 +154,7 @@ router.post('/convert', upload.single('file'), async (req, res) => {
   } catch (error) {
     console.error('Conversion error:', error);
     res.status(500).json({
+      success: false,
       error: 'Conversion failed',
       detail: error.message || 'An error occurred during conversion',
     });
@@ -166,6 +173,7 @@ router.post('/compress', upload.single('file'), async (req, res) => {
     // Validate file was provided
     if (!req.file) {
       return res.status(400).json({
+        success: false,
         error: 'No file provided',
         detail: 'Please upload a PDF file to compress',
       });
@@ -174,6 +182,7 @@ router.post('/compress', upload.single('file'), async (req, res) => {
     // Validate file size
     if (req.file.size > MAX_FILE_SIZE) {
       return res.status(413).json({
+        success: false,
         error: 'File too large',
         detail: 'Maximum file size is 500MB',
       });
@@ -183,6 +192,7 @@ router.post('/compress', upload.single('file'), async (req, res) => {
     if (req.file.mimetype !== 'application/pdf' && 
         !req.file.originalname.toLowerCase().endsWith('.pdf')) {
       return res.status(400).json({
+        success: false,
         error: 'Invalid file type',
         detail: 'Only PDF files can be compressed',
       });
@@ -200,6 +210,7 @@ router.post('/compress', upload.single('file'), async (req, res) => {
     if (!outputBuffer || outputBuffer.length === 0) {
       console.error(`[Compress] ERROR: Output buffer is empty`);
       return res.status(500).json({
+        success: false,
         error: 'Compression produced empty result',
         detail: 'The compression completed but produced an empty file. Please try again.',
       });
@@ -221,6 +232,7 @@ router.post('/compress', upload.single('file'), async (req, res) => {
   } catch (error) {
     console.error('Compression error:', error);
     res.status(500).json({
+      success: false,
       error: 'Compression failed',
       detail: error.message || 'An error occurred during compression',
     });
@@ -241,6 +253,7 @@ router.post('/merge', upload.array('files'), async (req, res) => {
     
     if (!files || files.length === 0) {
       return res.status(400).json({
+        success: false,
         error: 'No files provided',
         detail: 'Please upload at least one PDF file to merge',
       });
@@ -249,6 +262,7 @@ router.post('/merge', upload.array('files'), async (req, res) => {
     // Validate minimum number of files
     if (files.length < 2) {
       return res.status(400).json({
+        success: false,
         error: 'Insufficient files',
         detail: 'At least 2 PDF files are required for merging',
       });
@@ -258,6 +272,7 @@ router.post('/merge', upload.array('files'), async (req, res) => {
     for (const file of files) {
       if (file.size > MAX_FILE_SIZE) {
         return res.status(413).json({
+          success: false,
           error: 'File too large',
           detail: `File "${file.originalname}" exceeds 500MB limit`,
         });
@@ -266,6 +281,7 @@ router.post('/merge', upload.array('files'), async (req, res) => {
       if (file.mimetype !== 'application/pdf' && 
           !file.originalname.toLowerCase().endsWith('.pdf')) {
         return res.status(400).json({
+          success: false,
           error: 'Invalid file type',
           detail: `File "${file.originalname}" is not a PDF`,
         });
@@ -284,6 +300,7 @@ router.post('/merge', upload.array('files'), async (req, res) => {
     if (!outputBuffer || outputBuffer.length === 0) {
       console.error(`[Merge] ERROR: Output buffer is empty`);
       return res.status(500).json({
+        success: false,
         error: 'Merge produced empty result',
         detail: 'The merge completed but produced an empty file. Please try again.',
       });
@@ -304,6 +321,7 @@ router.post('/merge', upload.array('files'), async (req, res) => {
   } catch (error) {
     console.error('Merge error:', error);
     res.status(500).json({
+      success: false,
       error: 'Merge failed',
       detail: error.message || 'An error occurred during merge',
     });

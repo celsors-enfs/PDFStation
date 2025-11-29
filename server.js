@@ -16,23 +16,19 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-// CORS configuration - allow all origins in production, or specific frontend URL
-const allowedOrigins = process.env.FRONTEND_URL 
-  ? process.env.FRONTEND_URL.split(',').map(url => url.trim())
-  : ['http://localhost:5173', 'http://localhost:3000', 'http://localhost:5174'];
+// CORS configuration - allow all origins in production, restricted in development
+const isProduction = process.env.NODE_ENV === 'production';
+const allowedOrigins = ['http://localhost:5173', 'http://localhost:3000', 'http://localhost:5174'];
 
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    
-    // In production, allow all origins (or configure specific domains)
-    if (process.env.NODE_ENV === 'production' || !process.env.FRONTEND_URL) {
+    // In production: allow all origins (frontend can be on any domain)
+    if (isProduction) {
       return callback(null, true);
     }
     
-    // In development, check against allowed origins
-    if (allowedOrigins.indexOf(origin) !== -1) {
+    // In development: allow requests with no origin (like curl) or from known dev origins
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -43,6 +39,21 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 app.use(express.json());
+
+// Root endpoint - API information
+app.get('/', (req, res) => {
+  res.json({
+    status: 'ok',
+    service: 'PDFStation API',
+    endpoints: [
+      '/health',
+      '/api/convert',
+      '/api/compress',
+      '/api/merge'
+    ],
+    note: 'Frontend is served from Vercel. This Railway instance is API-only.'
+  });
+});
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -64,17 +75,39 @@ app.use('/api', conversionRoutes);
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Unhandled error:', err);
-  res.status(500).json({
-    error: 'Internal server error',
-    detail: err.message || 'An unexpected error occurred',
+  res.status(err.status || 500).json({
+    success: false,
+    error: err.message || 'Internal server error',
+    detail: err.detail || (process.env.NODE_ENV === 'development' ? err.stack : null),
+  });
+});
+
+// 404 handler for undefined routes
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    error: 'Route not found',
+    detail: `The endpoint ${req.method} ${req.path} does not exist.`,
+    availableEndpoints: [
+      'GET /',
+      'GET /health',
+      'POST /api/convert',
+      'POST /api/compress',
+      'POST /api/merge'
+    ]
   });
 });
 
 // Start server
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 PDFStation Backend Server running on port ${PORT}`);
+  console.log(`PDFStation API running on port ${PORT}`);
   console.log(`📦 Using open-source tools: LibreOffice, ImageMagick, Ghostscript, qpdf`);
-  console.log(`🌐 CORS: ${process.env.NODE_ENV === 'production' ? 'All origins allowed' : `Allowed origins: ${allowedOrigins.join(', ')}`}`);
+  if (isProduction) {
+    console.log(`🌐 CORS: Production mode – all origins allowed`);
+  } else {
+    console.log(`🌐 CORS: Dev mode – restricted origins (${allowedOrigins.join(', ')})`);
+  }
+  console.log(`✅ API endpoints: GET /, GET /health, POST /api/convert, POST /api/compress, POST /api/merge`);
 });
 
 export default app;
