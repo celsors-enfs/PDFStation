@@ -10,7 +10,9 @@ import { spawn } from 'child_process';
 import path from 'path';
 import { getTempFilePath, deleteFile, readFileBuffer, fileExists, writeFileBuffer } from './fileUtils.js';
 
-const MAGICK_CMD = process.env.MAGICK_CMD || 'magick';
+// Use 'convert' binary (classic ImageMagick command)
+// In Railway/Docker, 'magick' binary doesn't exist, only 'convert' is available
+const CONVERT_CMD = process.env.CONVERT_CMD || 'convert';
 
 /**
  * Convert PDF to image using ImageMagick
@@ -38,17 +40,16 @@ export async function pdfToImage(inputBuffer, outputFormat = 'jpg') {
     // -density 300: Set DPI for better quality
     // -quality 90: Set quality for JPEG/WebP
     const args = [
-      'convert',
       inputPath,
       '-density', '300',
       '-quality', '90',
       outputPath
     ];
 
-    console.log(`[ImageMagick] Running: ${MAGICK_CMD} ${args.join(' ')}`);
+    console.log(`[ImageMagick] Running: ${CONVERT_CMD} ${args.join(' ')}`);
 
     await new Promise((resolve, reject) => {
-      const magick = spawn(MAGICK_CMD, args, {
+      const magick = spawn(CONVERT_CMD, args, {
         stdio: ['ignore', 'pipe', 'pipe']
       });
 
@@ -138,7 +139,6 @@ export async function imageToPdf(inputBuffer, inputFormat = 'jpg') {
     // -density 150x150: Set DPI for better quality
     // -page A4: Set page size to A4
     const args = [
-      'convert',
       inputPath,
       '-units', 'PixelsPerInch',
       '-density', '150x150',
@@ -146,10 +146,10 @@ export async function imageToPdf(inputBuffer, inputFormat = 'jpg') {
       outputPath
     ];
 
-    console.log(`[ImageMagick] Running: ${MAGICK_CMD} ${args.join(' ')}`);
+    console.log(`[ImageMagick] Running: ${CONVERT_CMD} ${args.join(' ')}`);
 
     await new Promise((resolve, reject) => {
-      const magick = spawn(MAGICK_CMD, args, {
+      const magick = spawn(CONVERT_CMD, args, {
         stdio: ['ignore', 'pipe', 'pipe']
       });
 
