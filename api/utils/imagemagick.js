@@ -12,7 +12,7 @@ import { getTempFilePath, deleteFile, readFileBuffer, fileExists, writeFileBuffe
 
 // Use 'convert' binary (classic ImageMagick command)
 // In Railway/Docker, 'magick' binary doesn't exist, only 'convert' is available
-const CONVERT_CMD = process.env.CONVERT_CMD || 'convert';
+const IMAGEMAGICK_BIN = process.env.IMAGEMAGICK_BIN || 'convert';
 
 /**
  * Convert PDF to image using ImageMagick
@@ -46,32 +46,27 @@ export async function pdfToImage(inputBuffer, outputFormat = 'jpg') {
       outputPath
     ];
 
-    // Log command without exposing full paths (for security)
-    const logArgs = args.map(arg => {
-      if (arg.includes('/app/temp/') || arg.includes('temp_')) {
-        return path.basename(arg);
-      }
-      return arg;
-    });
-    console.log(`[ImageMagick] Running: ${CONVERT_CMD} ${logArgs.join(' ')}`);
+    console.log(`[ImageMagick] Running: ${IMAGEMAGICK_BIN} ${args.join(' ')}`);
+    console.log(`[ImageMagick] input: ${inputPath}`);
+    console.log(`[ImageMagick] output: ${outputPath}`);
 
     await new Promise((resolve, reject) => {
-      const magick = spawn(CONVERT_CMD, args, {
+      const convertProcess = spawn(IMAGEMAGICK_BIN, args, {
         stdio: ['ignore', 'pipe', 'pipe']
       });
 
       let stdout = '';
       let stderr = '';
 
-      magick.stdout.on('data', (data) => {
+      convertProcess.stdout.on('data', (data) => {
         stdout += data.toString();
       });
 
-      magick.stderr.on('data', (data) => {
+      convertProcess.stderr.on('data', (data) => {
         stderr += data.toString();
       });
 
-      magick.on('close', (code) => {
+      convertProcess.on('close', (code) => {
         console.log(`[ImageMagick] Process exited with code ${code}`);
         if (stdout) console.log(`[ImageMagick] stdout: ${stdout}`);
         if (stderr) console.log(`[ImageMagick] stderr: ${stderr}`);
@@ -85,9 +80,16 @@ export async function pdfToImage(inputBuffer, outputFormat = 'jpg') {
         }
       });
 
-      magick.on('error', (error) => {
+      convertProcess.on('error', (error) => {
         console.error(`[ImageMagick] Spawn error:`, error);
-        reject(new Error(`Failed to execute convert command: ${error.message}. Make sure ImageMagick is installed.`));
+        console.error(`[ImageMagick] Attempted command: ${IMAGEMAGICK_BIN}`);
+        console.error(`[ImageMagick] Error code: ${error.code}, syscall: ${error.syscall}, path: ${error.path}`);
+        
+        if (error.code === 'ENOENT') {
+          reject(new Error(`ImageMagick não encontrado no container. Binário esperado: "${IMAGEMAGICK_BIN}". Verifique a instalação no Dockerfile.`));
+        } else {
+          reject(new Error(`Failed to execute convert command: ${error.message}. Make sure ImageMagick is installed.`));
+        }
       });
     });
 
@@ -143,10 +145,7 @@ export async function imageToPdf(inputBuffer, inputFormat = 'jpg') {
     await writeFileBuffer(inputPath, inputBuffer);
 
     // ImageMagick convert image to PDF
-    // Use density 150x150 and A4 page size as specified
-    // -units PixelsPerInch: Set unit type
-    // -density 150x150: Set DPI for better quality
-    // -page A4: Set page size to A4
+    // Command: convert input.jpg -units PixelsPerInch -density 150x150 -page A4 output.pdf
     const args = [
       inputPath,
       '-units', 'PixelsPerInch',
@@ -155,32 +154,27 @@ export async function imageToPdf(inputBuffer, inputFormat = 'jpg') {
       outputPath
     ];
 
-    // Log command without exposing full paths (for security)
-    const logArgs = args.map(arg => {
-      if (arg.includes('/app/temp/') || arg.includes('temp_')) {
-        return path.basename(arg);
-      }
-      return arg;
-    });
-    console.log(`[ImageMagick] Running: ${CONVERT_CMD} ${logArgs.join(' ')}`);
+    console.log(`[ImageMagick] Running: ${IMAGEMAGICK_BIN} ${args.join(' ')}`);
+    console.log(`[ImageMagick] input: ${inputPath}`);
+    console.log(`[ImageMagick] output: ${outputPath}`);
 
     await new Promise((resolve, reject) => {
-      const magick = spawn(CONVERT_CMD, args, {
+      const convertProcess = spawn(IMAGEMAGICK_BIN, args, {
         stdio: ['ignore', 'pipe', 'pipe']
       });
 
       let stdout = '';
       let stderr = '';
 
-      magick.stdout.on('data', (data) => {
+      convertProcess.stdout.on('data', (data) => {
         stdout += data.toString();
       });
 
-      magick.stderr.on('data', (data) => {
+      convertProcess.stderr.on('data', (data) => {
         stderr += data.toString();
       });
 
-      magick.on('close', (code) => {
+      convertProcess.on('close', (code) => {
         console.log(`[ImageMagick] Process exited with code ${code}`);
         if (stdout) console.log(`[ImageMagick] stdout: ${stdout}`);
         if (stderr) console.log(`[ImageMagick] stderr: ${stderr}`);
@@ -194,9 +188,16 @@ export async function imageToPdf(inputBuffer, inputFormat = 'jpg') {
         }
       });
 
-      magick.on('error', (error) => {
+      convertProcess.on('error', (error) => {
         console.error(`[ImageMagick] Spawn error:`, error);
-        reject(new Error(`Failed to execute convert command: ${error.message}. Make sure ImageMagick is installed.`));
+        console.error(`[ImageMagick] Attempted command: ${IMAGEMAGICK_BIN}`);
+        console.error(`[ImageMagick] Error code: ${error.code}, syscall: ${error.syscall}, path: ${error.path}`);
+        
+        if (error.code === 'ENOENT') {
+          reject(new Error(`ImageMagick não encontrado no container. Binário esperado: "${IMAGEMAGICK_BIN}". Verifique a instalação no Dockerfile.`));
+        } else {
+          reject(new Error(`Failed to execute convert command: ${error.message}. Make sure ImageMagick is installed.`));
+        }
       });
     });
 
@@ -222,10 +223,10 @@ export async function imageToPdf(inputBuffer, inputFormat = 'jpg') {
     return outputBuffer;
   } catch (error) {
     console.error(`[ImageMagick] Conversion error:`, error);
-    // Cleanup on error
+    // Cleanup on error - do NOT create output file if process failed
     await deleteFile(inputPath);
     await deleteFile(outputPath);
+    // Reject promise - let the route handle the error
     throw error;
   }
 }
-
