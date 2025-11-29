@@ -49,6 +49,16 @@ RUN apt-get update && apt-get install -y \
 RUN which soffice && soffice --version || echo "WARNING: soffice not found in PATH" && \
     dpkg -l | grep -E "libreoffice-(common|writer)" || echo "WARNING: LibreOffice packages may be missing"
 
+# Verify ImageMagick installation (required for JPG/PNG → PDF conversions)
+RUN which convert && convert -version || (echo "ERROR: ImageMagick 'convert' command not found" && exit 1)
+
+# Unlock PDF/PS/EPS coders in ImageMagick security policy
+# This allows ImageMagick to read and write PDF files (required for JPG/PNG → PDF conversions)
+RUN sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read|write" pattern="PDF" \/>/' /etc/ImageMagick-6/policy.xml && \
+    sed -i 's/<policy domain="coder" rights="none" pattern="PS" \/>/<policy domain="coder" rights="read|write" pattern="PS" \/>/' /etc/ImageMagick-6/policy.xml && \
+    sed -i 's/<policy domain="coder" rights="none" pattern="EPS" \/>/<policy domain="coder" rights="read|write" pattern="EPS" \/>/' /etc/ImageMagick-6/policy.xml && \
+    echo "ImageMagick security policy updated: PDF/PS/EPS coders unlocked"
+
 # Create working directory
 WORKDIR /app
 
