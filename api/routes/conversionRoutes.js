@@ -15,12 +15,14 @@ import { getConversionConfig } from '../config/toolConversions.js';
 const router = express.Router();
 
 // Configure multer for file uploads (store in memory)
+// Multer automatically parses all multipart/form-data fields (both files and text fields)
 const storage = multer.memoryStorage();
 const upload = multer({
   storage,
   limits: {
     fileSize: 500 * 1024 * 1024, // 500MB limit
   },
+  // Ensure multer parses all fields, not just files
 });
 
 const MAX_FILE_SIZE = 500 * 1024 * 1024; // 500MB
@@ -72,16 +74,27 @@ router.post('/convert', upload.single('file'), async (req, res) => {
 
     inputBuffer = req.file.buffer;
 
-    // Get conversion parameters
-    const toolSlug = req.body.toolSlug;
-    const fromFormat = req.body.fromFormat;
-    const toFormat = req.body.toFormat;
+    // Get conversion parameters from multiple sources (body, query, or format fallback)
+    // Multer parses multipart/form-data fields into req.body, but we also check query params
+    const toolSlug =
+      (req.body && (req.body.toolSlug || req.body.tool_slug)) ||
+      (req.query && (req.query.toolSlug || req.query.tool_slug)) ||
+      (req.body && req.body.format) ||
+      (req.query && req.query.format);
+
+    const fromFormat = req.body?.fromFormat || req.query?.fromFormat;
+    const toFormat = req.body?.toFormat || req.query?.toFormat;
+
+    // Debug logs (temporary)
+    console.log('[DEBUG convert] Body keys:', Object.keys(req.body || {}));
+    console.log('[DEBUG convert] Query:', req.query);
+    console.log('[DEBUG convert] Final toolSlug:', toolSlug);
 
     if (!toolSlug) {
       return res.status(400).json({
         success: false,
         error: 'Missing toolSlug',
-        detail: 'toolSlug parameter is required',
+        detail: 'toolSlug parameter is required. Send it in form-data body or query string.',
       });
     }
 
