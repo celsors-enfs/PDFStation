@@ -1,10 +1,12 @@
 /**
  * Hook for file conversion operations
  * Integrates with the PDFStation API for real file conversions
+ * 
+ * Uses pdfstationClient.ts for all API calls with automatic download
  */
 
 import { useState, useCallback } from 'react';
-import { convert, compress, merge, ConversionClientError, downloadFile, revokeDownloadUrl, ConversionResult } from '@/services/conversionClient';
+import { convertFile, compressPdf, mergePdfs } from '@/lib/pdfstationClient';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Tool } from '@/config/tools';
 
@@ -15,8 +17,6 @@ export interface ConversionFile {
   file: File;
   status: 'idle' | 'converting' | 'compressing' | 'merging' | 'ready' | 'error';
   progress?: number;
-  downloadUrl?: string;
-  filename?: string;
   error?: string;
   errorCode?: number;
 }
@@ -32,33 +32,35 @@ export function useFileConversion(options: UseFileConversionOptions = {}) {
   const [isProcessing, setIsProcessing] = useState(false);
 
   /**
-   * Get error message based on status code
+   * Get error message from error object
    */
-  const getErrorMessage = useCallback((statusCode: number, detail?: string): string => {
-    switch (statusCode) {
-      case 0:
-        // Network/connection error
-        if (detail?.includes('CORS')) {
-          return 'Erro de CORS: O backend não está configurado para aceitar requisições desta origem.';
-        }
-        if (detail?.includes('Failed to fetch')) {
-          return 'Falha na conexão: Não foi possível conectar ao servidor. Verifique se o backend está rodando.';
-        }
-        return detail || 'Não foi possível conectar ao serviço de conversão. Verifique se o servidor backend está rodando.';
-      case 400:
-        return t('error.invalid.file');
-      case 413:
-        return t('error.file.too.large');
-      case 429:
-        return t('error.too.many.requests');
-      case 502:
-      case 503:
-        return t('error.conversion.service.unavailable');
-      case 504:
-        return t('error.request.timeout');
-      default:
-        return detail || t('error.conversion.failed');
+  const getErrorMessage = useCallback((error: Error): string => {
+    const message = error.message || t('error.conversion.failed');
+    
+    // Map common error messages
+    if (message.includes('CORS')) {
+      return 'Erro de CORS: O backend não está configurado para aceitar requisições desta origem.';
     }
+    if (message.includes('Failed to fetch') || message.includes('NetworkError')) {
+      return 'Falha na conexão: Não foi possível conectar ao servidor. Verifique se o backend está rodando.';
+    }
+    if (message.includes('status 400')) {
+      return t('error.invalid.file');
+    }
+    if (message.includes('status 413')) {
+      return t('error.file.too.large');
+    }
+    if (message.includes('status 429')) {
+      return t('error.too.many.requests');
+    }
+    if (message.includes('status 502') || message.includes('status 503')) {
+      return t('error.conversion.service.unavailable');
+    }
+    if (message.includes('status 504')) {
+      return t('error.request.timeout');
+    }
+    
+    return message;
   }, [t]);
 
   /**
@@ -96,17 +98,12 @@ export function useFileConversion(options: UseFileConversionOptions = {}) {
    * Remove a file from the queue
    */
   const removeFile = useCallback((id: string) => {
-    setFiles(prev => {
-      const file = prev.find(f => f.id === id);
-      if (file?.downloadUrl) {
-        revokeDownloadUrl(file.downloadUrl);
-      }
-      return prev.filter(f => f.id !== id);
-    });
+    setFiles(prev => prev.filter(f => f.id !== id));
   }, []);
 
   /**
    * Start conversion for a single file
+   * Automatically downloads the result when successful
    */
   const startConversion = useCallback(async (id: string) => {
     if (!options.tool) {
@@ -125,61 +122,76 @@ export function useFileConversion(options: UseFileConversionOptions = {}) {
     ));
 
     try {
-      let result: ConversionResult;
       const toolSlug = options.tool.slug;
+      const originalName = file.name.replace(/\.[^/.]+$/, '');
 
       if (options.mode === 'compress') {
         // Compress operation
         setFiles(prev => prev.map(f => 
-          f.id === id ? { ...f, status: 'compressing' } : f
+          f.id === id ? { ...f, status: 'compressing', progress: 50 } : f
         ));
-        result = await compress(file.file, toolSlug);
+        
+        await compressPdf({
+          file: file.file,
+          outputFileName: `${originalName}_compressed.pdf`,
+        });
+        
+        // Success - file was automatically downloaded
+        setFiles(prev => prev.map(f => 
+          f.id === id ? { ...f, status: 'ready', progress: 100 } : f
+        ));
       } else if (options.mode === 'merge') {
         // Merge operation - collect all files
         const allFiles = files.filter(f => f.status === 'idle').map(f => f.file);
         if (allFiles.length < 2) {
-          throw new ConversionClientError('Insufficient files', 400, 'At least 2 files required');
+          throw new Error('Selecione pelo menos 2 PDFs para mesclar.');
         }
         
         setFiles(prev => prev.map(f => 
-          f.status === 'idle' ? { ...f, status: 'merging' } : f
+          f.status === 'idle' ? { ...f, status: 'merging', progress: 50 } : f
         ));
-        result = await merge(allFiles, toolSlug);
         
-        // Update all merged files with the result
+        await mergePdfs({
+          files: allFiles,
+          outputFileName: `merged_${Date.now()}.pdf`,
+        });
+        
+        // Success - file was automatically downloaded
         setFiles(prev => prev.map(f => 
-          f.status === 'merging' ? {
-            ...f,
-            status: 'ready',
-            downloadUrl: result.downloadUrl,
-            filename: result.filename,
-            progress: 100,
-          } : f
+          f.status === 'merging' ? { ...f, status: 'ready', progress: 100 } : f
         ));
         setIsProcessing(false);
         return;
       } else {
         // Convert operation
-        result = await convert(file.file, {
+        // Determine output file extension based on tool
+        let outputExtension = 'pdf';
+        if (toolSlug === 'pdf-to-word') outputExtension = 'docx';
+        else if (toolSlug === 'pdf-to-excel') outputExtension = 'xlsx';
+        else if (toolSlug === 'pdf-to-jpg') outputExtension = 'jpg';
+        else if (toolSlug === 'pdf-to-png') outputExtension = 'png';
+        else if (toolSlug === 'pdf-to-webp') outputExtension = 'webp';
+        else if (toolSlug === 'jpg-to-pdf' || toolSlug === 'png-to-pdf' || toolSlug === 'webp-to-pdf') outputExtension = 'pdf';
+        
+        await convertFile({
+          file: file.file,
           toolSlug,
-          fromFormat: options.tool.inputType.toLowerCase(),
-          toFormat: options.tool.defaultTargetFormat.toLowerCase(),
+          outputFileName: `${originalName}_converted.${outputExtension}`,
         });
+        
+        // Success - file was automatically downloaded
+        setFiles(prev => prev.map(f => 
+          f.id === id ? { ...f, status: 'ready', progress: 100 } : f
+        ));
       }
-
-      // Update file with result
-      setFiles(prev => prev.map(f => 
-        f.id === id ? {
-          ...f,
-          status: 'ready',
-          downloadUrl: result.downloadUrl,
-          filename: result.filename,
-          progress: 100,
-        } : f
-      ));
     } catch (error: any) {
-      const statusCode = error instanceof ConversionClientError ? error.statusCode : 500;
-      const errorMessage = getErrorMessage(statusCode, error.detail);
+      const errorMessage = getErrorMessage(error);
+      const statusCode = errorMessage.includes('status 400') ? 400 :
+                         errorMessage.includes('status 413') ? 413 :
+                         errorMessage.includes('status 429') ? 429 :
+                         errorMessage.includes('status 502') ? 502 :
+                         errorMessage.includes('status 503') ? 503 :
+                         errorMessage.includes('status 504') ? 504 : 500;
 
       setFiles(prev => prev.map(f => 
         f.id === id ? {
@@ -195,12 +207,14 @@ export function useFileConversion(options: UseFileConversionOptions = {}) {
   }, [files, options.tool, options.mode, getErrorMessage]);
 
   /**
-   * Download a converted file
+   * Download a converted file (legacy - files are now auto-downloaded)
+   * Kept for backward compatibility with UploadBox
    */
   const downloadFileById = useCallback((id: string) => {
     const file = files.find(f => f.id === id);
-    if (file?.downloadUrl && file?.filename) {
-      downloadFile(file.downloadUrl, file.filename);
+    if (file?.status === 'ready') {
+      // File was already downloaded automatically
+      console.log('File already downloaded automatically');
     }
   }, [files]);
 
@@ -208,13 +222,8 @@ export function useFileConversion(options: UseFileConversionOptions = {}) {
    * Clear all files
    */
   const clearFiles = useCallback(() => {
-    files.forEach(file => {
-      if (file.downloadUrl) {
-        revokeDownloadUrl(file.downloadUrl);
-      }
-    });
     setFiles([]);
-  }, [files]);
+  }, []);
 
   return {
     files,
