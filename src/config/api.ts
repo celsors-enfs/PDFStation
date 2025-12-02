@@ -6,8 +6,8 @@
  */
 
 // Use environment variable if set, otherwise use production URL
-// For local development, set VITE_API_BASE_URL=http://localhost:3000 in .env
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://pdfstation-production.up.railway.app';
+// For local development, set VITE_PDFSTATION_API_URL=http://localhost:3000 in .env.local
+export const API_BASE_URL = import.meta.env.VITE_PDFSTATION_API_URL || 'https://pdfstation-production.up.railway.app';
 
 // Log the API URL being used (only in development)
 if (import.meta.env.DEV) {

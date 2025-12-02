@@ -13,7 +13,11 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   FileStack,
 };
 
-export const PopularToolsGrid: React.FC = () => {
+interface PopularToolsGridProps {
+  showTitle?: boolean;
+}
+
+export const PopularToolsGrid: React.FC<PopularToolsGridProps> = ({ showTitle = true }) => {
   const navigate = useNavigate();
   const { t } = useLanguage();
   const popularTools = getPopularTools(4);
@@ -22,8 +26,12 @@ export const PopularToolsGrid: React.FC = () => {
   return (
     <section className="py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-2">{t('popular.converters.title')}</h2>
-        <p className="text-center text-muted-foreground mb-8">{t('popular.converters.subtitle')}</p>
+        {showTitle && (
+          <>
+            <h2 className="text-3xl font-bold text-center mb-2">{t('popular.converters.title')}</h2>
+            <p className="text-center text-muted-foreground mb-8">{t('popular.converters.subtitle')}</p>
+          </>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {popularTools.map(tool => {
             const Icon = iconMap[tool.icon] || FileText;

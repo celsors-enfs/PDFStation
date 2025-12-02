@@ -8,7 +8,6 @@ import { AdPlaceholder } from '@/components/AdPlaceholder';
 import { Seo } from '@/components/Seo';
 import { Shield, Lock, Zap, Users } from 'lucide-react';
 import { tools } from '@/config/tools';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -40,24 +39,6 @@ export const HomePage: React.FC = () => {
             <p className="text-sm md:text-base text-muted-foreground mb-6">
               {t('home.hero.description')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button
-                size="lg"
-                onClick={() => {
-                  const uploadBox = document.getElementById('upload-box');
-                  uploadBox?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                {t('home.hero.cta.choose')}
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => window.location.href = '/tools/pdf-to-word'}
-              >
-                {t('home.hero.cta.explore')}
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -71,6 +52,11 @@ export const HomePage: React.FC = () => {
             <AdPlaceholder id="ad-right-rail" position="right-rail" className="sticky top-20" />
           </div>
         </div>
+      </div>
+
+      {/* Popular Converters Grid - moved here without title/subtitle */}
+      <div className="container mx-auto px-4 py-8">
+        <PopularToolsGrid showTitle={false} />
       </div>
 
       {/* Trust Section */}
@@ -122,8 +108,6 @@ export const HomePage: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         <AdPlaceholder id="ad-in-content" position="in-content" />
       </div>
-
-      <PopularToolsGrid />
 
       {/* Internal Links Section */}
       <section className="py-8 md:py-12">

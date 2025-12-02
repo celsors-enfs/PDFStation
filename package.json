@@ -7,13 +7,14 @@
     "dev": "vite",
     "dev:api": "node --watch server.js",
     "dev:all": "concurrently \"npm run dev\" \"npm run dev:api\"",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "build": "tsc --project tsconfig.json --noEmit && vite build",
+    "build:ci": "vite build --mode production",
     "preview": "vite preview",
     "start": "node server.js",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
+    "test:unit": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
@@ -22,7 +23,9 @@
     "test:all": "npm run test:run && npm run test:e2e",
     "test:generate-pdf": "node scripts/generateTestPdf.js",
     "test:convert": "node scripts/testConversion.js",
-    "test:pdf-to-docx": "node scripts/testPdfToDocx.js"
+    "test:pdf-to-docx": "node scripts/testPdfToDocx.js",
+    "lint": "eslint src --ext .ts,.tsx --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css,md}\""
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.1.2",

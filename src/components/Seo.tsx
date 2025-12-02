@@ -14,10 +14,11 @@ export const Seo: React.FC<SeoProps> = ({
   description,
   canonical,
   noIndex = false,
-  ogImage,
+  ogImage = '/og-image.png',
 }) => {
-  const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://pdfstation.com';
+  const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://pdf-station-two.vercel.app';
   const fullUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
+  const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 
   return (
     <Helmet>
@@ -26,19 +27,26 @@ export const Seo: React.FC<SeoProps> = ({
       
       {canonical && <link rel="canonical" href={fullUrl} />}
       
-      {noIndex && <meta name="robots" content="noindex, nofollow" />}
+      {noIndex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <meta name="robots" content="index, follow" />
+      )}
 
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={fullUrl} />
-      {ogImage && <meta property="og:image" content={ogImage} />}
+      <meta property="og:image" content={fullOgImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={fullOgImage} />
     </Helmet>
   );
 };

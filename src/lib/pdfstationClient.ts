@@ -60,10 +60,20 @@ export async function convertFile(options: {
   formData.append('file', options.file);
   formData.append('toolSlug', options.toolSlug);
 
-  const response = await fetch(`${API_BASE}/api/convert`, {
-    method: 'POST',
-    body: formData,
-  });
+  let response: Response;
+  try {
+    response = await fetch(`${API_BASE}/api/convert`, {
+      method: 'POST',
+      body: formData,
+    });
+  } catch (error: any) {
+    // Network error (CORS, connection refused, etc.)
+    const errorMessage = error.message || 'Network error';
+    if (errorMessage.includes('CORS') || errorMessage.includes('Failed to fetch')) {
+      throw new Error('Erro de conexão: Não foi possível conectar ao servidor. Verifique se o backend está acessível.');
+    }
+    throw new Error(`Erro de rede: ${errorMessage}`);
+  }
 
   if (!response.ok) {
     // Try to read error as JSON
@@ -103,10 +113,20 @@ export async function compressPdf(options: {
   const formData = new FormData();
   formData.append('file', options.file);
 
-  const response = await fetch(`${API_BASE}/api/compress`, {
-    method: 'POST',
-    body: formData,
-  });
+  let response: Response;
+  try {
+    response = await fetch(`${API_BASE}/api/compress`, {
+      method: 'POST',
+      body: formData,
+    });
+  } catch (error: any) {
+    // Network error
+    const errorMessage = error.message || 'Network error';
+    if (errorMessage.includes('CORS') || errorMessage.includes('Failed to fetch')) {
+      throw new Error('Erro de conexão: Não foi possível conectar ao servidor. Verifique se o backend está acessível.');
+    }
+    throw new Error(`Erro de rede: ${errorMessage}`);
+  }
 
   if (!response.ok) {
     // Try to read error as JSON
@@ -153,10 +173,20 @@ export async function mergePdfs(options: {
     formData.append('file', file);
   });
 
-  const response = await fetch(`${API_BASE}/api/merge`, {
-    method: 'POST',
-    body: formData,
-  });
+  let response: Response;
+  try {
+    response = await fetch(`${API_BASE}/api/merge`, {
+      method: 'POST',
+      body: formData,
+    });
+  } catch (error: any) {
+    // Network error
+    const errorMessage = error.message || 'Network error';
+    if (errorMessage.includes('CORS') || errorMessage.includes('Failed to fetch')) {
+      throw new Error('Erro de conexão: Não foi possível conectar ao servidor. Verifique se o backend está acessível.');
+    }
+    throw new Error(`Erro de rede: ${errorMessage}`);
+  }
 
   if (!response.ok) {
     // Try to read error as JSON
