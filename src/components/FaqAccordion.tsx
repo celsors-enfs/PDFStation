@@ -16,6 +16,22 @@ export const FaqAccordion: React.FC = () => {
       answer: t('faq.convert.answer'),
     },
     {
+      question: t('faq.images.question'),
+      answer: t('faq.images.answer'),
+    },
+    {
+      question: t('faq.word.question'),
+      answer: t('faq.word.answer'),
+    },
+    {
+      question: t('faq.compress.question'),
+      answer: t('faq.compress.answer'),
+    },
+    {
+      question: t('faq.merge.question'),
+      answer: t('faq.merge.answer'),
+    },
+    {
       question: t('faq.formats.question'),
       answer: t('faq.formats.answer'),
     },
@@ -28,20 +44,8 @@ export const FaqAccordion: React.FC = () => {
       answer: t('faq.size.limit.answer'),
     },
     {
-      question: t('faq.multiple.question'),
-      answer: t('faq.multiple.answer'),
-    },
-    {
       question: t('faq.account.question'),
       answer: t('faq.account.answer'),
-    },
-    {
-      question: t('faq.failure.question'),
-      answer: t('faq.failure.answer'),
-    },
-    {
-      question: t('faq.commercial.question'),
-      answer: t('faq.commercial.answer'),
     },
   ];
 

@@ -16,8 +16,8 @@ export const HomePage: React.FC = () => {
   return (
     <Layout>
       <Seo
-        title="PDFStation – JPG/PNG to PDF, Word to PDF, Compress & Merge"
-        description="Convert JPG/PNG images to PDF, Word to PDF, compress and merge PDFs securely and for free up to 100MB per file. PDFStation – Smart file conversion in one simple place."
+        title={t('home.hero.title')}
+        description={t('home.hero.description')}
         canonical="/"
       />
 
@@ -80,7 +80,10 @@ export const HomePage: React.FC = () => {
       {/* Supported Formats */}
       <section className="py-8 md:py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-6">{t('supported.formats.title')}</h2>
+          <h2 className="text-2xl font-bold text-center mb-4">{t('supported.formats.title')}</h2>
+          <p className="text-center text-muted-foreground mb-6 max-w-2xl mx-auto">
+            {t('supported.formats.description')}
+          </p>
           <div className="flex flex-wrap gap-2 justify-center max-w-3xl mx-auto">
             {supportedFormats.map(format => (
               <span
@@ -101,7 +104,10 @@ export const HomePage: React.FC = () => {
       {/* Popular Conversions Section */}
       <section className="py-8 md:py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-6">{t('popular.conversions.title')}</h2>
+          <h2 className="text-2xl font-bold text-center mb-4">{t('popular.conversions.title')}</h2>
+          <p className="text-center text-muted-foreground mb-6 max-w-2xl mx-auto">
+            {t('popular.conversions.description')}
+          </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             <Link
               to="/tools/images-to-pdf"

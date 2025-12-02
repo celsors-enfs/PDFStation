@@ -67,19 +67,40 @@ export const ToolPage: React.FC = () => {
           canonical: `/tools/${tool.slug}`,
         };
       } else {
-        // Image to PDF tools
+        // Image to PDF tools (JPG/PNG to PDF)
         return {
-          title: `${toolName} – Free Online ${translateFormat(tool.inputType)} to PDF Converter | PDFStation`,
-          description: `Convert ${translateFormat(tool.inputType)} to PDF online for free. Fast, secure, up to 100MB per file, no watermark. Free forever.`,
+          title: `${toolName} – Free Online Image to PDF Converter | PDFStation`,
+          description: `Convert JPG and PNG images to PDF online for free. Fast, secure image to PDF converter. Up to 100MB per file, no watermark, no signup required. Free forever.`,
           canonical: `/tools/${tool.slug}`,
         };
       }
     }
     
-    // Default SEO for other tools
+    // Default SEO for other tools (Word to PDF, Compress, Merge)
+    if (tool.slug === 'word-to-pdf') {
+      return {
+        title: `${toolName} – Free Online Word to PDF Converter | PDFStation`,
+        description: `Convert Word documents (DOCX, DOC) to PDF online for free. Fast, secure Word to PDF converter. Up to 100MB per file, no watermark, preserves formatting. Free forever.`,
+        canonical: `/tools/${tool.slug}`,
+      };
+    } else if (tool.slug === 'pdf-compress') {
+      return {
+        title: `${toolName} – Free Online PDF Compressor | PDFStation`,
+        description: `Compress PDF files online for free. Reduce PDF file size without losing quality. Fast PDF compressor tool. Up to 100MB per file, no watermark. Free forever.`,
+        canonical: `/tools/${tool.slug}`,
+      };
+    } else if (tool.slug === 'pdf-merge') {
+      return {
+        title: `${toolName} – Free Online PDF Merger | PDFStation`,
+        description: `Merge multiple PDF files into one document online for free. Combine PDFs quickly and securely. Up to 100MB per file, no watermark. Free forever.`,
+        canonical: `/tools/${tool.slug}`,
+      };
+    }
+    
+    // Fallback
     return {
-      title: `${toolName} – Free ${translateFormat(tool.inputType)} to ${translateFormat(tool.outputType)} Converter (up to 100MB) | PDFStation`,
-      description: `Convert ${translateFormat(tool.inputType)} to ${translateFormat(tool.outputType)} (${translateFormat(tool.defaultTargetFormat)}) online for free with PDFStation. Free forever, up to 100MB per file. Get accurate, editable files with no watermarks. Fast, secure, and easy to use.`,
+      title: `${toolName} – Free Online Converter | PDFStation`,
+      description: `Convert files online for free with PDFStation. Fast, secure, up to 100MB per file. No watermark, no signup required. Free forever.`,
       canonical: `/tools/${tool.slug}`,
     };
   }, [tool, t, translateFormat]);

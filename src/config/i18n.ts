@@ -31,35 +31,21 @@ export interface Translations {
   
   // Supported Formats
   'supported.formats.title': string;
+  'supported.formats.description': string;
   
   // Popular Conversions
   'popular.conversions.title': string;
+  'popular.conversions.description': string;
   'popular.converters.title': string;
   'popular.converters.subtitle': string;
   'popular.compress.title': string;
   'popular.compress.description': string;
   'popular.compress.cta': string;
   'popular.convert.cta': string;
-  'tool.pdf-to-word.name': string;
-  'tool.pdf-to-word.description': string;
+  'tool.images-to-pdf.name': string;
+  'tool.images-to-pdf.description': string;
   'tool.word-to-pdf.name': string;
   'tool.word-to-pdf.description': string;
-  'tool.pdf-to-excel.name': string;
-  'tool.pdf-to-excel.description': string;
-  'tool.excel-to-pdf.name': string;
-  'tool.excel-to-pdf.description': string;
-  'tool.jpg-to-pdf.name': string;
-  'tool.jpg-to-pdf.description': string;
-  'tool.png-to-pdf.name': string;
-  'tool.png-to-pdf.description': string;
-  'tool.webp-to-pdf.name': string;
-  'tool.webp-to-pdf.description': string;
-  'tool.pdf-to-jpg.name': string;
-  'tool.pdf-to-jpg.description': string;
-  'tool.pdf-to-png.name': string;
-  'tool.pdf-to-png.description': string;
-  'tool.pdf-to-webp.name': string;
-  'tool.pdf-to-webp.description': string;
   'tool.pdf-compress.name': string;
   'tool.pdf-compress.description': string;
   'tool.pdf-merge.name': string;
@@ -127,6 +113,14 @@ export interface Translations {
   'faq.failure.answer': string;
   'faq.commercial.question': string;
   'faq.commercial.answer': string;
+  'faq.images.question': string;
+  'faq.images.answer': string;
+  'faq.word.question': string;
+  'faq.word.answer': string;
+  'faq.compress.question': string;
+  'faq.compress.answer': string;
+  'faq.merge.question': string;
+  'faq.merge.answer': string;
   
   // Tool Page
   'tool.how.to.title': string;
@@ -373,9 +367,9 @@ const translations: Record<Language, Translations> = {
     'completed': 'Completed',
     
     // Homepage Hero
-    'home.hero.title': 'PDFStation',
-    'home.hero.subtitle': 'Smart file conversion in one simple place.',
-    'home.hero.description': 'Convert files instantly with our powerful, secure, and free online converter. Free forever, up to 100MB per file.',
+    'home.hero.title': 'Online PDF Converter – JPG/PNG to PDF, Word to PDF, Compress & Merge',
+    'home.hero.subtitle': 'Free online PDF converter and tools. Convert images, Word documents, compress and merge PDFs instantly.',
+    'home.hero.description': 'Convert JPG and PNG images to PDF, Word documents to PDF, compress PDF files, and merge multiple PDFs into one. Fast, secure, and completely free up to 100MB per file. No signup required.',
     'home.hero.cta.choose': 'Choose files',
     'home.hero.cta.explore': 'Explore tools',
     
@@ -388,40 +382,26 @@ const translations: Record<Language, Translations> = {
     'trust.every.month': 'Every month',
     
     // Supported Formats
-    'supported.formats.title': 'Supported Formats',
+    'supported.formats.title': 'Supported File Formats',
+    'supported.formats.description': 'PDFStation supports PDF, DOCX, JPG, and PNG file formats. Convert images to PDF, Word to PDF, compress and merge PDFs online.',
     
     // Popular Conversions
-    'popular.conversions.title': 'Popular Conversions',
-    'popular.converters.title': 'Popular Converters',
-    'popular.converters.subtitle': 'Popular PDF Tools to convert and optimize your files',
+    'popular.conversions.title': 'Popular PDF Conversions',
+    'popular.conversions.description': 'Convert JPG and PNG images to PDF, Word documents to PDF, compress PDF files, and merge multiple PDFs into one document.',
+    'popular.converters.title': 'Free PDF Conversion Tools',
+    'popular.converters.subtitle': 'Convert images to PDF, Word to PDF, compress and merge PDFs online for free',
     'popular.compress.title': 'Compress PDF',
     'popular.compress.description': 'Reduce your PDF file size while keeping excellent quality',
     'popular.compress.cta': 'Click to compress →',
     'popular.convert.cta': 'Click to convert →',
-    'tool.pdf-to-word.name': 'PDF to Word',
-    'tool.pdf-to-word.description': 'Convert PDF documents to editable Word files',
-    'tool.word-to-pdf.name': 'Word to PDF',
-    'tool.word-to-pdf.description': 'Convert Word documents to PDF format',
-    'tool.pdf-to-excel.name': 'PDF to Excel',
-    'tool.pdf-to-excel.description': 'Extract tables from PDF to Excel spreadsheets',
-    'tool.excel-to-pdf.name': 'Excel to PDF',
-    'tool.excel-to-pdf.description': 'Convert Excel spreadsheets to PDF',
-    'tool.jpg-to-pdf.name': 'JPG to PDF',
-    'tool.jpg-to-pdf.description': 'Convert JPG images to PDF documents',
-    'tool.png-to-pdf.name': 'PNG to PDF',
-    'tool.png-to-pdf.description': 'Convert PNG images to PDF documents',
-    'tool.webp-to-pdf.name': 'WebP to PDF',
-    'tool.webp-to-pdf.description': 'Convert WebP images to PDF documents',
-    'tool.pdf-to-jpg.name': 'PDF to JPG',
-    'tool.pdf-to-jpg.description': 'Convert PDF pages to JPG images',
-    'tool.pdf-to-png.name': 'PDF to PNG',
-    'tool.pdf-to-png.description': 'Convert PDF pages to PNG images',
-    'tool.pdf-to-webp.name': 'PDF to WebP',
-    'tool.pdf-to-webp.description': 'Convert PDF pages to WebP images',
-    'tool.pdf-compress.name': 'Compress PDF',
-    'tool.pdf-compress.description': 'Reduce PDF file size without losing quality',
-    'tool.pdf-merge.name': 'Merge PDF',
-    'tool.pdf-merge.description': 'Combine multiple PDF files into one',
+    'tool.images-to-pdf.name': 'JPG/PNG to PDF Converter',
+    'tool.images-to-pdf.description': 'Convert JPG and PNG images to PDF online for free. Fast, secure image to PDF converter with no watermarks.',
+    'tool.word-to-pdf.name': 'Word to PDF Converter',
+    'tool.word-to-pdf.description': 'Convert Word documents (DOCX, DOC) to PDF format online. Free Word to PDF converter with high quality output.',
+    'tool.pdf-compress.name': 'Compress PDF Online',
+    'tool.pdf-compress.description': 'Reduce PDF file size online for free. Compress PDF files without losing quality. Fast PDF compressor tool.',
+    'tool.pdf-merge.name': 'Merge PDF Files Online',
+    'tool.pdf-merge.description': 'Combine multiple PDF files into one document online. Free PDF merger tool. Join PDFs quickly and securely.',
     
     // Features Grid
     'features.title': 'Why PDFStation?',
@@ -472,7 +452,15 @@ const translations: Record<Language, Translations> = {
     'faq.convert.question': 'How do I convert a file?',
     'faq.convert.answer': 'Simply drag and drop your file into the upload box, select your desired output format, and click convert. Your file will be processed and ready for download in seconds. Free forever, up to 100MB per file.',
     'faq.formats.question': 'What file formats are supported?',
-    'faq.formats.answer': 'PDFStation supports a wide range of formats including PDF, Word, Excel, PowerPoint, JPG, PNG, and more. Check our tools page to see all available conversion options.',
+    'faq.formats.answer': 'PDFStation supports PDF, DOCX (Word), JPG, and PNG file formats. You can convert JPG and PNG images to PDF, Word documents to PDF, compress PDF files, and merge multiple PDFs into one. All tools are free forever.',
+    'faq.images.question': 'How do I convert JPG or PNG images to PDF?',
+    'faq.images.answer': 'Upload your JPG or PNG image file using the drag-and-drop box, and click convert. Your image will be converted to PDF format instantly. Free forever, up to 100MB per file. No signup required.',
+    'faq.word.question': 'How do I convert Word documents to PDF?',
+    'faq.word.answer': 'Upload your Word document (DOCX or DOC format), and click convert to PDF. Your document will be converted to PDF format while preserving formatting. Free forever, up to 100MB per file.',
+    'faq.compress.question': 'How do I compress a PDF file?',
+    'faq.compress.answer': 'Upload your PDF file and click compress. Our PDF compressor will reduce the file size while maintaining quality. Free forever, up to 100MB per file. No watermarks added.',
+    'faq.merge.question': 'How do I merge multiple PDF files?',
+    'faq.merge.answer': 'Upload two or more PDF files, and click merge. All PDFs will be combined into a single document in the order you uploaded them. Free forever, up to 100MB per file.',
     'faq.security.question': 'Is my data secure?',
     'faq.security.answer': 'Yes, absolutely. All files are processed securely using encrypted connections. Files are automatically deleted from our servers after conversion, typically within 24 hours.',
     'faq.size.limit.question': 'Are there any file size limits?',
@@ -728,9 +716,9 @@ const translations: Record<Language, Translations> = {
     'completed': 'Concluído',
     
     // Homepage Hero
-    'home.hero.title': 'PDFStation',
-    'home.hero.subtitle': 'Conversão inteligente de arquivos em um só lugar.',
-    'home.hero.description': 'Converta arquivos instantaneamente com nosso conversor online poderoso, seguro e gratuito. Grátis para sempre, até 100MB por arquivo.',
+    'home.hero.title': 'Conversor de PDF Online – JPG/PNG para PDF, Word para PDF, Comprimir e Unir',
+    'home.hero.subtitle': 'Conversor de PDF online gratuito e ferramentas. Converta imagens, documentos Word, comprima e una PDFs instantaneamente.',
+    'home.hero.description': 'Converta imagens JPG e PNG para PDF, documentos Word para PDF, comprima arquivos PDF e una vários PDFs em um. Rápido, seguro e completamente gratuito até 100MB por arquivo. Sem necessidade de cadastro.',
     'home.hero.cta.choose': 'Escolher arquivos',
     'home.hero.cta.explore': 'Explorar ferramentas',
     
@@ -743,40 +731,26 @@ const translations: Record<Language, Translations> = {
     'trust.every.month': 'Todo mês',
     
     // Supported Formats
-    'supported.formats.title': 'Formatos Suportados',
+    'supported.formats.title': 'Formatos de Arquivo Suportados',
+    'supported.formats.description': 'O PDFStation suporta formatos PDF, DOCX, JPG e PNG. Converta imagens para PDF, Word para PDF, comprima e una PDFs online.',
     
     // Popular Conversions
-    'popular.conversions.title': 'Conversões Populares',
-    'popular.converters.title': 'Conversores Populares',
-    'popular.converters.subtitle': 'Ferramentas PDF populares para converter e otimizar seus arquivos',
+    'popular.conversions.title': 'Conversões de PDF Populares',
+    'popular.conversions.description': 'Converta imagens JPG e PNG para PDF, documentos Word para PDF, comprima arquivos PDF e una vários PDFs em um documento.',
+    'popular.converters.title': 'Ferramentas de Conversão de PDF Gratuitas',
+    'popular.converters.subtitle': 'Converta imagens para PDF, Word para PDF, comprima e una PDFs online gratuitamente',
     'popular.compress.title': 'Comprimir PDF',
     'popular.compress.description': 'Reduza o tamanho do seu arquivo PDF mantendo excelente qualidade',
     'popular.compress.cta': 'Clique para comprimir →',
     'popular.convert.cta': 'Clique para converter →',
-    'tool.pdf-to-word.name': 'PDF para Word',
-    'tool.pdf-to-word.description': 'Converta documentos PDF para arquivos Word editáveis',
-    'tool.word-to-pdf.name': 'Word para PDF',
-    'tool.word-to-pdf.description': 'Converta documentos Word para formato PDF',
-    'tool.pdf-to-excel.name': 'PDF para Excel',
-    'tool.pdf-to-excel.description': 'Extraia tabelas de PDF para planilhas Excel',
-    'tool.excel-to-pdf.name': 'Excel para PDF',
-    'tool.excel-to-pdf.description': 'Converta planilhas Excel para PDF',
-    'tool.jpg-to-pdf.name': 'JPG para PDF',
-    'tool.jpg-to-pdf.description': 'Converta imagens JPG para documentos PDF',
-    'tool.png-to-pdf.name': 'PNG para PDF',
-    'tool.png-to-pdf.description': 'Converta imagens PNG para documentos PDF',
-    'tool.webp-to-pdf.name': 'WebP para PDF',
-    'tool.webp-to-pdf.description': 'Converta imagens WebP para documentos PDF',
-    'tool.pdf-to-jpg.name': 'PDF para JPG',
-    'tool.pdf-to-jpg.description': 'Converta páginas PDF para imagens JPG',
-    'tool.pdf-to-png.name': 'PDF para PNG',
-    'tool.pdf-to-png.description': 'Converta páginas PDF para imagens PNG',
-    'tool.pdf-to-webp.name': 'PDF para WebP',
-    'tool.pdf-to-webp.description': 'Converta páginas PDF para imagens WebP',
-    'tool.pdf-compress.name': 'Comprimir PDF',
-    'tool.pdf-compress.description': 'Reduza o tamanho do arquivo PDF sem perder qualidade',
-    'tool.pdf-merge.name': 'Mesclar PDF',
-    'tool.pdf-merge.description': 'Combine vários arquivos PDF em um',
+    'tool.images-to-pdf.name': 'Conversor de JPG/PNG para PDF',
+    'tool.images-to-pdf.description': 'Converta imagens JPG e PNG para PDF online gratuitamente. Conversor rápido e seguro de imagem para PDF sem marcas d\'água.',
+    'tool.word-to-pdf.name': 'Conversor de Word para PDF',
+    'tool.word-to-pdf.description': 'Converta documentos Word (DOCX, DOC) para formato PDF online. Conversor gratuito de Word para PDF com saída de alta qualidade.',
+    'tool.pdf-compress.name': 'Comprimir PDF Online',
+    'tool.pdf-compress.description': 'Reduza o tamanho de arquivos PDF online gratuitamente. Comprima PDFs sem perder qualidade. Ferramenta rápida de compressão de PDF.',
+    'tool.pdf-merge.name': 'Unir Arquivos PDF Online',
+    'tool.pdf-merge.description': 'Combine vários arquivos PDF em um documento online. Ferramenta gratuita de união de PDFs. Una PDFs rapidamente e com segurança.',
     
     // Features Grid
     'features.title': 'Por que PDFStation?',
@@ -827,7 +801,15 @@ const translations: Record<Language, Translations> = {
     'faq.convert.question': 'Como converto um arquivo?',
     'faq.convert.answer': 'Simplesmente arraste e solte seu arquivo na caixa de upload, selecione o formato de saída desejado e clique em converter. Seu arquivo será processado e estará pronto para download em segundos. Grátis para sempre, até 100MB por arquivo.',
     'faq.formats.question': 'Quais formatos de arquivo são suportados?',
-    'faq.formats.answer': 'O PDFStation suporta uma ampla gama de formatos, incluindo PDF, Word, Excel, PowerPoint, JPG, PNG e muito mais. Verifique nossa página de ferramentas para ver todas as opções de conversão disponíveis.',
+    'faq.formats.answer': 'O PDFStation suporta formatos PDF, DOCX (Word), JPG e PNG. Você pode converter imagens JPG e PNG para PDF, documentos Word para PDF, comprimir arquivos PDF e unir vários PDFs em um. Todas as ferramentas são gratuitas para sempre.',
+    'faq.images.question': 'Como converto imagens JPG ou PNG para PDF?',
+    'faq.images.answer': 'Faça upload da sua imagem JPG ou PNG usando a caixa de arrastar e soltar e clique em converter. Sua imagem será convertida para formato PDF instantaneamente. Grátis para sempre, até 100MB por arquivo. Sem necessidade de cadastro.',
+    'faq.word.question': 'Como converto documentos Word para PDF?',
+    'faq.word.answer': 'Faça upload do seu documento Word (formato DOCX ou DOC) e clique em converter para PDF. Seu documento será convertido para formato PDF preservando a formatação. Grátis para sempre, até 100MB por arquivo.',
+    'faq.compress.question': 'Como comprimo um arquivo PDF?',
+    'faq.compress.answer': 'Faça upload do seu arquivo PDF e clique em comprimir. Nosso compressor de PDF reduzirá o tamanho do arquivo mantendo a qualidade. Grátis para sempre, até 100MB por arquivo. Sem marcas d\'água adicionadas.',
+    'faq.merge.question': 'Como uno vários arquivos PDF?',
+    'faq.merge.answer': 'Faça upload de dois ou mais arquivos PDF e clique em unir. Todos os PDFs serão combinados em um único documento na ordem em que você os enviou. Grátis para sempre, até 100MB por arquivo.',
     'faq.security.question': 'Meus dados estão seguros?',
     'faq.security.answer': 'Sim, absolutamente. Todos os arquivos são processados com segurança usando conexões criptografadas. Os arquivos são automaticamente excluídos de nossos servidores após a conversão, geralmente em até 24 horas.',
     'faq.size.limit.question': 'Existem limites de tamanho de arquivo?',
@@ -1083,9 +1065,9 @@ const translations: Record<Language, Translations> = {
     'completed': 'Completado',
     
     // Homepage Hero
-    'home.hero.title': 'PDFStation',
-    'home.hero.subtitle': 'Conversión inteligente de archivos en un solo lugar.',
-    'home.hero.description': 'Convierte archivos al instante con nuestro conversor online potente, seguro y gratuito. Gratis para siempre, hasta 100MB por archivo.',
+    'home.hero.title': 'Conversor de PDF Online – JPG/PNG a PDF, Word a PDF, Comprimir y Combinar',
+    'home.hero.subtitle': 'Conversor de PDF online gratuito y herramientas. Convierte imágenes, documentos Word, comprime y combina PDFs al instante.',
+    'home.hero.description': 'Convierte imágenes JPG y PNG a PDF, documentos Word a PDF, comprime archivos PDF y combina varios PDFs en uno. Rápido, seguro y completamente gratuito hasta 100MB por archivo. Sin necesidad de registro.',
     'home.hero.cta.choose': 'Elegir archivos',
     'home.hero.cta.explore': 'Explorar herramientas',
     
@@ -1098,40 +1080,26 @@ const translations: Record<Language, Translations> = {
     'trust.every.month': 'Cada mes',
     
     // Supported Formats
-    'supported.formats.title': 'Formatos Soportados',
+    'supported.formats.title': 'Formatos de Archivo Soportados',
+    'supported.formats.description': 'PDFStation admite formatos PDF, DOCX, JPG y PNG. Convierte imágenes a PDF, Word a PDF, comprime y combina PDFs online.',
     
     // Popular Conversions
-    'popular.conversions.title': 'Conversiones Populares',
-    'popular.converters.title': 'Conversores Populares',
-    'popular.converters.subtitle': 'Herramientas PDF populares para convertir y optimizar tus archivos',
+    'popular.conversions.title': 'Conversiones de PDF Populares',
+    'popular.conversions.description': 'Convierte imágenes JPG y PNG a PDF, documentos Word a PDF, comprime archivos PDF y combina varios PDFs en un documento.',
+    'popular.converters.title': 'Herramientas de Conversión de PDF Gratuitas',
+    'popular.converters.subtitle': 'Convierte imágenes a PDF, Word a PDF, comprime y combina PDFs online gratuitamente',
     'popular.compress.title': 'Comprimir PDF',
     'popular.compress.description': 'Reduce el tamaño de tu archivo PDF manteniendo excelente calidad',
     'popular.compress.cta': 'Haz clic para comprimir →',
     'popular.convert.cta': 'Haz clic para convertir →',
-    'tool.pdf-to-word.name': 'PDF a Word',
-    'tool.pdf-to-word.description': 'Convierte documentos PDF a archivos Word editables',
-    'tool.word-to-pdf.name': 'Word a PDF',
-    'tool.word-to-pdf.description': 'Convierte documentos Word a formato PDF',
-    'tool.pdf-to-excel.name': 'PDF a Excel',
-    'tool.pdf-to-excel.description': 'Extrae tablas de PDF a hojas de cálculo Excel',
-    'tool.excel-to-pdf.name': 'Excel a PDF',
-    'tool.excel-to-pdf.description': 'Convierte hojas de cálculo Excel a PDF',
-    'tool.jpg-to-pdf.name': 'JPG a PDF',
-    'tool.jpg-to-pdf.description': 'Convierte imágenes JPG a documentos PDF',
-    'tool.png-to-pdf.name': 'PNG a PDF',
-    'tool.png-to-pdf.description': 'Convierte imágenes PNG a documentos PDF',
-    'tool.webp-to-pdf.name': 'WebP a PDF',
-    'tool.webp-to-pdf.description': 'Convierte imágenes WebP a documentos PDF',
-    'tool.pdf-to-jpg.name': 'PDF a JPG',
-    'tool.pdf-to-jpg.description': 'Convierte páginas PDF a imágenes JPG',
-    'tool.pdf-to-png.name': 'PDF a PNG',
-    'tool.pdf-to-png.description': 'Convierte páginas PDF a imágenes PNG',
-    'tool.pdf-to-webp.name': 'PDF a WebP',
-    'tool.pdf-to-webp.description': 'Convierte páginas PDF a imágenes WebP',
-    'tool.pdf-compress.name': 'Comprimir PDF',
-    'tool.pdf-compress.description': 'Reduce el tamaño del archivo PDF sin perder calidad',
-    'tool.pdf-merge.name': 'Combinar PDF',
-    'tool.pdf-merge.description': 'Combina múltiples archivos PDF en uno',
+    'tool.images-to-pdf.name': 'Conversor de JPG/PNG a PDF',
+    'tool.images-to-pdf.description': 'Convierte imágenes JPG y PNG a PDF online gratuitamente. Conversor rápido y seguro de imagen a PDF sin marcas de agua.',
+    'tool.word-to-pdf.name': 'Conversor de Word a PDF',
+    'tool.word-to-pdf.description': 'Convierte documentos Word (DOCX, DOC) a formato PDF online. Conversor gratuito de Word a PDF con salida de alta calidad.',
+    'tool.pdf-compress.name': 'Comprimir PDF Online',
+    'tool.pdf-compress.description': 'Reduce el tamaño de archivos PDF online gratuitamente. Comprime PDFs sin perder calidad. Herramienta rápida de compresión de PDF.',
+    'tool.pdf-merge.name': 'Combinar Archivos PDF Online',
+    'tool.pdf-merge.description': 'Combina varios archivos PDF en un documento online. Herramienta gratuita de combinación de PDFs. Combina PDFs rápidamente y con seguridad.',
     
     // Features Grid
     'features.title': '¿Por qué PDFStation?',
@@ -1182,7 +1150,15 @@ const translations: Record<Language, Translations> = {
     'faq.convert.question': '¿Cómo convierto un archivo?',
     'faq.convert.answer': 'Simplemente arrastra y suelta tu archivo en la caja de carga, selecciona el formato de salida deseado y haz clic en convertir. Tu archivo se procesará y estará listo para descargar en segundos. Gratis para siempre, hasta 100MB por archivo.',
     'faq.formats.question': '¿Qué formatos de archivo son compatibles?',
-    'faq.formats.answer': 'PDFStation admite una amplia gama de formatos, incluidos PDF, Word, Excel, PowerPoint, JPG, PNG y más. Consulta nuestra página de herramientas para ver todas las opciones de conversión disponibles.',
+    'faq.formats.answer': 'PDFStation admite formatos PDF, DOCX (Word), JPG y PNG. Puedes convertir imágenes JPG y PNG a PDF, documentos Word a PDF, comprimir archivos PDF y combinar varios PDFs en uno. Todas las herramientas son gratuitas para siempre.',
+    'faq.images.question': '¿Cómo convierto imágenes JPG o PNG a PDF?',
+    'faq.images.answer': 'Sube tu imagen JPG o PNG usando la caja de arrastrar y soltar y haz clic en convertir. Tu imagen se convertirá a formato PDF al instante. Gratis para siempre, hasta 100MB por archivo. Sin necesidad de registro.',
+    'faq.word.question': '¿Cómo convierto documentos Word a PDF?',
+    'faq.word.answer': 'Sube tu documento Word (formato DOCX o DOC) y haz clic en convertir a PDF. Tu documento se convertirá a formato PDF preservando el formato. Gratis para siempre, hasta 100MB por archivo.',
+    'faq.compress.question': '¿Cómo comprimo un archivo PDF?',
+    'faq.compress.answer': 'Sube tu archivo PDF y haz clic en comprimir. Nuestro compresor de PDF reducirá el tamaño del archivo manteniendo la calidad. Gratis para siempre, hasta 100MB por archivo. Sin marcas de agua añadidas.',
+    'faq.merge.question': '¿Cómo combino varios archivos PDF?',
+    'faq.merge.answer': 'Sube dos o más archivos PDF y haz clic en combinar. Todos los PDFs se combinarán en un solo documento en el orden en que los subiste. Gratis para siempre, hasta 100MB por archivo.',
     'faq.security.question': '¿Están seguros mis datos?',
     'faq.security.answer': 'Sí, absolutamente. Todos los archivos se procesan de forma segura usando conexiones cifradas. Los archivos se eliminan automáticamente de nuestros servidores después de la conversión, generalmente en un plazo de 24 horas.',
     'faq.size.limit.question': '¿Hay límites de tamaño de archivo?',
@@ -1438,9 +1414,9 @@ const translations: Record<Language, Translations> = {
     'completed': 'Terminé',
     
     // Homepage Hero
-    'home.hero.title': 'PDFStation',
-    'home.hero.subtitle': 'Conversion intelligente de fichiers en un seul endroit.',
-    'home.hero.description': 'Convertissez des fichiers instantanément avec notre convertisseur en ligne puissant, sécurisé et gratuit. Gratuit pour toujours, jusqu\'à 100MB par fichier.',
+    'home.hero.title': 'Converseur de PDF en Ligne – JPG/PNG en PDF, Word en PDF, Compresser et Fusionner',
+    'home.hero.subtitle': 'Converseur de PDF en ligne gratuit et outils. Convertissez des images, documents Word, compressez et fusionnez des PDFs instantanément.',
+    'home.hero.description': 'Convertissez des images JPG et PNG en PDF, documents Word en PDF, compressez des fichiers PDF et fusionnez plusieurs PDFs en un. Rapide, sécurisé et entièrement gratuit jusqu\'à 100MB par fichier. Aucune inscription requise.',
     'home.hero.cta.choose': 'Choisir des fichiers',
     'home.hero.cta.explore': 'Explorer les outils',
     
@@ -1453,40 +1429,26 @@ const translations: Record<Language, Translations> = {
     'trust.every.month': 'Chaque mois',
     
     // Supported Formats
-    'supported.formats.title': 'Formats Pris en Charge',
+    'supported.formats.title': 'Formats de Fichier Pris en Charge',
+    'supported.formats.description': 'PDFStation prend en charge les formats PDF, DOCX, JPG et PNG. Convertissez des images en PDF, Word en PDF, compressez et fusionnez des PDFs en ligne.',
     
     // Popular Conversions
-    'popular.conversions.title': 'Conversions Populaires',
-    'popular.converters.title': 'Convertisseurs Populaires',
-    'popular.converters.subtitle': 'Outils PDF populaires pour convertir et optimiser vos fichiers',
+    'popular.conversions.title': 'Conversions de PDF Populaires',
+    'popular.conversions.description': 'Convertissez des images JPG et PNG en PDF, documents Word en PDF, compressez des fichiers PDF et fusionnez plusieurs PDFs en un document.',
+    'popular.converters.title': 'Outils de Conversion PDF Gratuits',
+    'popular.converters.subtitle': 'Convertissez des images en PDF, Word en PDF, compressez et fusionnez des PDFs en ligne gratuitement',
     'popular.compress.title': 'Compresser PDF',
     'popular.compress.description': 'Réduisez la taille de votre fichier PDF tout en conservant une excellente qualité',
     'popular.compress.cta': 'Cliquez pour compresser →',
     'popular.convert.cta': 'Cliquez pour convertir →',
-    'tool.pdf-to-word.name': 'PDF en Word',
-    'tool.pdf-to-word.description': 'Convertissez des documents PDF en fichiers Word modifiables',
-    'tool.word-to-pdf.name': 'Word en PDF',
-    'tool.word-to-pdf.description': 'Convertissez des documents Word au format PDF',
-    'tool.pdf-to-excel.name': 'PDF en Excel',
-    'tool.pdf-to-excel.description': 'Extrayez des tableaux de PDF vers des feuilles de calcul Excel',
-    'tool.excel-to-pdf.name': 'Excel en PDF',
-    'tool.excel-to-pdf.description': 'Convertissez des feuilles de calcul Excel en PDF',
-    'tool.jpg-to-pdf.name': 'JPG en PDF',
-    'tool.jpg-to-pdf.description': 'Convertissez des images JPG en documents PDF',
-    'tool.png-to-pdf.name': 'PNG en PDF',
-    'tool.png-to-pdf.description': 'Convertissez des images PNG en documents PDF',
-    'tool.webp-to-pdf.name': 'WebP en PDF',
-    'tool.webp-to-pdf.description': 'Convertissez des images WebP en documents PDF',
-    'tool.pdf-to-jpg.name': 'PDF en JPG',
-    'tool.pdf-to-jpg.description': 'Convertissez des pages PDF en images JPG',
-    'tool.pdf-to-png.name': 'PDF en PNG',
-    'tool.pdf-to-png.description': 'Convertissez des pages PDF en images PNG',
-    'tool.pdf-to-webp.name': 'PDF en WebP',
-    'tool.pdf-to-webp.description': 'Convertissez des pages PDF en images WebP',
-    'tool.pdf-compress.name': 'Compresser PDF',
-    'tool.pdf-compress.description': 'Réduisez la taille du fichier PDF sans perdre en qualité',
-    'tool.pdf-merge.name': 'Fusionner PDF',
-    'tool.pdf-merge.description': 'Combinez plusieurs fichiers PDF en un seul',
+    'tool.images-to-pdf.name': 'Converseur JPG/PNG en PDF',
+    'tool.images-to-pdf.description': 'Convertissez des images JPG et PNG en PDF en ligne gratuitement. Converseur rapide et sécurisé d\'image en PDF sans filigrane.',
+    'tool.word-to-pdf.name': 'Converseur Word en PDF',
+    'tool.word-to-pdf.description': 'Convertissez des documents Word (DOCX, DOC) au format PDF en ligne. Converseur gratuit Word en PDF avec sortie de haute qualité.',
+    'tool.pdf-compress.name': 'Compresser PDF en Ligne',
+    'tool.pdf-compress.description': 'Réduisez la taille des fichiers PDF en ligne gratuitement. Compressez des PDFs sans perdre en qualité. Outil rapide de compression PDF.',
+    'tool.pdf-merge.name': 'Fusionner Fichiers PDF en Ligne',
+    'tool.pdf-merge.description': 'Combinez plusieurs fichiers PDF en un document en ligne. Outil gratuit de fusion PDF. Fusionnez des PDFs rapidement et en toute sécurité.',
     
     // Features Grid
     'features.title': 'Pourquoi PDFStation?',
@@ -1537,7 +1499,15 @@ const translations: Record<Language, Translations> = {
     'faq.convert.question': 'Comment convertir un fichier?',
     'faq.convert.answer': 'Glissez-déposez simplement votre fichier dans la zone de téléchargement, sélectionnez le format de sortie souhaité et cliquez sur convertir. Votre fichier sera traité et prêt à être téléchargé en quelques secondes. Gratuit pour toujours, jusqu\'à 100MB par fichier.',
     'faq.formats.question': 'Quels formats de fichiers sont pris en charge?',
-    'faq.formats.answer': 'PDFStation prend en charge une large gamme de formats, notamment PDF, Word, Excel, PowerPoint, JPG, PNG et plus encore. Consultez notre page d\'outils pour voir toutes les options de conversion disponibles.',
+    'faq.formats.answer': 'PDFStation prend en charge les formats PDF, DOCX (Word), JPG et PNG. Vous pouvez convertir des images JPG et PNG en PDF, documents Word en PDF, comprimer des fichiers PDF et fusionner plusieurs PDFs en un. Tous les outils sont gratuits pour toujours.',
+    'faq.images.question': 'Comment convertir des images JPG ou PNG en PDF?',
+    'faq.images.answer': 'Téléchargez votre image JPG ou PNG en utilisant la zone de glisser-déposer et cliquez sur convertir. Votre image sera convertie au format PDF instantanément. Gratuit pour toujours, jusqu\'à 100MB par fichier. Aucune inscription requise.',
+    'faq.word.question': 'Comment convertir des documents Word en PDF?',
+    'faq.word.answer': 'Téléchargez votre document Word (format DOCX ou DOC) et cliquez sur convertir en PDF. Votre document sera converti au format PDF en préservant le formatage. Gratuit pour toujours, jusqu\'à 100MB par fichier.',
+    'faq.compress.question': 'Comment compresser un fichier PDF?',
+    'faq.compress.answer': 'Téléchargez votre fichier PDF et cliquez sur compresser. Notre compresseur PDF réduira la taille du fichier tout en maintenant la qualité. Gratuit pour toujours, jusqu\'à 100MB par fichier. Aucun filigrane ajouté.',
+    'faq.merge.question': 'Comment fusionner plusieurs fichiers PDF?',
+    'faq.merge.answer': 'Téléchargez deux fichiers PDF ou plus et cliquez sur fusionner. Tous les PDFs seront combinés en un seul document dans l\'ordre où vous les avez téléchargés. Gratuit pour toujours, jusqu\'à 100MB par fichier.',
     'faq.security.question': 'Mes données sont-elles sécurisées?',
     'faq.security.answer': 'Oui, absolument. Tous les fichiers sont traités en toute sécurité en utilisant des connexions chiffrées. Les fichiers sont automatiquement supprimés de nos serveurs après la conversion, généralement dans les 24 heures.',
     'faq.size.limit.question': 'Y a-t-il des limites de taille de fichier?',
@@ -1793,9 +1763,9 @@ const translations: Record<Language, Translations> = {
     'completed': 'Completato',
     
     // Homepage Hero
-    'home.hero.title': 'PDFStation',
-    'home.hero.subtitle': 'Conversione intelligente di file in un unico posto.',
-    'home.hero.description': 'Converti file all\'istante con il nostro convertitore online potente, sicuro e gratuito. Gratuito per sempre, fino a 100MB per file.',
+    'home.hero.title': 'Convertitore PDF Online – JPG/PNG in PDF, Word in PDF, Comprimi e Unisci',
+    'home.hero.subtitle': 'Convertitore PDF online gratuito e strumenti. Converti immagini, documenti Word, comprimi e unisci PDF all\'istante.',
+    'home.hero.description': 'Converti immagini JPG e PNG in PDF, documenti Word in PDF, comprimi file PDF e unisci più PDF in uno. Veloce, sicuro e completamente gratuito fino a 100MB per file. Nessuna registrazione richiesta.',
     'home.hero.cta.choose': 'Scegli file',
     'home.hero.cta.explore': 'Esplora strumenti',
     
@@ -1808,40 +1778,26 @@ const translations: Record<Language, Translations> = {
     'trust.every.month': 'Ogni mese',
     
     // Supported Formats
-    'supported.formats.title': 'Formati Supportati',
+    'supported.formats.title': 'Formati di File Supportati',
+    'supported.formats.description': 'PDFStation supporta i formati PDF, DOCX, JPG e PNG. Converti immagini in PDF, Word in PDF, comprimi e unisci PDF online.',
     
     // Popular Conversions
-    'popular.conversions.title': 'Conversioni Popolari',
-    'popular.converters.title': 'Convertitori Popolari',
-    'popular.converters.subtitle': 'Strumenti PDF popolari per convertire e ottimizzare i tuoi file',
+    'popular.conversions.title': 'Conversioni PDF Popolari',
+    'popular.conversions.description': 'Converti immagini JPG e PNG in PDF, documenti Word in PDF, comprimi file PDF e unisci più PDF in un documento.',
+    'popular.converters.title': 'Strumenti di Conversione PDF Gratuiti',
+    'popular.converters.subtitle': 'Converti immagini in PDF, Word in PDF, comprimi e unisci PDF online gratuitamente',
     'popular.compress.title': 'Comprimi PDF',
     'popular.compress.description': 'Riduci la dimensione del tuo file PDF mantenendo un\'eccellente qualità',
     'popular.compress.cta': 'Clicca per comprimere →',
     'popular.convert.cta': 'Clicca per convertire →',
-    'tool.pdf-to-word.name': 'PDF in Word',
-    'tool.pdf-to-word.description': 'Converti documenti PDF in file Word modificabili',
-    'tool.word-to-pdf.name': 'Word in PDF',
-    'tool.word-to-pdf.description': 'Converti documenti Word in formato PDF',
-    'tool.pdf-to-excel.name': 'PDF in Excel',
-    'tool.pdf-to-excel.description': 'Estrai tabelle da PDF a fogli di calcolo Excel',
-    'tool.excel-to-pdf.name': 'Excel in PDF',
-    'tool.excel-to-pdf.description': 'Converti fogli di calcolo Excel in PDF',
-    'tool.jpg-to-pdf.name': 'JPG in PDF',
-    'tool.jpg-to-pdf.description': 'Converti immagini JPG in documenti PDF',
-    'tool.png-to-pdf.name': 'PNG in PDF',
-    'tool.png-to-pdf.description': 'Converti immagini PNG in documenti PDF',
-    'tool.webp-to-pdf.name': 'WebP in PDF',
-    'tool.webp-to-pdf.description': 'Converti immagini WebP in documenti PDF',
-    'tool.pdf-to-jpg.name': 'PDF in JPG',
-    'tool.pdf-to-jpg.description': 'Converti pagine PDF in immagini JPG',
-    'tool.pdf-to-png.name': 'PDF in PNG',
-    'tool.pdf-to-png.description': 'Converti pagine PDF in immagini PNG',
-    'tool.pdf-to-webp.name': 'PDF in WebP',
-    'tool.pdf-to-webp.description': 'Converti pagine PDF in immagini WebP',
-    'tool.pdf-compress.name': 'Comprimi PDF',
-    'tool.pdf-compress.description': 'Riduci la dimensione del file PDF senza perdere qualità',
-    'tool.pdf-merge.name': 'Unisci PDF',
-    'tool.pdf-merge.description': 'Combina più file PDF in uno',
+    'tool.images-to-pdf.name': 'Convertitore JPG/PNG in PDF',
+    'tool.images-to-pdf.description': 'Converti immagini JPG e PNG in PDF online gratuitamente. Convertitore rapido e sicuro da immagine a PDF senza filigrane.',
+    'tool.word-to-pdf.name': 'Convertitore Word in PDF',
+    'tool.word-to-pdf.description': 'Converti documenti Word (DOCX, DOC) in formato PDF online. Convertitore gratuito Word in PDF con output di alta qualità.',
+    'tool.pdf-compress.name': 'Comprimi PDF Online',
+    'tool.pdf-compress.description': 'Riduci la dimensione dei file PDF online gratuitamente. Comprimi PDF senza perdere qualità. Strumento rapido di compressione PDF.',
+    'tool.pdf-merge.name': 'Unisci File PDF Online',
+    'tool.pdf-merge.description': 'Combina più file PDF in un documento online. Strumento gratuito di unione PDF. Unisci PDF rapidamente e in sicurezza.',
     
     // Features Grid
     'features.title': 'Perché PDFStation?',
@@ -1892,7 +1848,15 @@ const translations: Record<Language, Translations> = {
     'faq.convert.question': 'Come converto un file?',
     'faq.convert.answer': 'Trascina e rilascia semplicemente il tuo file nella casella di caricamento, seleziona il formato di output desiderato e fai clic su converti. Il tuo file verrà elaborato e sarà pronto per il download in pochi secondi. Gratuito per sempre, fino a 100MB per file.',
     'faq.formats.question': 'Quali formati di file sono supportati?',
-    'faq.formats.answer': 'PDFStation supporta un\'ampia gamma di formati, inclusi PDF, Word, Excel, PowerPoint, JPG, PNG e altro ancora. Controlla la nostra pagina degli strumenti per vedere tutte le opzioni di conversione disponibili.',
+    'faq.formats.answer': 'PDFStation supporta i formati PDF, DOCX (Word), JPG e PNG. Puoi convertire immagini JPG e PNG in PDF, documenti Word in PDF, comprimere file PDF e unire più PDF in uno. Tutti gli strumenti sono gratuiti per sempre.',
+    'faq.images.question': 'Come converto immagini JPG o PNG in PDF?',
+    'faq.images.answer': 'Carica la tua immagine JPG o PNG usando la casella di trascinamento e rilascio e fai clic su converti. La tua immagine verrà convertita in formato PDF all\'istante. Gratuito per sempre, fino a 100MB per file. Nessuna registrazione richiesta.',
+    'faq.word.question': 'Come converto documenti Word in PDF?',
+    'faq.word.answer': 'Carica il tuo documento Word (formato DOCX o DOC) e fai clic su converti in PDF. Il tuo documento verrà convertito in formato PDF preservando la formattazione. Gratuito per sempre, fino a 100MB per file.',
+    'faq.compress.question': 'Come comprimo un file PDF?',
+    'faq.compress.answer': 'Carica il tuo file PDF e fai clic su comprimi. Il nostro compressore PDF ridurrà la dimensione del file mantenendo la qualità. Gratuito per sempre, fino a 100MB per file. Nessuna filigrana aggiunta.',
+    'faq.merge.question': 'Come unisco più file PDF?',
+    'faq.merge.answer': 'Carica due o più file PDF e fai clic su unisci. Tutti i PDF verranno combinati in un unico documento nell\'ordine in cui li hai caricati. Gratuito per sempre, fino a 100MB per file.',
     'faq.security.question': 'I miei dati sono sicuri?',
     'faq.security.answer': 'Sì, assolutamente. Tutti i file vengono elaborati in modo sicuro utilizzando connessioni crittografate. I file vengono automaticamente eliminati dai nostri server dopo la conversione, generalmente entro 24 ore.',
     'faq.size.limit.question': 'Ci sono limiti di dimensione del file?',
