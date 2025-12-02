@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Layout } from '@/layouts/Layout';
 import { PopularToolsGrid } from '@/components/PopularToolsGrid';
 import { FeaturesGrid } from '@/components/FeaturesGrid';
@@ -8,12 +8,10 @@ import { Seo } from '@/components/Seo';
 import { Shield, Lock, Zap, Users } from 'lucide-react';
 import { tools } from '@/config/tools';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export const HomePage: React.FC = () => {
   const { t } = useLanguage();
-  const navigate = useNavigate();
   const supportedFormats = ['PDF', 'DOCX', 'XLSX', 'JPG', 'PNG', 'PPTX', 'RTF', 'CSV'];
 
   return (
@@ -31,7 +29,7 @@ export const HomePage: React.FC = () => {
       {/* Hero Section */}
       <section className="py-8 md:py-12">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-8">
+          <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
               {t('home.hero.title')}
             </h1>
@@ -41,19 +39,12 @@ export const HomePage: React.FC = () => {
             <p className="text-sm md:text-base text-muted-foreground mb-6">
               {t('home.hero.description')}
             </p>
-            <Button
-              size="lg"
-              onClick={() => navigate('/tools/pdf-to-word')}
-              aria-label="Explore conversion tools"
-            >
-              {t('home.hero.cta.explore')}
-            </Button>
           </div>
         </div>
       </section>
 
-      {/* Popular Converters Grid - without title/subtitle */}
-      <div className="container mx-auto px-4 py-8">
+      {/* Popular Converters Grid - without title/subtitle, positioned directly below hero */}
+      <div className="container mx-auto px-4 pb-8">
         <PopularToolsGrid showTitle={false} />
       </div>
 

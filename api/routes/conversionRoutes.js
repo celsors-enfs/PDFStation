@@ -11,7 +11,7 @@ import { convertWithLibreOffice } from '../utils/libreoffice.js';
 import { imageToPdf, pdfToImage } from '../utils/imagemagick.js';
 import { compressPdf } from '../utils/ghostscript.js';
 import { mergePdfs } from '../utils/qpdf.js';
-import { getConversionConfig } from '../config/toolConversions.js';
+import { getConversionConfig } from '../config/toolConversions.ts';
 
 const router = express.Router();
 

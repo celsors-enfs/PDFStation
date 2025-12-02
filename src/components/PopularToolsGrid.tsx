@@ -24,7 +24,7 @@ export const PopularToolsGrid: React.FC<PopularToolsGridProps> = ({ showTitle = 
   const compressTool = getToolBySlug('pdf-compress');
 
   return (
-    <section className="py-12 md:py-16">
+    <section className={showTitle ? "py-12 md:py-16" : "pt-4 pb-8"}>
       <div className="container mx-auto px-4">
         {showTitle && (
           <>
