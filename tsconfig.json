@@ -24,7 +24,21 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"],
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "api",
+    "src/test",
+    "src/test/**",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "tests",
+    "test-output",
+    "test-assets"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
 
