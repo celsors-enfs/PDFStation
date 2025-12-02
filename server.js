@@ -16,19 +16,45 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-// CORS configuration - allow all origins in production, restricted in development
+// CORS configuration - allow Vercel domains and localhost in development
 const isProduction = process.env.NODE_ENV === 'production';
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:3000', 'http://localhost:5174'];
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'http://localhost:5174',
+  'https://pdf-station-two.vercel.app',
+  // Add preview domains pattern (Vercel preview deployments)
+  /^https:\/\/pdf-station.*\.vercel\.app$/,
+];
 
 app.use(cors({
   origin: function (origin, callback) {
-    // In production: allow all origins (frontend can be on any domain)
+    // In production: allow Vercel domains and all origins for flexibility
     if (isProduction) {
+      // Allow requests with no origin (like curl, Postman)
+      if (!origin) {
+        return callback(null, true);
+      }
+      // Check if origin matches Vercel pattern
+      if (allowedOrigins.some(allowed => {
+        if (typeof allowed === 'string') {
+          return origin === allowed;
+        }
+        if (allowed instanceof RegExp) {
+          return allowed.test(origin);
+        }
+        return false;
+      })) {
+        return callback(null, true);
+      }
+      // In production, allow all origins for maximum compatibility
       return callback(null, true);
     }
     
     // In development: allow requests with no origin (like curl) or from known dev origins
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+    if (!origin || allowedOrigins.some(allowed => 
+      typeof allowed === 'string' && origin === allowed
+    )) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));

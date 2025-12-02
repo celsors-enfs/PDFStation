@@ -12,20 +12,21 @@
  */
 
 /**
- * Ensure API base URL is configured
+ * Ensure API base URL is configured and properly formatted
  */
 function ensureApiBase(): string {
-  // Vite uses import.meta.env, Next.js would use process.env
   const API_BASE = import.meta.env.VITE_PDFSTATION_API_URL;
   
   if (!API_BASE) {
+    console.error('VITE_PDFSTATION_API_URL não está definida');
     throw new Error(
       "API base URL não configurada. " +
       "Configure VITE_PDFSTATION_API_URL no arquivo .env.local ou nas variáveis de ambiente da Vercel."
     );
   }
   
-  return API_BASE;
+  // Remove trailing slash if present
+  return API_BASE.replace(/\/$/, '');
 }
 
 /**
@@ -60,17 +61,25 @@ export async function convertFile(options: {
   formData.append('file', options.file);
   formData.append('toolSlug', options.toolSlug);
 
+  const url = `${API_BASE}/api/convert`;
+  console.log('[PDFStation Client] Converting file:', { toolSlug: options.toolSlug, fileName: options.file.name, url });
+
   let response: Response;
   try {
-    response = await fetch(`${API_BASE}/api/convert`, {
+    response = await fetch(url, {
       method: 'POST',
       body: formData,
     });
   } catch (error: any) {
     // Network error (CORS, connection refused, etc.)
+    console.error('[PDFStation Client] Network error:', { error: error.message, url });
     const errorMessage = error.message || 'Network error';
-    if (errorMessage.includes('CORS') || errorMessage.includes('Failed to fetch')) {
-      throw new Error('Erro de conexão: Não foi possível conectar ao servidor. Verifique se o backend está acessível.');
+    
+    if (error instanceof TypeError && errorMessage.includes('Failed to fetch')) {
+      throw new Error('Não foi possível conectar ao servidor de conversão. Verifique sua conexão ou tente novamente em alguns instantes.');
+    }
+    if (errorMessage.includes('CORS')) {
+      throw new Error('Erro de CORS: O servidor não está configurado para aceitar requisições desta origem.');
     }
     throw new Error(`Erro de rede: ${errorMessage}`);
   }
@@ -78,6 +87,8 @@ export async function convertFile(options: {
   if (!response.ok) {
     // Try to read error as JSON
     const errorText = await response.text();
+    console.error('[PDFStation Client] Conversion failed:', { status: response.status, statusText: response.statusText, body: errorText, url });
+    
     let errorMessage = `Erro na conversão (status ${response.status})`;
     
     try {
@@ -113,24 +124,32 @@ export async function compressPdf(options: {
   const formData = new FormData();
   formData.append('file', options.file);
 
+  const url = `${API_BASE}/api/compress`;
+  console.log('[PDFStation Client] Compressing PDF:', { fileName: options.file.name, url });
+
   let response: Response;
   try {
-    response = await fetch(`${API_BASE}/api/compress`, {
+    response = await fetch(url, {
       method: 'POST',
       body: formData,
     });
   } catch (error: any) {
-    // Network error
+    console.error('[PDFStation Client] Network error:', { error: error.message, url });
     const errorMessage = error.message || 'Network error';
-    if (errorMessage.includes('CORS') || errorMessage.includes('Failed to fetch')) {
-      throw new Error('Erro de conexão: Não foi possível conectar ao servidor. Verifique se o backend está acessível.');
+    
+    if (error instanceof TypeError && errorMessage.includes('Failed to fetch')) {
+      throw new Error('Não foi possível conectar ao servidor de conversão. Verifique sua conexão ou tente novamente em alguns instantes.');
+    }
+    if (errorMessage.includes('CORS')) {
+      throw new Error('Erro de CORS: O servidor não está configurado para aceitar requisições desta origem.');
     }
     throw new Error(`Erro de rede: ${errorMessage}`);
   }
 
   if (!response.ok) {
-    // Try to read error as JSON
     const errorText = await response.text();
+    console.error('[PDFStation Client] Compression failed:', { status: response.status, statusText: response.statusText, body: errorText, url });
+    
     let errorMessage = `Erro na compressão (status ${response.status})`;
     
     try {
@@ -173,24 +192,32 @@ export async function mergePdfs(options: {
     formData.append('file', file);
   });
 
+  const url = `${API_BASE}/api/merge`;
+  console.log('[PDFStation Client] Merging PDFs:', { fileCount: options.files.length, url });
+
   let response: Response;
   try {
-    response = await fetch(`${API_BASE}/api/merge`, {
+    response = await fetch(url, {
       method: 'POST',
       body: formData,
     });
   } catch (error: any) {
-    // Network error
+    console.error('[PDFStation Client] Network error:', { error: error.message, url });
     const errorMessage = error.message || 'Network error';
-    if (errorMessage.includes('CORS') || errorMessage.includes('Failed to fetch')) {
-      throw new Error('Erro de conexão: Não foi possível conectar ao servidor. Verifique se o backend está acessível.');
+    
+    if (error instanceof TypeError && errorMessage.includes('Failed to fetch')) {
+      throw new Error('Não foi possível conectar ao servidor de conversão. Verifique sua conexão ou tente novamente em alguns instantes.');
+    }
+    if (errorMessage.includes('CORS')) {
+      throw new Error('Erro de CORS: O servidor não está configurado para aceitar requisições desta origem.');
     }
     throw new Error(`Erro de rede: ${errorMessage}`);
   }
 
   if (!response.ok) {
-    // Try to read error as JSON
     const errorText = await response.text();
+    console.error('[PDFStation Client] Merge failed:', { status: response.status, statusText: response.statusText, body: errorText, url });
+    
     let errorMessage = `Erro no merge (status ${response.status})`;
     
     try {

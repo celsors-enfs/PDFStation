@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Layout } from '@/layouts/Layout';
-import { UploadBox } from '@/components/UploadBox';
 import { PopularToolsGrid } from '@/components/PopularToolsGrid';
 import { FeaturesGrid } from '@/components/FeaturesGrid';
 import { AdPlaceholder } from '@/components/AdPlaceholder';
@@ -9,17 +8,19 @@ import { Seo } from '@/components/Seo';
 import { Shield, Lock, Zap, Users } from 'lucide-react';
 import { tools } from '@/config/tools';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export const HomePage: React.FC = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const supportedFormats = ['PDF', 'DOCX', 'XLSX', 'JPG', 'PNG', 'PPTX', 'RTF', 'CSV'];
 
   return (
     <Layout>
       <Seo
-        title="PDFStation – Free online PDF & file converter (up to 500MB)"
-        description="Use PDFStation to convert, compress, and merge PDF and office files online for free. No signup required, up to 500MB per file, and free forever."
+        title="PDFStation – Smart File Conversion"
+        description="Convert PDFs, images, Word, Excel and more, securely and for free up to 500MB per file. PDFStation – Smart file conversion in one simple place."
         canonical="/"
       />
 
@@ -27,6 +28,7 @@ export const HomePage: React.FC = () => {
         <AdPlaceholder id="ad-top-banner" position="top-banner" />
       </div>
 
+      {/* Hero Section */}
       <section className="py-8 md:py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-8">
@@ -39,24 +41,27 @@ export const HomePage: React.FC = () => {
             <p className="text-sm md:text-base text-muted-foreground mb-6">
               {t('home.hero.description')}
             </p>
+            <Button
+              size="lg"
+              onClick={() => navigate('/tools/pdf-to-word')}
+              aria-label="Explore conversion tools"
+            >
+              {t('home.hero.cta.explore')}
+            </Button>
           </div>
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          <div className="lg:col-span-3">
-            <UploadBox />
-          </div>
-          <div className="lg:col-span-1">
-            <AdPlaceholder id="ad-right-rail" position="right-rail" className="sticky top-20" />
-          </div>
-        </div>
-      </div>
-
-      {/* Popular Converters Grid - moved here without title/subtitle */}
+      {/* Popular Converters Grid - without title/subtitle */}
       <div className="container mx-auto px-4 py-8">
         <PopularToolsGrid showTitle={false} />
+      </div>
+
+      {/* Right Rail Ad */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto">
+          <AdPlaceholder id="ad-right-rail" position="right-rail" className="sticky top-20" />
+        </div>
       </div>
 
       {/* Trust Section */}
