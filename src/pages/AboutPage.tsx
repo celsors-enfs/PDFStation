@@ -36,7 +36,7 @@ export const AboutPage: React.FC = () => {
     <Layout>
       <Seo
         title="About Us – PDFStation | Free File Conversion"
-        description="Learn about PDFStation's mission to make file conversion simple, fast, and accessible. Free forever, up to 500MB per file. We're committed to security, privacy, and providing the best conversion experience."
+        description="Learn about PDFStation's mission to make file conversion simple, fast, and accessible. Free forever, up to 100MB per file. We're committed to security, privacy, and providing the best conversion experience."
         canonical="/about"
       />
 

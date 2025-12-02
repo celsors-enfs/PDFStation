@@ -6,25 +6,20 @@ import { FeaturesGrid } from '@/components/FeaturesGrid';
 import { AdPlaceholder } from '@/components/AdPlaceholder';
 import { Seo } from '@/components/Seo';
 import { Shield, Lock, Zap, Users } from 'lucide-react';
-import { tools } from '@/config/tools';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export const HomePage: React.FC = () => {
   const { t } = useLanguage();
-  const supportedFormats = ['PDF', 'DOCX', 'XLSX', 'JPG', 'PNG', 'PPTX', 'RTF', 'CSV'];
+  const supportedFormats = ['PDF', 'DOCX', 'JPG', 'PNG'];
 
   return (
     <Layout>
       <Seo
-        title="PDFStation – Smart File Conversion"
-        description="Convert PDFs, images, Word, Excel and more, securely and for free up to 500MB per file. PDFStation – Smart file conversion in one simple place."
+        title="PDFStation – JPG/PNG to PDF, Word to PDF, Compress & Merge"
+        description="Convert JPG/PNG images to PDF, Word to PDF, compress and merge PDFs securely and for free up to 100MB per file. PDFStation – Smart file conversion in one simple place."
         canonical="/"
       />
-
-      <div className="container mx-auto px-4 py-4">
-        <AdPlaceholder id="ad-top-banner" position="top-banner" />
-      </div>
 
       {/* Hero Section */}
       <section className="py-8 md:py-12">
@@ -48,11 +43,9 @@ export const HomePage: React.FC = () => {
         <PopularToolsGrid showTitle={false} />
       </div>
 
-      {/* Right Rail Ad */}
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          <AdPlaceholder id="ad-right-rail" position="right-rail" className="sticky top-20" />
-        </div>
+      {/* Google Ad Banner - positioned directly below converters grid */}
+      <div className="container mx-auto px-4 py-4">
+        <AdPlaceholder id="ad-top-banner-below-tools" position="top-banner" />
       </div>
 
       {/* Trust Section */}
@@ -105,20 +98,35 @@ export const HomePage: React.FC = () => {
         <AdPlaceholder id="ad-in-content" position="in-content" />
       </div>
 
-      {/* Internal Links Section */}
+      {/* Popular Conversions Section */}
       <section className="py-8 md:py-12">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-6">{t('popular.conversions.title')}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {tools.slice(0, 8).map(tool => (
-              <Link
-                key={tool.slug}
-                to={`/tools/${tool.slug}`}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors text-center"
-              >
-                {tool.shortLabel}
-              </Link>
-            ))}
+            <Link
+              to="/tools/images-to-pdf"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors text-center"
+            >
+              JPG/PNG → PDF
+            </Link>
+            <Link
+              to="/tools/word-to-pdf"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors text-center"
+            >
+              Word → PDF
+            </Link>
+            <Link
+              to="/tools/pdf-compress"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors text-center"
+            >
+              Compress PDF
+            </Link>
+            <Link
+              to="/tools/pdf-merge"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors text-center"
+            >
+              Merge PDF
+            </Link>
           </div>
         </div>
       </section>

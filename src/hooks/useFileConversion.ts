@@ -67,8 +67,8 @@ export function useFileConversion(options: UseFileConversionOptions = {}) {
    * Add a file to the conversion queue
    */
   const addFile = useCallback((file: File) => {
-    // Check file size (500MB limit)
-    const maxSize = 500 * 1024 * 1024;
+    // Check file size (100MB limit)
+    const maxSize = 100 * 1024 * 1024;
     if (file.size > maxSize) {
       const errorFile: ConversionFile = {
         id: `${Date.now()}-${Math.random()}`,
@@ -164,25 +164,40 @@ export function useFileConversion(options: UseFileConversionOptions = {}) {
         return;
       } else {
         // Convert operation
-        // Determine output file extension based on tool
+        // Determine toolSlug for backend and output extension
+        let backendToolSlug = toolSlug;
         let outputExtension = 'pdf';
-        if (toolSlug === 'pdf-to-word') outputExtension = 'docx';
-        else if (toolSlug === 'pdf-to-excel') outputExtension = 'xlsx';
-        else if (toolSlug === 'pdf-to-jpg') outputExtension = 'jpg';
-        else if (toolSlug === 'pdf-to-png') outputExtension = 'png';
-        else if (toolSlug === 'pdf-to-webp') outputExtension = 'webp';
-        else if (toolSlug === 'jpg-to-pdf' || toolSlug === 'png-to-pdf' || toolSlug === 'webp-to-pdf') outputExtension = 'pdf';
+        
+        // Handle unified images-to-pdf: determine backend slug based on file type
+        if (toolSlug === 'images-to-pdf') {
+          const fileExtension = file.name.split('.').pop()?.toLowerCase();
+          if (fileExtension === 'jpg' || fileExtension === 'jpeg') {
+            backendToolSlug = 'jpg-to-pdf';
+          } else if (fileExtension === 'png') {
+            backendToolSlug = 'png-to-pdf';
+          } else {
+            backendToolSlug = 'jpg-to-pdf'; // default fallback
+          }
+        }
+        
+        // All active tools output PDF
+        outputExtension = 'pdf';
         
         await convertFile({
           file: file.file,
-          toolSlug,
+          toolSlug: backendToolSlug,
           outputFileName: `${originalName}_converted.${outputExtension}`,
         });
         
-        // Success - file was automatically downloaded
+        // Success - file was automatically downloaded, remove from queue after a short delay
         setFiles(prev => prev.map(f => 
           f.id === id ? { ...f, status: 'ready', progress: 100 } : f
         ));
+        
+        // Remove file from queue after download (3 seconds delay)
+        setTimeout(() => {
+          setFiles(prev => prev.filter(f => f.id !== id));
+        }, 3000);
       }
     } catch (error: any) {
       const errorMessage = getErrorMessage(error);

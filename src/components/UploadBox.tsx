@@ -85,22 +85,16 @@ export const UploadBox: React.FC<UploadBoxProps> = ({
 
   // Get accepted file types based on input type
   const getAcceptedFileTypes = (): string => {
-    if (!tool) return '.pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.webp';
+    if (!tool) return '.pdf,.doc,.docx,.jpg,.jpeg,.png';
     const inputType = tool.inputType.toLowerCase();
     switch (inputType) {
-      case 'jpg':
-      case 'jpeg':
-        return '.jpg,.jpeg';
-      case 'png':
-        return '.png';
-      case 'webp':
-        return '.webp';
+      case 'jpg/png':
+      case 'images':
+        return '.jpg,.jpeg,.png';
       case 'pdf':
         return '.pdf';
       case 'word':
         return '.doc,.docx';
-      case 'excel':
-        return '.xls,.xlsx,.csv';
       default:
         return '';
     }

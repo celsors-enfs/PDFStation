@@ -42,7 +42,7 @@ export const Hero: React.FC<HeroProps> = ({
               <Button
                 size="lg"
                 variant="outline"
-                onClick={() => navigate('/tools/pdf-to-word')}
+                onClick={() => navigate('/tools/images-to-pdf')}
               >
                 {t('home.hero.cta.explore')}
               </Button>

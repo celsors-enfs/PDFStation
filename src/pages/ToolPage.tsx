@@ -6,11 +6,9 @@ import { UploadBox } from '@/components/UploadBox';
 import { AdPlaceholder } from '@/components/AdPlaceholder';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Seo } from '@/components/Seo';
-import { CategoryToolsGrid } from '@/components/CategoryToolsGrid';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { getToolBySlug, getPopularTools, getAllCategories, getToolsByCategory } from '@/config/tools';
+import { getToolBySlug, Tool } from '@/config/tools';
 import { FileText, Table, Image, Minimize2, FileStack } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -28,8 +26,15 @@ export const ToolPage: React.FC = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
   const tool = slug ? getToolBySlug(slug) : null;
-  const popularTools = getPopularTools(4).filter(t => t.slug !== slug);
-  const categories = getAllCategories();
+  
+  // Get only the 4 active tools
+  const activeTools = [
+    getToolBySlug('images-to-pdf'),
+    getToolBySlug('word-to-pdf'),
+    getToolBySlug('pdf-compress'),
+    getToolBySlug('pdf-merge'),
+  ].filter(Boolean) as Tool[];
+  const popularTools = activeTools.filter(t => t.slug !== slug);
 
   // Helper function to translate file format names
   const translateFormat = useCallback((format: string | undefined): string => {
@@ -58,14 +63,14 @@ export const ToolPage: React.FC = () => {
         // PDF to Image tools
         return {
           title: `${toolName} – Free Online PDF to ${translateFormat(tool.outputType)} Converter | PDFStation`,
-          description: `Convert PDF pages to ${translateFormat(tool.outputType)} images online for free. High quality, up to 500MB, no signup required. Fast, secure, and easy to use.`,
+          description: `Convert PDF pages to ${translateFormat(tool.outputType)} images online for free. High quality, up to 100MB, no signup required. Fast, secure, and easy to use.`,
           canonical: `/tools/${tool.slug}`,
         };
       } else {
         // Image to PDF tools
         return {
           title: `${toolName} – Free Online ${translateFormat(tool.inputType)} to PDF Converter | PDFStation`,
-          description: `Convert ${translateFormat(tool.inputType)} to PDF online for free. Fast, secure, up to 500MB per file, no watermark. Free forever.`,
+          description: `Convert ${translateFormat(tool.inputType)} to PDF online for free. Fast, secure, up to 100MB per file, no watermark. Free forever.`,
           canonical: `/tools/${tool.slug}`,
         };
       }
@@ -73,8 +78,8 @@ export const ToolPage: React.FC = () => {
     
     // Default SEO for other tools
     return {
-      title: `${toolName} – Free ${translateFormat(tool.inputType)} to ${translateFormat(tool.outputType)} Converter (up to 500MB) | PDFStation`,
-      description: `Convert ${translateFormat(tool.inputType)} to ${translateFormat(tool.outputType)} (${translateFormat(tool.defaultTargetFormat)}) online for free with PDFStation. Free forever, up to 500MB per file. Get accurate, editable files with no watermarks. Fast, secure, and easy to use.`,
+      title: `${toolName} – Free ${translateFormat(tool.inputType)} to ${translateFormat(tool.outputType)} Converter (up to 100MB) | PDFStation`,
+      description: `Convert ${translateFormat(tool.inputType)} to ${translateFormat(tool.outputType)} (${translateFormat(tool.defaultTargetFormat)}) online for free with PDFStation. Free forever, up to 100MB per file. Get accurate, editable files with no watermarks. Fast, secure, and easy to use.`,
       canonical: `/tools/${tool.slug}`,
     };
   }, [tool, t, translateFormat]);
@@ -152,7 +157,7 @@ export const ToolPage: React.FC = () => {
         <Breadcrumbs
           items={[
             { label: t('nav.home'), href: '/' },
-            { label: t('nav.tools'), href: '/tools/pdf-to-word' },
+            { label: t('nav.tools'), href: '/tools/images-to-pdf' },
             { label: (() => {
                 if (!tool?.slug) return '';
                 const toolNameKey = `tool.${tool.slug}.name` as any;
@@ -179,48 +184,42 @@ export const ToolPage: React.FC = () => {
         showCTAs={false}
       />
 
-      {/* Category Submenu */}
+      {/* Tools Navigation Tabs - Fixed 4 tools */}
       <section className="border-b bg-muted/30">
         <div className="container mx-auto px-4 py-4">
-          <div className="hidden md:flex gap-2 flex-wrap">
-            {categories.map(category => {
-              const categoryTools = getToolsByCategory(category);
-              if (categoryTools.length === 0) return null;
-              return (
-                <Button
-                  key={category}
-                  variant={tool.category === category ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => {
-                    navigate(`/tools/${categoryTools[0].slug}`);
-                  }}
-                >
-                  {t(`category.${category}` as any) || category.charAt(0).toUpperCase() + category.slice(1)}
-                </Button>
-              );
-            })}
-          </div>
-          <div className="md:hidden">
-            <Select
-              value={tool.category}
-              onValueChange={(value) => {
-                const categoryTools = getToolsByCategory(value as any);
-                if (categoryTools.length > 0) {
-                  navigate(`/tools/${categoryTools[0].slug}`);
-                }
-              }}
+          <div className="flex gap-2 flex-wrap justify-center">
+            <Button
+              variant={tool?.slug === 'images-to-pdf' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => navigate('/tools/images-to-pdf')}
+              aria-label="JPG/PNG to PDF converter"
             >
-              <SelectTrigger>
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {categories.map(category => (
-                  <SelectItem key={category} value={category}>
-                    {t(`category.${category}` as any) || category.charAt(0).toUpperCase() + category.slice(1)}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+              JPG/PNG → PDF
+            </Button>
+            <Button
+              variant={tool?.slug === 'word-to-pdf' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => navigate('/tools/word-to-pdf')}
+              aria-label="Word to PDF converter"
+            >
+              Word → PDF
+            </Button>
+            <Button
+              variant={tool?.slug === 'pdf-compress' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => navigate('/tools/pdf-compress')}
+              aria-label="Compress PDF"
+            >
+              Compress
+            </Button>
+            <Button
+              variant={tool?.slug === 'pdf-merge' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => navigate('/tools/pdf-merge')}
+              aria-label="Merge PDF"
+            >
+              Merge
+            </Button>
           </div>
         </div>
       </section>
@@ -409,10 +408,6 @@ export const ToolPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Category Tools Grid */}
-      {tool.category && (
-        <CategoryToolsGrid category={tool.category} currentToolSlug={tool.slug} />
-      )}
 
       <div className="container mx-auto px-4 py-8">
         <AdPlaceholder id="ad-in-content" position="in-content" />

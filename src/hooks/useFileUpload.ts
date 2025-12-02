@@ -16,8 +16,8 @@ export function useFileUpload() {
   const [isDragging, setIsDragging] = useState(false);
 
   const addFile = useCallback(async (file: File) => {
-    // Check file size (500MB limit)
-    const maxSize = 500 * 1024 * 1024; // 500MB in bytes
+    // Check file size (100MB limit)
+    const maxSize = 100 * 1024 * 1024; // 100MB in bytes
     if (file.size > maxSize) {
       const errorFile: UploadedFile = {
         id: `${Date.now()}-${Math.random()}`,
@@ -25,7 +25,7 @@ export function useFileUpload() {
         size: file.size,
         status: 'error',
         progress: 0,
-        error: 'File size exceeds 500MB limit',
+        error: 'File size exceeds 100MB limit',
         errorCode: 413,
       };
       setFiles(prev => [...prev, errorFile]);

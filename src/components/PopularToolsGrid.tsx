@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { FileText, Table, Image, Minimize2, FileStack } from 'lucide-react';
-import { getPopularTools, getToolBySlug } from '@/config/tools';
+import { getToolBySlug, Tool } from '@/config/tools';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -20,8 +20,14 @@ interface PopularToolsGridProps {
 export const PopularToolsGrid: React.FC<PopularToolsGridProps> = ({ showTitle = true }) => {
   const navigate = useNavigate();
   const { t } = useLanguage();
-  const popularTools = getPopularTools(4);
+  
+  // Get the 4 active tools: images-to-pdf, word-to-pdf, pdf-compress, pdf-merge
+  const imagesTool = getToolBySlug('images-to-pdf');
+  const wordTool = getToolBySlug('word-to-pdf');
   const compressTool = getToolBySlug('pdf-compress');
+  const mergeTool = getToolBySlug('pdf-merge');
+  
+  const activeTools = [imagesTool, wordTool, compressTool, mergeTool].filter(Boolean) as Tool[];
 
   return (
     <section className={showTitle ? "py-12 md:py-16" : "pt-4 pb-8"}>
@@ -33,7 +39,7 @@ export const PopularToolsGrid: React.FC<PopularToolsGridProps> = ({ showTitle = 
           </>
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {popularTools.map(tool => {
+          {activeTools.map(tool => {
             const Icon = iconMap[tool.icon] || FileText;
             // Get translated name and description
             const toolNameKey = `tool.${tool.slug}.name` as any;
@@ -44,7 +50,6 @@ export const PopularToolsGrid: React.FC<PopularToolsGridProps> = ({ showTitle = 
             const translatedDesc = t(toolDescKey);
             
             // Use translation if it's different from the key (meaning it was found)
-            // getTranslation returns the key itself if translation not found
             const toolName = (translatedName && translatedName !== toolNameKey) ? translatedName : tool.name;
             const toolDescription = (translatedDesc && translatedDesc !== toolDescKey) ? translatedDesc : tool.description;
             
@@ -69,26 +74,6 @@ export const PopularToolsGrid: React.FC<PopularToolsGridProps> = ({ showTitle = 
               </Card>
             );
           })}
-          {compressTool && (
-            <Card
-              key={compressTool.slug}
-              className="cursor-pointer hover:shadow-lg transition-shadow"
-              onClick={() => navigate(`/tools/${compressTool.slug}`)}
-            >
-              <CardHeader>
-                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Minimize2 className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle className="text-xl">{t('popular.compress.title')}</CardTitle>
-                <CardDescription>{t('popular.compress.description')}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  {t('popular.compress.cta')}
-                </p>
-              </CardContent>
-            </Card>
-          )}
         </div>
       </div>
     </section>

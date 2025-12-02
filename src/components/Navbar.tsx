@@ -55,7 +55,7 @@ export const Navbar: React.FC = () => {
               {t('nav.home')}
             </Link>
             <Link
-              to="/tools/pdf-to-word"
+              to="/tools/images-to-pdf"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
               {t('nav.tools')}

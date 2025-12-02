@@ -24,23 +24,23 @@ export const Footer: React.FC = () => {
             <h3 className="font-semibold mb-4">{t('footer.tools.title')}</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/tools/pdf-to-word" className="text-muted-foreground hover:text-primary">
-                  {t('footer.tools.pdf-to-word')}
+                <Link to="/tools/images-to-pdf" className="text-muted-foreground hover:text-primary">
+                  JPG/PNG → PDF
                 </Link>
               </li>
               <li>
                 <Link to="/tools/word-to-pdf" className="text-muted-foreground hover:text-primary">
-                  {t('footer.tools.word-to-pdf')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/tools/pdf-to-excel" className="text-muted-foreground hover:text-primary">
-                  {t('footer.tools.pdf-to-excel')}
+                  Word → PDF
                 </Link>
               </li>
               <li>
                 <Link to="/tools/pdf-compress" className="text-muted-foreground hover:text-primary">
-                  {t('footer.tools.compress-pdf')}
+                  Compress PDF
+                </Link>
+              </li>
+              <li>
+                <Link to="/tools/pdf-merge" className="text-muted-foreground hover:text-primary">
+                  Merge PDF
                 </Link>
               </li>
             </ul>

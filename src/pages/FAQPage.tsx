@@ -9,7 +9,7 @@ export const FAQPage: React.FC = () => {
     <Layout>
       <Seo
         title="Frequently Asked Questions (FAQ) | PDFStation"
-        description="Find answers to common questions about PDFStation file conversion service. Free forever, up to 500MB per file. Learn about file sizes, formats, security, and more."
+        description="Find answers to common questions about PDFStation file conversion service. Free forever, up to 100MB per file. Learn about file sizes, formats, security, and more."
         canonical="/faq"
       />
 
