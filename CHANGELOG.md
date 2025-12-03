@@ -6,6 +6,64 @@ Este documento lista todas as melhorias aplicadas ao projeto PDFStation conforme
 
 ---
 
+## 🎯 Integração Google AdSense (Última Atualização)
+
+### Arquivos Criados
+1. **`src/config/adsense.ts`**
+   - Configuração centralizada do Google AdSense
+   - Define `ADSENSE_CLIENT_ID` (ca-pub-2937516149660107)
+   - Define `ADSENSE_SLOTS` para mapeamento de posições de anúncios
+   - Documentação completa sobre como adicionar slots reais
+
+2. **`src/components/GoogleAd.tsx`**
+   - Componente reutilizável para exibir anúncios do Google AdSense
+   - Suporta diferentes slots (TOP_BANNER, TOOL_HEADER, SIDEBAR, IN_CONTENT, FOOTER)
+   - Mostra placeholder quando slot não está configurado
+   - Inicializa automaticamente o AdSense quando monta
+   - Tratamento de erros e fallback seguro
+
+### Arquivos Modificados
+1. **`index.html`**
+   - ✅ Corrigido Publisher ID: `ca-pub-2937516149660017` → `ca-pub-2937516149660107`
+   - Script global do AdSense no `<head>` com ID correto
+   - Metatag de verificação `google-adsense-account` adicionada
+   - Comentários explicativos sobre a importância das tags
+
+2. **`src/pages/HomePage.tsx`**
+   - Substituído `AdTopBanner` e `AdPlaceholder` por `<GoogleAd />`
+   - Usa slots: `TOP_BANNER`, `IN_CONTENT`, `FOOTER`
+
+3. **`src/pages/ToolPage.tsx`**
+   - Substituído `AdPlaceholder` por `<GoogleAd />`
+   - Usa slots: `TOOL_HEADER`, `SIDEBAR`, `IN_CONTENT`, `FOOTER`
+
+4. **`src/pages/FAQPage.tsx`**
+   - Substituído `AdPlaceholder` por `<GoogleAd />`
+   - Usa slots: `TOOL_HEADER`, `SIDEBAR`, `IN_CONTENT`, `FOOTER`
+
+5. **`src/pages/AboutPage.tsx`**
+   - Substituído `AdPlaceholder` por `<GoogleAd />`
+   - Usa slots: `TOOL_HEADER`, `SIDEBAR`, `IN_CONTENT`, `FOOTER`
+
+6. **`src/pages/PricingPage.tsx`**
+   - Substituído `AdPlaceholder` por `<GoogleAd />`
+   - Usa slots: `TOOL_HEADER`, `SIDEBAR`, `IN_CONTENT`, `FOOTER`
+
+### Fluxo de Integração
+1. `index.html` carrega script global do AdSense
+2. `adsense.ts` fornece client ID / slots centralizados
+3. `GoogleAd.tsx` exibe anúncios nas páginas
+4. Placeholders foram convertidos em `<GoogleAd />`
+
+### Próximos Passos (para Gabriela)
+1. Acesse o painel do Google AdSense
+2. Crie os blocos de anúncio para cada posição
+3. Copie o `data-ad-slot` ID de cada bloco
+4. Preencha os valores em `src/config/adsense.ts` no `ADSENSE_SLOTS` correspondente
+5. Para desligar temporariamente um anúncio, deixe o slot vazio (`""`)
+
+---
+
 ## 📁 ARQUIVOS CRIADOS
 
 ### Componentes

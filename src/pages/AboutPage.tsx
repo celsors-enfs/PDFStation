@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from '@/layouts/Layout';
-import { AdPlaceholder } from '@/components/AdPlaceholder';
+import { GoogleAd } from '@/components/GoogleAd';
 import { Seo } from '@/components/Seo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Target, Users, Zap, Heart } from 'lucide-react';
@@ -41,7 +41,7 @@ export const AboutPage: React.FC = () => {
       />
 
       <div className="container mx-auto px-4 py-4">
-        <AdPlaceholder id="ad-top-banner" position="top-banner" />
+        <GoogleAd slotKey="TOOL_HEADER" />
       </div>
 
       <section className="py-12 md:py-20">
@@ -92,16 +92,16 @@ export const AboutPage: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <div className="lg:col-span-3">
-            <AdPlaceholder id="ad-in-content" position="in-content" />
+            <GoogleAd slotKey="IN_CONTENT" />
           </div>
           <div className="lg:col-span-1">
-            <AdPlaceholder id="ad-right-rail" position="right-rail" className="sticky top-20" />
+            <GoogleAd slotKey="SIDEBAR" className="sticky top-20" />
           </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-8">
-        <AdPlaceholder id="ad-footer-banner" position="footer-banner" />
+        <GoogleAd slotKey="FOOTER" />
       </div>
     </Layout>
   );

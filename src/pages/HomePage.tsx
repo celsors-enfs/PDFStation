@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { Layout } from '@/layouts/Layout';
 import { PopularToolsGrid } from '@/components/PopularToolsGrid';
 import { FeaturesGrid } from '@/components/FeaturesGrid';
-import { AdPlaceholder } from '@/components/AdPlaceholder';
-import { AdTopBanner } from '@/components/ads/AdTopBanner';
+import { GoogleAd } from '@/components/GoogleAd';
 import { Seo } from '@/components/Seo';
 import { Shield, Lock, Zap, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -24,7 +23,7 @@ export const HomePage: React.FC = () => {
 
       {/* Top Banner Ad - positioned before hero section */}
       <div className="pt-4">
-        <AdTopBanner />
+        <GoogleAd slotKey="TOP_BANNER" className="w-full flex justify-center" />
       </div>
 
       {/* Hero Section */}
@@ -51,7 +50,7 @@ export const HomePage: React.FC = () => {
 
       {/* Google Ad Banner - positioned directly below converters grid */}
       <div className="container mx-auto px-4 py-4">
-        <AdPlaceholder id="ad-top-banner-below-tools" position="top-banner" />
+        <GoogleAd slotKey="IN_CONTENT" />
       </div>
 
       {/* Trust Section */}
@@ -104,7 +103,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       <div className="container mx-auto px-4 py-8">
-        <AdPlaceholder id="ad-in-content" position="in-content" />
+        <GoogleAd slotKey="IN_CONTENT" />
       </div>
 
       {/* Popular Conversions Section */}
@@ -158,7 +157,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       <div className="container mx-auto px-4 py-8">
-        <AdPlaceholder id="ad-footer-banner" position="footer-banner" />
+        <GoogleAd slotKey="FOOTER" />
       </div>
     </Layout>
   );

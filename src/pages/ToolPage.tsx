@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Layout } from '@/layouts/Layout';
 import { Hero } from '@/components/Hero';
 import { UploadBox } from '@/components/UploadBox';
-import { AdPlaceholder } from '@/components/AdPlaceholder';
+import { GoogleAd } from '@/components/GoogleAd';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Seo } from '@/components/Seo';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -171,7 +171,7 @@ export const ToolPage: React.FC = () => {
       )}
 
       <div className="container mx-auto px-4 py-4">
-        <AdPlaceholder id="ad-top-banner" position="top-banner" />
+        <GoogleAd slotKey="TOOL_HEADER" />
       </div>
 
       <div className="container mx-auto px-4 py-4">
@@ -397,7 +397,7 @@ export const ToolPage: React.FC = () => {
 
           <div className="lg:col-span-1">
             <div className="sticky top-20 space-y-6">
-              <AdPlaceholder id="ad-right-rail" position="right-rail" />
+              <GoogleAd slotKey="SIDEBAR" />
 
               <Card>
                 <CardHeader>
@@ -431,11 +431,11 @@ export const ToolPage: React.FC = () => {
 
 
       <div className="container mx-auto px-4 py-8">
-        <AdPlaceholder id="ad-in-content" position="in-content" />
+        <GoogleAd slotKey="IN_CONTENT" />
       </div>
 
       <div className="container mx-auto px-4 py-8">
-        <AdPlaceholder id="ad-footer-banner" position="footer-banner" />
+        <GoogleAd slotKey="FOOTER" />
       </div>
     </Layout>
   );
