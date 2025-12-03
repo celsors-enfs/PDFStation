@@ -4,6 +4,7 @@ import { Layout } from '@/layouts/Layout';
 import { PopularToolsGrid } from '@/components/PopularToolsGrid';
 import { FeaturesGrid } from '@/components/FeaturesGrid';
 import { AdPlaceholder } from '@/components/AdPlaceholder';
+import { AdTopBanner } from '@/components/ads/AdTopBanner';
 import { Seo } from '@/components/Seo';
 import { Shield, Lock, Zap, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -21,8 +22,13 @@ export const HomePage: React.FC = () => {
         canonical="/"
       />
 
+      {/* Top Banner Ad - positioned before hero section */}
+      <div className="pt-4">
+        <AdTopBanner />
+      </div>
+
       {/* Hero Section */}
-      <section className="py-8 md:py-12">
+      <section className="py-4 md:py-8">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
