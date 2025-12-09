@@ -5,10 +5,15 @@
  * Uses pdfstationClient.ts for all API calls with automatic download
  */
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { convertFile, compressPdf, mergePdfs } from '@/lib/pdfstationClient';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Tool } from '@/config/tools';
+import {
+  trackFileConversionStarted,
+  trackFileConversionSucceeded,
+  trackFileConversionFailed,
+} from '@/lib/analytics/mixpanel';
 
 export interface ConversionFile {
   id: string;
@@ -30,6 +35,11 @@ export function useFileConversion(options: UseFileConversionOptions = {}) {
   const { t } = useLanguage();
   const [files, setFiles] = useState<ConversionFile[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
+  // Track conversion start times for duration calculation
+  const conversionStartTimes = useRef<Map<string, number>>(new Map());
+  
+  // Helper to detect if user is on mobile
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   /**
    * Get error message from error object
@@ -121,9 +131,27 @@ export function useFileConversion(options: UseFileConversionOptions = {}) {
       f.id === id ? { ...f, status: 'converting', progress: 0 } : f
     ));
 
+    // Track conversion start time
+    const startTime = Date.now();
+    conversionStartTimes.current.set(id, startTime);
+
     try {
       const toolSlug = options.tool.slug;
       const originalName = file.name.replace(/\.[^/.]+$/, '');
+      
+      // Determine source and target formats
+      const sourceFormat = file.name.split('.').pop()?.toLowerCase() || 'unknown';
+      const targetFormat = 'pdf';
+      
+      // Track conversion started
+      trackFileConversionStarted({
+        tool_name: toolSlug,
+        source_format: sourceFormat,
+        target_format: targetFormat,
+        file_size_mb: Math.round((file.size / (1024 * 1024)) * 100) / 100,
+        is_mobile: isMobile,
+        plan: 'free',
+      });
 
       if (options.mode === 'compress') {
         // Compress operation
@@ -137,9 +165,24 @@ export function useFileConversion(options: UseFileConversionOptions = {}) {
         });
         
         // Success - file was automatically downloaded
+        const endTime = Date.now();
+        const conversionTime = endTime - startTime;
+        conversionStartTimes.current.delete(id);
+        
         setFiles(prev => prev.map(f => 
           f.id === id ? { ...f, status: 'ready', progress: 100 } : f
         ));
+        
+        // Track conversion succeeded
+        trackFileConversionSucceeded({
+          tool_name: 'pdf-compress',
+          source_format: 'pdf',
+          target_format: 'pdf',
+          file_size_mb: Math.round((file.size / (1024 * 1024)) * 100) / 100,
+          conversion_time_ms: conversionTime,
+          is_mobile: isMobile,
+          plan: 'free',
+        });
       } else if (options.mode === 'merge') {
         // Merge operation - collect all files
         const allFiles = files.filter(f => f.status === 'idle').map(f => f.file);
@@ -157,9 +200,25 @@ export function useFileConversion(options: UseFileConversionOptions = {}) {
         });
         
         // Success - file was automatically downloaded
+        const endTime = Date.now();
+        const conversionTime = endTime - startTime;
+        conversionStartTimes.current.delete(id);
+        
         setFiles(prev => prev.map(f => 
           f.status === 'merging' ? { ...f, status: 'ready', progress: 100 } : f
         ));
+        
+        // Track conversion succeeded
+        trackFileConversionSucceeded({
+          tool_name: 'pdf-merge',
+          source_format: 'pdf',
+          target_format: 'pdf',
+          file_size_mb: Math.round((allFiles.reduce((sum, f) => sum + f.size, 0) / (1024 * 1024)) * 100) / 100,
+          conversion_time_ms: conversionTime,
+          is_mobile: isMobile,
+          plan: 'free',
+        });
+        
         setIsProcessing(false);
         return;
       } else {
@@ -190,9 +249,24 @@ export function useFileConversion(options: UseFileConversionOptions = {}) {
         });
         
         // Success - file was automatically downloaded, remove from queue after a short delay
+        const endTime = Date.now();
+        const conversionTime = endTime - startTime;
+        conversionStartTimes.current.delete(id);
+        
         setFiles(prev => prev.map(f => 
           f.id === id ? { ...f, status: 'ready', progress: 100 } : f
         ));
+        
+        // Track conversion succeeded
+        trackFileConversionSucceeded({
+          tool_name: toolSlug,
+          source_format: sourceFormat,
+          target_format: targetFormat,
+          file_size_mb: Math.round((file.size / (1024 * 1024)) * 100) / 100,
+          conversion_time_ms: conversionTime,
+          is_mobile: isMobile,
+          plan: 'free',
+        });
         
         // Remove file from queue after download (3 seconds delay)
         setTimeout(() => {
@@ -208,6 +282,12 @@ export function useFileConversion(options: UseFileConversionOptions = {}) {
                          errorMessage.includes('status 503') ? 503 :
                          errorMessage.includes('status 504') ? 504 : 500;
 
+      const toolSlug = options.tool?.slug || 'unknown';
+      const sourceFormat = file.name.split('.').pop()?.toLowerCase() || 'unknown';
+      const targetFormat = 'pdf';
+      
+      conversionStartTimes.current.delete(id);
+      
       setFiles(prev => prev.map(f => 
         f.id === id ? {
           ...f,
@@ -216,10 +296,19 @@ export function useFileConversion(options: UseFileConversionOptions = {}) {
           errorCode: statusCode,
         } : f
       ));
+      
+      // Track conversion failed
+      trackFileConversionFailed({
+        tool_name: toolSlug,
+        source_format: sourceFormat,
+        target_format: targetFormat,
+        error_code: statusCode,
+        error_message_simplified: errorMessage.length > 100 ? errorMessage.substring(0, 100) : errorMessage,
+      });
     } finally {
       setIsProcessing(false);
     }
-  }, [files, options.tool, options.mode, getErrorMessage]);
+  }, [files, options.tool, options.mode, getErrorMessage, isMobile]);
 
   /**
    * Download a converted file (legacy - files are now auto-downloaded)

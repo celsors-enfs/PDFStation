@@ -9,10 +9,14 @@ import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsOfServicePage } from './pages/TermsOfServicePage';
 import { CookiePolicyPage } from './pages/CookiePolicyPage';
 import { ScrollToTop } from './components/ScrollToTop';
+import { usePageTracking } from './hooks/usePageTracking';
 
-function App() {
+function AppContent() {
+  // Track page views automatically
+  usePageTracking();
+
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -26,6 +30,14 @@ function App() {
         <Route path="/terms-of-service" element={<TermsOfServicePage />} />
         <Route path="/cookie-policy" element={<CookiePolicyPage />} />
       </Routes>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   );
 }

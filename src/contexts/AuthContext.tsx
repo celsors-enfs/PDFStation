@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { identifyUser } from '@/lib/analytics/mixpanel';
 
 export interface User {
   id: string;
@@ -62,6 +63,14 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     };
 
     saveUser(userData);
+    
+    // Identify user in analytics (if analytics is enabled)
+    identifyUser(userData.id, {
+      '$name': userData.name,
+      '$email': userData.email,
+      provider: userData.provider,
+    });
+    
     return true;
   };
 
@@ -82,6 +91,14 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     };
 
     saveUser(userData);
+    
+    // Identify user in analytics (if analytics is enabled)
+    identifyUser(userData.id, {
+      '$name': userData.name,
+      '$email': userData.email,
+      provider: userData.provider,
+    });
+    
     return true;
   };
 
@@ -97,6 +114,13 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     };
 
     saveUser(userData);
+    
+    // Identify user in analytics (if analytics is enabled)
+    identifyUser(userData.id, {
+      '$name': userData.name,
+      '$email': userData.email,
+      provider: userData.provider,
+    });
   };
 
   const loginWithFacebook = async (): Promise<void> => {
@@ -111,6 +135,13 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     };
 
     saveUser(userData);
+    
+    // Identify user in analytics (if analytics is enabled)
+    identifyUser(userData.id, {
+      '$name': userData.name,
+      '$email': userData.email,
+      provider: userData.provider,
+    });
   };
 
   const logout = () => {

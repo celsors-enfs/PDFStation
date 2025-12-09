@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/
 import { FileText, Table, Image, Minimize2, FileStack } from 'lucide-react';
 import { getToolBySlug, Tool } from '@/config/tools';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { trackToolClicked } from '@/lib/analytics/mixpanel';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   FileText,
@@ -39,7 +40,7 @@ export const PopularToolsGrid: React.FC<PopularToolsGridProps> = ({ showTitle = 
           </>
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {activeTools.map(tool => {
+          {activeTools.map((tool, index) => {
             const Icon = iconMap[tool.icon] || FileText;
             // Get translated name and description
             const toolNameKey = `tool.${tool.slug}.name` as any;
@@ -57,7 +58,15 @@ export const PopularToolsGrid: React.FC<PopularToolsGridProps> = ({ showTitle = 
               <Card
                 key={tool.slug}
                 className="cursor-pointer hover:shadow-lg transition-shadow"
-                onClick={() => navigate(`/tools/${tool.slug}`)}
+                onClick={() => {
+                  // Track tool click
+                  trackToolClicked({
+                    tool_name: tool.slug,
+                    position: index,
+                    section: showTitle ? 'popular_tools' : 'featured_tools',
+                  });
+                  navigate(`/tools/${tool.slug}`);
+                }}
               >
                 <CardHeader>
                   <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
