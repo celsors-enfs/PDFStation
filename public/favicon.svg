@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Background -->
+  <rect width="64" height="64" rx="8" fill="#DC2626"/>
+  <!-- Document shape -->
+  <path d="M18 12h20l8 8v32c0 2.21-1.79 4-4 4H18c-2.21 0-4-1.79-4-4V16c0-2.21 1.79-4 4-4z" fill="#FFFFFF" opacity="0.95"/>
+  <!-- Fold corner -->
+  <path d="M38 12v8h8l-8-8z" fill="#FFFFFF" opacity="0.7"/>
+  <!-- PDF text -->
+  <text x="32" y="38" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#DC2626" text-anchor="middle">PDF</text>
+</svg>
+
