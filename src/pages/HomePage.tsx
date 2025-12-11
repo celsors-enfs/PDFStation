@@ -203,9 +203,9 @@ export const HomePage: React.FC = () => {
                 <li><strong>{t('home.filesHandled.noSharing.title')}:</strong> {t('home.filesHandled.noSharing.body')}</li>
               </ul>
               <p className="text-muted-foreground">
-                {t('home.filesHandled.privacyLink').split('Privacy Policy')[0]}
+                {t('home.filesHandled.privacyLink.text')}{' '}
                 <Link to="/privacy-policy" className="text-primary hover:underline">
-                  {t('footer.legal.privacy')}
+                  {t('home.filesHandled.privacyLink.label')}
                 </Link>.
               </p>
             </div>
