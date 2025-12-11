@@ -38,10 +38,10 @@ export const ContactPage: React.FC = () => {
                   If you have questions, suggestions, or feedback about PDFStation, you can reach us by email:
                 </p>
                 <a
-                  href="mailto:rodgues.celso7@gmail.com"
+                  href="mailto:hi@pdfstation.app"
                   className="text-primary hover:underline font-medium text-lg"
                 >
-                  rodgues.celso7@gmail.com
+                  hi@pdfstation.app
                 </a>
               </CardContent>
             </Card>

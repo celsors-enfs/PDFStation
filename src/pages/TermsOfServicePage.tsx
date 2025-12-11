@@ -130,8 +130,8 @@ export const TermsOfServicePage: React.FC = () => {
                 For any questions regarding these Terms of Use, please reach out at:
               </p>
               <p className="text-muted-foreground">
-                <a href="mailto:rodgues.celso7@gmail.com" className="text-primary hover:underline">
-                  rodgues.celso7@gmail.com
+                <a href="mailto:hi@pdfstation.app" className="text-primary hover:underline">
+                  hi@pdfstation.app
                 </a>
               </p>
             </CardContent>

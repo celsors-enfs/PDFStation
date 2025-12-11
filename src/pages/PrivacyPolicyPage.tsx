@@ -151,8 +151,8 @@ export const PrivacyPolicyPage: React.FC = () => {
                 If you have questions about this Privacy Policy or how we handle your data, you can contact us at:
               </p>
               <p className="text-muted-foreground">
-                <a href="mailto:rodgues.celso7@gmail.com" className="text-primary hover:underline">
-                  rodgues.celso7@gmail.com
+                <a href="mailto:hi@pdfstation.app" className="text-primary hover:underline">
+                  hi@pdfstation.app
                 </a>
               </p>
             </CardContent>
