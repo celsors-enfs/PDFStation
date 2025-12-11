@@ -8,6 +8,7 @@ import { SignUpPage } from './pages/SignUpPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsOfServicePage } from './pages/TermsOfServicePage';
 import { CookiePolicyPage } from './pages/CookiePolicyPage';
+import { ContactPage } from './pages/ContactPage';
 import { ScrollToTop } from './components/ScrollToTop';
 import { usePageTracking } from './hooks/usePageTracking';
 
@@ -29,6 +30,7 @@ function AppContent() {
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-of-service" element={<TermsOfServicePage />} />
         <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </>
   );

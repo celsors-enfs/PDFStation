@@ -265,6 +265,99 @@ export const ToolPage: React.FC = () => {
               mode={tool?.category === 'compress' ? 'compress' : tool?.category === 'merge' ? 'merge' : 'convert'}
             />
 
+            {/* Detailed Tool Explanation Section */}
+            {tool?.slug === 'images-to-pdf' && (
+              <section className="mt-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Convert JPG and PNG to PDF Online</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="prose prose-sm max-w-none">
+                      <p className="text-muted-foreground mb-4">
+                        PDFStation lets you convert images to high-quality PDF files directly in your browser. This is useful when you need to group multiple photos into a single document, send scans as a PDF, or prepare files for printing.
+                      </p>
+                      <p className="text-muted-foreground mb-4">
+                        The process is simple: upload one or more JPG or PNG images, arrange them in the desired order if needed, click convert, and download your PDF. All conversions happen over a secure connection. Files are kept only long enough to generate your PDF and are deleted automatically afterwards.
+                      </p>
+                      <p className="text-muted-foreground">
+                        Whether you're converting a single photo or combining multiple images into one PDF, our tool preserves image quality while creating a professional PDF document that's easy to share, print, or archive.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </section>
+            )}
+
+            {tool?.slug === 'word-to-pdf' && (
+              <section className="mt-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Turn Word Documents into PDF with One Click</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="prose prose-sm max-w-none">
+                      <p className="text-muted-foreground mb-4">
+                        With the Word to PDF tool, you can convert DOC and DOCX files into PDFs that preserve layout, fonts, and pagination. This is ideal for resumes, reports, contracts, and any document that should look the same on every device.
+                      </p>
+                      <p className="text-muted-foreground mb-4">
+                        Simply upload your Word file, wait a few seconds, and download a ready-to-share PDF. No installation, no registration. The conversion maintains your document's formatting, including headers, footers, tables, and images, ensuring that your PDF looks exactly as intended.
+                      </p>
+                      <p className="text-muted-foreground">
+                        This tool is perfect for professionals who need to share documents that must appear consistent across different devices and operating systems. PDF format ensures that your document will look the same whether viewed on a computer, tablet, or smartphone.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </section>
+            )}
+
+            {tool?.slug === 'pdf-compress' && (
+              <section className="mt-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Compress Large PDF Files Without Losing Quality</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="prose prose-sm max-w-none">
+                      <p className="text-muted-foreground mb-4">
+                        The PDF compression tool reduces file size so it's easier to send documents by email, upload to platforms, or store them in the cloud. We apply smart compression that tries to keep text and images readable while cutting unnecessary weight.
+                      </p>
+                      <p className="text-muted-foreground mb-4">
+                        You can use it for presentations, scanned documents, and multi-page reports. The compression algorithm analyzes your PDF and optimizes images, removes redundant data, and compresses content without significantly affecting visual quality.
+                      </p>
+                      <p className="text-muted-foreground">
+                        This is especially useful when you need to meet file size limits for email attachments or online submissions. Compress your PDF once, and you'll have a smaller file that's easier to share while maintaining professional appearance.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </section>
+            )}
+
+            {tool?.slug === 'pdf-merge' && (
+              <section className="mt-8">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Combine Multiple PDFs into a Single Document</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="prose prose-sm max-w-none">
+                      <p className="text-muted-foreground mb-4">
+                        The merge tool allows you to upload several PDF files and join them into one. This is useful for combining chapters, invoices, or scanned pages into a single file that's easier to share and organize.
+                      </p>
+                      <p className="text-muted-foreground mb-4">
+                        You can choose the order of the files before merging and then download a consolidated PDF in just a few clicks. All pages from your selected PDFs will be combined in the order you specify, creating one seamless document.
+                      </p>
+                      <p className="text-muted-foreground">
+                        This tool is perfect for students combining lecture notes, professionals merging reports, or anyone who needs to organize multiple PDF documents into a single, easy-to-manage file. The merged PDF maintains the quality and formatting of all original documents.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </section>
+            )}
+
             {/* How to convert section */}
             <section className="mt-8">
               <Card>

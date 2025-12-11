@@ -59,6 +59,11 @@ export const Footer: React.FC = () => {
                   {t('nav.faq')}
                 </Link>
               </li>
+              <li>
+                <Link to="/contact" className="text-muted-foreground hover:text-primary">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
