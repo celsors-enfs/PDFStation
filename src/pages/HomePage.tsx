@@ -148,16 +148,16 @@ export const HomePage: React.FC = () => {
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">What is PDFStation?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">{t('home.what.title')}</h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-muted-foreground mb-4">
-                PDFStation is a free online platform designed to simplify document management and file conversion. Whether you need to convert images to PDF, transform Word documents into PDF format, compress large files, or merge multiple PDFs into one document, PDFStation provides all these tools in one convenient place.
+                {t('home.what.paragraph1')}
               </p>
               <p className="text-muted-foreground mb-4">
-                Our mission is to make everyday file tasks fast, intuitive, and accessible from any device. You don't need to install software, create an account, or worry about complex settings. Just upload your file, choose your desired format, and download the result in seconds.
+                {t('home.what.paragraph2')}
               </p>
               <p className="text-muted-foreground">
-                PDFStation was created as an independent project to provide a clean, ad-light alternative to heavy desktop software. We focus on simplicity, security, and performance, ensuring that your files are processed quickly and safely without unnecessary complications.
+                {t('home.what.paragraph3')}
               </p>
             </div>
           </div>
@@ -168,18 +168,18 @@ export const HomePage: React.FC = () => {
       <section className="py-12 md:py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Why Use PDFStation Instead of Desktop Software?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">{t('home.why.title')}</h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-muted-foreground mb-4">
-                While desktop software has its place, online tools like PDFStation offer several advantages that make them ideal for quick file conversions and document management tasks.
+                {t('home.why.intro')}
               </p>
               <ul className="list-disc list-inside text-muted-foreground space-y-3 mb-4">
-                <li><strong>No Installation Required:</strong> Access PDFStation from any device with a web browser. No need to download, install, or update software. This is especially convenient when you're using a shared computer or need to convert files on the go.</li>
-                <li><strong>Works on Any Device:</strong> Whether you're on Windows, Mac, Linux, or a mobile device, PDFStation works the same way. Your operating system doesn't matter.</li>
-                <li><strong>Privacy and Security:</strong> Files are processed securely and deleted automatically after conversion. We don't store your files permanently or use them for any purpose other than the conversion you requested.</li>
-                <li><strong>Speed and Convenience:</strong> Most conversions complete in seconds. No need to wait for software to load or navigate through complex menus. Just upload, convert, and download.</li>
-                <li><strong>Always Up-to-Date:</strong> Online tools are automatically updated with the latest features and improvements. You always have access to the most recent version without manual updates.</li>
-                <li><strong>Free Forever:</strong> All core tools are free to use, with no hidden costs or subscription fees. We may display ads to keep the service sustainable, but the tools themselves remain free.</li>
+                <li><strong>{t('home.why.noInstallation.title')}:</strong> {t('home.why.noInstallation.body')}</li>
+                <li><strong>{t('home.why.worksAnyDevice.title')}:</strong> {t('home.why.worksAnyDevice.body')}</li>
+                <li><strong>{t('home.why.privacy.title')}:</strong> {t('home.why.privacy.body')}</li>
+                <li><strong>{t('home.why.speed.title')}:</strong> {t('home.why.speed.body')}</li>
+                <li><strong>{t('home.why.upToDate.title')}:</strong> {t('home.why.upToDate.body')}</li>
+                <li><strong>{t('home.why.free.title')}:</strong> {t('home.why.free.body')}</li>
               </ul>
             </div>
           </div>
@@ -190,20 +190,23 @@ export const HomePage: React.FC = () => {
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">How Your Files Are Handled</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">{t('home.filesHandled.title')}</h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-muted-foreground mb-4">
-                Your privacy and security are our top priorities. When you upload a file to PDFStation, here's what happens:
+                {t('home.filesHandled.intro')}
               </p>
               <ul className="list-disc list-inside text-muted-foreground space-y-3 mb-4">
-                <li><strong>Secure Upload:</strong> Files are uploaded over an encrypted connection (HTTPS) to ensure your data is protected during transmission.</li>
-                <li><strong>Temporary Processing:</strong> Your files are kept on our servers only for the time needed to complete the conversion, typically just a few minutes.</li>
-                <li><strong>Automatic Deletion:</strong> Once processing is complete and you've downloaded your file, it's automatically deleted from our servers. We don't store your files permanently.</li>
-                <li><strong>No Manual Inspection:</strong> We don't manually view, read, or inspect the content of your files. The conversion process is fully automated.</li>
-                <li><strong>No Sharing:</strong> We never sell, share, or distribute your files to third parties. Your files remain private and confidential.</li>
+                <li><strong>{t('home.filesHandled.secureUpload.title')}:</strong> {t('home.filesHandled.secureUpload.body')}</li>
+                <li><strong>{t('home.filesHandled.temporaryProcessing.title')}:</strong> {t('home.filesHandled.temporaryProcessing.body')}</li>
+                <li><strong>{t('home.filesHandled.automaticDeletion.title')}:</strong> {t('home.filesHandled.automaticDeletion.body')}</li>
+                <li><strong>{t('home.filesHandled.noManualInspection.title')}:</strong> {t('home.filesHandled.noManualInspection.body')}</li>
+                <li><strong>{t('home.filesHandled.noSharing.title')}:</strong> {t('home.filesHandled.noSharing.body')}</li>
               </ul>
               <p className="text-muted-foreground">
-                For more detailed information about our privacy practices, please read our <Link to="/privacy-policy" className="text-primary hover:underline">Privacy Policy</Link>.
+                {t('home.filesHandled.privacyLink').split('Privacy Policy')[0]}
+                <Link to="/privacy-policy" className="text-primary hover:underline">
+                  {t('footer.legal.privacy')}
+                </Link>.
               </p>
             </div>
           </div>
@@ -214,52 +217,52 @@ export const HomePage: React.FC = () => {
       <section className="py-12 md:py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">{t('home.faq.title')}</h2>
             <div className="space-y-6">
               <Card>
                 <CardContent className="pt-6">
-                  <h3 className="text-xl font-semibold mb-2">Are my files stored permanently?</h3>
+                  <h3 className="text-xl font-semibold mb-2">{t('home.faq.q1.question')}</h3>
                   <p className="text-muted-foreground">
-                    No. Files are kept only for the time needed to process your request and are deleted automatically afterwards. We don't store your files permanently or use them for any purpose other than the conversion you requested.
+                    {t('home.faq.q1.answer')}
                   </p>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="pt-6">
-                  <h3 className="text-xl font-semibold mb-2">Is PDFStation free to use?</h3>
+                  <h3 className="text-xl font-semibold mb-2">{t('home.faq.q2.question')}</h3>
                   <p className="text-muted-foreground">
-                    Yes. The core tools are completely free. We may display ads to keep the project sustainable, but all conversion tools remain free to use without any subscription or payment required.
+                    {t('home.faq.q2.answer')}
                   </p>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="pt-6">
-                  <h3 className="text-xl font-semibold mb-2">Is there a file size limit?</h3>
+                  <h3 className="text-xl font-semibold mb-2">{t('home.faq.q3.question')}</h3>
                   <p className="text-muted-foreground">
-                    Yes, there are technical limits depending on the tool and server configuration. Currently, we support files up to 100MB. If a file is too large, we will show an error message and you can try compressing it locally before uploading.
+                    {t('home.faq.q3.answer')}
                   </p>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="pt-6">
-                  <h3 className="text-xl font-semibold mb-2">Do I need to create an account?</h3>
+                  <h3 className="text-xl font-semibold mb-2">{t('home.faq.q4.question')}</h3>
                   <p className="text-muted-foreground">
-                    No. You can use all the main tools without registering or logging in. Simply upload your file, convert it, and download the result. No account creation is required.
+                    {t('home.faq.q4.answer')}
                   </p>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="pt-6">
-                  <h3 className="text-xl font-semibold mb-2">Which formats are supported?</h3>
+                  <h3 className="text-xl font-semibold mb-2">{t('home.faq.q5.question')}</h3>
                   <p className="text-muted-foreground">
-                    Common formats include JPG, PNG, PDF, and DOCX (for Word to PDF conversion). Support may expand over time based on user feedback and demand. Check each tool's page for specific format requirements.
+                    {t('home.faq.q5.answer')}
                   </p>
                 </CardContent>
               </Card>
             </div>
             <div className="mt-8 text-center">
               <Link to="/faq" className="text-primary hover:underline font-medium">
-                View all FAQs →
+                {t('home.faq.viewAll')}
               </Link>
             </div>
           </div>

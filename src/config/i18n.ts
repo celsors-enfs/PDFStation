@@ -348,6 +348,109 @@ export interface Translations {
   'error.invalid.file': string;
   'error.too.many.requests': string;
   'error.request.timeout': string;
+  
+  // HomePage new sections
+  'home.what.title': string;
+  'home.what.paragraph1': string;
+  'home.what.paragraph2': string;
+  'home.what.paragraph3': string;
+  'home.why.title': string;
+  'home.why.intro': string;
+  'home.why.noInstallation.title': string;
+  'home.why.noInstallation.body': string;
+  'home.why.worksAnyDevice.title': string;
+  'home.why.worksAnyDevice.body': string;
+  'home.why.privacy.title': string;
+  'home.why.privacy.body': string;
+  'home.why.speed.title': string;
+  'home.why.speed.body': string;
+  'home.why.upToDate.title': string;
+  'home.why.upToDate.body': string;
+  'home.why.free.title': string;
+  'home.why.free.body': string;
+  'home.filesHandled.title': string;
+  'home.filesHandled.intro': string;
+  'home.filesHandled.secureUpload.title': string;
+  'home.filesHandled.secureUpload.body': string;
+  'home.filesHandled.temporaryProcessing.title': string;
+  'home.filesHandled.temporaryProcessing.body': string;
+  'home.filesHandled.automaticDeletion.title': string;
+  'home.filesHandled.automaticDeletion.body': string;
+  'home.filesHandled.noManualInspection.title': string;
+  'home.filesHandled.noManualInspection.body': string;
+  'home.filesHandled.noSharing.title': string;
+  'home.filesHandled.noSharing.body': string;
+  'home.filesHandled.privacyLink': string;
+  'home.faq.title': string;
+  'home.faq.q1.question': string;
+  'home.faq.q1.answer': string;
+  'home.faq.q2.question': string;
+  'home.faq.q2.answer': string;
+  'home.faq.q3.question': string;
+  'home.faq.q3.answer': string;
+  'home.faq.q4.question': string;
+  'home.faq.q4.answer': string;
+  'home.faq.q5.question': string;
+  'home.faq.q5.answer': string;
+  'home.faq.viewAll': string;
+  
+  // Privacy Policy new sections
+  'privacy.new.intro.title': string;
+  'privacy.new.intro.text': string;
+  'privacy.new.files.title': string;
+  'privacy.new.files.intro': string;
+  'privacy.new.files.item1': string;
+  'privacy.new.files.item2': string;
+  'privacy.new.files.item3': string;
+  'privacy.new.files.item4': string;
+  'privacy.new.usage.title': string;
+  'privacy.new.usage.intro': string;
+  'privacy.new.usage.item1': string;
+  'privacy.new.usage.item2': string;
+  'privacy.new.usage.item3': string;
+  'privacy.new.usage.item4': string;
+  'privacy.new.usage.item5': string;
+  'privacy.new.cookies.title': string;
+  'privacy.new.cookies.intro': string;
+  'privacy.new.cookies.item1': string;
+  'privacy.new.cookies.item2': string;
+  'privacy.new.cookies.item3': string;
+  'privacy.new.cookies.item4': string;
+  'privacy.new.advertising.title': string;
+  'privacy.new.advertising.text': string;
+  'privacy.new.personal.title': string;
+  'privacy.new.personal.text': string;
+  'privacy.new.retention.title': string;
+  'privacy.new.retention.text': string;
+  'privacy.new.rights.title': string;
+  'privacy.new.rights.intro': string;
+  'privacy.new.rights.item1': string;
+  'privacy.new.rights.item2': string;
+  'privacy.new.rights.item3': string;
+  'privacy.new.rights.item4': string;
+  'privacy.new.changes.title': string;
+  'privacy.new.changes.text': string;
+  'privacy.new.contact.title': string;
+  'privacy.new.contact.text': string;
+  'privacy.new.contact.email': string;
+  
+  // Tool page detailed explanations
+  'tool.images-to-pdf.detail.title': string;
+  'tool.images-to-pdf.detail.paragraph1': string;
+  'tool.images-to-pdf.detail.paragraph2': string;
+  'tool.images-to-pdf.detail.paragraph3': string;
+  'tool.word-to-pdf.detail.title': string;
+  'tool.word-to-pdf.detail.paragraph1': string;
+  'tool.word-to-pdf.detail.paragraph2': string;
+  'tool.word-to-pdf.detail.paragraph3': string;
+  'tool.pdf-compress.detail.title': string;
+  'tool.pdf-compress.detail.paragraph1': string;
+  'tool.pdf-compress.detail.paragraph2': string;
+  'tool.pdf-compress.detail.paragraph3': string;
+  'tool.pdf-merge.detail.title': string;
+  'tool.pdf-merge.detail.paragraph1': string;
+  'tool.pdf-merge.detail.paragraph2': string;
+  'tool.pdf-merge.detail.paragraph3': string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -699,6 +802,109 @@ const translations: Record<Language, Translations> = {
     'error.invalid.file': 'Invalid file or parameters.',
     'error.too.many.requests': 'Too many conversions from your IP. Please try again later.',
     'error.request.timeout': 'Request timed out. Please try again.',
+    
+    // HomePage new sections
+    'home.what.title': 'What is PDFStation?',
+    'home.what.paragraph1': 'PDFStation is a free online platform designed to simplify document management and file conversion. Whether you need to convert images to PDF, transform Word documents into PDF format, compress large files, or merge multiple PDFs into one document, PDFStation provides all these tools in one convenient place.',
+    'home.what.paragraph2': 'Our mission is to make everyday file tasks fast, intuitive, and accessible from any device. You don\'t need to install software, create an account, or worry about complex settings. Just upload your file, choose your desired format, and download the result in seconds.',
+    'home.what.paragraph3': 'PDFStation was created as an independent project to provide a clean, ad-light alternative to heavy desktop software. We focus on simplicity, security, and performance, ensuring that your files are processed quickly and safely without unnecessary complications.',
+    'home.why.title': 'Why Use PDFStation Instead of Desktop Software?',
+    'home.why.intro': 'While desktop software has its place, online tools like PDFStation offer several advantages that make them ideal for quick file conversions and document management tasks.',
+    'home.why.noInstallation.title': 'No Installation Required',
+    'home.why.noInstallation.body': 'Access PDFStation from any device with a web browser. No need to download, install, or update software. This is especially convenient when you\'re using a shared computer or need to convert files on the go.',
+    'home.why.worksAnyDevice.title': 'Works on Any Device',
+    'home.why.worksAnyDevice.body': 'Whether you\'re on Windows, Mac, Linux, or a mobile device, PDFStation works the same way. Your operating system doesn\'t matter.',
+    'home.why.privacy.title': 'Privacy and Security',
+    'home.why.privacy.body': 'Files are processed securely and deleted automatically after conversion. We don\'t store your files permanently or use them for any purpose other than the conversion you requested.',
+    'home.why.speed.title': 'Speed and Convenience',
+    'home.why.speed.body': 'Most conversions complete in seconds. No need to wait for software to load or navigate through complex menus. Just upload, convert, and download.',
+    'home.why.upToDate.title': 'Always Up-to-Date',
+    'home.why.upToDate.body': 'Online tools are automatically updated with the latest features and improvements. You always have access to the most recent version without manual updates.',
+    'home.why.free.title': 'Free Forever',
+    'home.why.free.body': 'All core tools are free to use, with no hidden costs or subscription fees. We may display ads to keep the service sustainable, but the tools themselves remain free.',
+    'home.filesHandled.title': 'How Your Files Are Handled',
+    'home.filesHandled.intro': 'Your privacy and security are our top priorities. When you upload a file to PDFStation, here\'s what happens:',
+    'home.filesHandled.secureUpload.title': 'Secure Upload',
+    'home.filesHandled.secureUpload.body': 'Files are uploaded over an encrypted connection (HTTPS) to ensure your data is protected during transmission.',
+    'home.filesHandled.temporaryProcessing.title': 'Temporary Processing',
+    'home.filesHandled.temporaryProcessing.body': 'Your files are kept on our servers only for the time needed to complete the conversion, typically just a few minutes.',
+    'home.filesHandled.automaticDeletion.title': 'Automatic Deletion',
+    'home.filesHandled.automaticDeletion.body': 'Once processing is complete and you\'ve downloaded your file, it\'s automatically deleted from our servers. We don\'t store your files permanently.',
+    'home.filesHandled.noManualInspection.title': 'No Manual Inspection',
+    'home.filesHandled.noManualInspection.body': 'We don\'t manually view, read, or inspect the content of your files. The conversion process is fully automated.',
+    'home.filesHandled.noSharing.title': 'No Sharing',
+    'home.filesHandled.noSharing.body': 'We never sell, share, or distribute your files to third parties. Your files remain private and confidential.',
+    'home.filesHandled.privacyLink': 'For more detailed information about our privacy practices, please read our Privacy Policy.',
+    'home.faq.title': 'Frequently Asked Questions',
+    'home.faq.q1.question': 'Are my files stored permanently?',
+    'home.faq.q1.answer': 'No. Files are kept only for the time needed to process your request and are deleted automatically afterwards. We don\'t store your files permanently or use them for any purpose other than the conversion you requested.',
+    'home.faq.q2.question': 'Is PDFStation free to use?',
+    'home.faq.q2.answer': 'Yes. The core tools are completely free. We may display ads to keep the project sustainable, but all conversion tools remain free to use without any subscription or payment required.',
+    'home.faq.q3.question': 'Is there a file size limit?',
+    'home.faq.q3.answer': 'Yes, there are technical limits depending on the tool and server configuration. Currently, we support files up to 100MB. If a file is too large, we will show an error message and you can try compressing it locally before uploading.',
+    'home.faq.q4.question': 'Do I need to create an account?',
+    'home.faq.q4.answer': 'No. You can use all the main tools without registering or logging in. Simply upload your file, convert it, and download the result. No account creation is required.',
+    'home.faq.q5.question': 'Which formats are supported?',
+    'home.faq.q5.answer': 'Common formats include JPG, PNG, PDF, and DOCX (for Word to PDF conversion). Support may expand over time based on user feedback and demand. Check each tool\'s page for specific format requirements.',
+    'home.faq.viewAll': 'View all FAQs →',
+    
+    // Privacy Policy new sections
+    'privacy.new.intro.title': 'Introduction',
+    'privacy.new.intro.text': 'This Privacy Policy explains how PDFStation ("we", "our", "us") handles information when you use our website and tools. We are committed to protecting your privacy and ensuring the security of your data.',
+    'privacy.new.files.title': '1. Files You Upload',
+    'privacy.new.files.intro': 'Files you upload are used only to perform the requested operation (convert, compress, merge, etc.). Files are kept temporarily on our servers for processing and are deleted automatically after a short period.',
+    'privacy.new.files.item1': 'Files are processed only for the time needed to complete your request',
+    'privacy.new.files.item2': 'We do not sell, share, or manually inspect the content of your files',
+    'privacy.new.files.item3': 'Files are automatically deleted from our servers after processing',
+    'privacy.new.files.item4': 'We do not store your files permanently or use them for any purpose other than the conversion you requested',
+    'privacy.new.usage.title': '2. Usage Data and Analytics',
+    'privacy.new.usage.intro': 'We may collect anonymous usage data to understand how the site is used (for example, which tools are most popular, approximate location, device type). This may be done using third-party analytics tools such as Mixpanel or similar services.',
+    'privacy.new.usage.item1': 'This data helps us improve performance, stability, and user experience',
+    'privacy.new.usage.item2': 'We do not collect personally identifiable information without your consent',
+    'privacy.new.usage.item3': 'Analytics data is aggregated and anonymized',
+    'privacy.new.usage.item4': 'We use this information to fix bugs and optimize our tools',
+    'privacy.new.usage.item5': 'You can opt out of analytics tracking through your browser settings',
+    'privacy.new.cookies.title': '3. Cookies and Similar Technologies',
+    'privacy.new.cookies.intro': 'We may use cookies or local storage to remember your language preference or improve loading performance. Advertising partners such as Google AdSense may use cookies to serve and personalize ads, according to their own policies.',
+    'privacy.new.cookies.item1': 'Cookies are used to remember your preferences (like language selection)',
+    'privacy.new.cookies.item2': 'We do not use cookies to track your browsing behavior across other websites',
+    'privacy.new.cookies.item3': 'You can disable cookies in your browser settings, though this may affect some functionality',
+    'privacy.new.cookies.item4': 'Third-party advertising networks may use their own cookies for ad personalization',
+    'privacy.new.advertising.title': '4. Advertising',
+    'privacy.new.advertising.text': 'PDFStation may display ads from third-party networks such as Google AdSense. These networks may use cookies or other identifiers to show relevant ads in line with their own advertising and privacy policies. We do not control the content of these ads, but we work only with reputable advertising partners.',
+    'privacy.new.personal.title': '5. Personal Information',
+    'privacy.new.personal.text': 'We do not require you to create an account to use the core tools. If you contact us by email, we will use your email address only to reply to your message. We do not share your email address with third parties.',
+    'privacy.new.retention.title': '6. Data Retention',
+    'privacy.new.retention.text': 'Files uploaded to PDFStation are deleted automatically after processing, typically within minutes. We do not retain your files for longer than necessary to complete the conversion. Analytics data may be retained in aggregated form for longer periods to help us improve the service.',
+    'privacy.new.rights.title': '7. Your Rights',
+    'privacy.new.rights.intro': 'You have the right to:',
+    'privacy.new.rights.item1': 'Access any personal information we may have about you',
+    'privacy.new.rights.item2': 'Request deletion of your data',
+    'privacy.new.rights.item3': 'Opt out of analytics tracking',
+    'privacy.new.rights.item4': 'Contact us with privacy concerns or questions',
+    'privacy.new.changes.title': '8. Changes to This Policy',
+    'privacy.new.changes.text': 'We may update this Privacy Policy from time to time. The latest version will always be available on this page. We will notify users of significant changes by updating the "Last updated" date at the top of this page.',
+    'privacy.new.contact.title': '9. Contact',
+    'privacy.new.contact.text': 'If you have questions about this Privacy Policy or how we handle your data, you can contact us at:',
+    'privacy.new.contact.email': 'hi@pdfstation.app',
+    
+    // Tool page detailed explanations
+    'tool.images-to-pdf.detail.title': 'Convert JPG and PNG to PDF Online',
+    'tool.images-to-pdf.detail.paragraph1': 'PDFStation lets you convert images to high-quality PDF files directly in your browser. This is useful when you need to group multiple photos into a single document, send scans as a PDF, or prepare files for printing.',
+    'tool.images-to-pdf.detail.paragraph2': 'The process is simple: upload one or more JPG or PNG images, arrange them in the desired order if needed, click convert, and download your PDF. All conversions happen over a secure connection. Files are kept only long enough to generate your PDF and are deleted automatically afterwards.',
+    'tool.images-to-pdf.detail.paragraph3': 'Whether you\'re converting a single photo or combining multiple images into one PDF, our tool preserves image quality while creating a professional PDF document that\'s easy to share, print, or archive.',
+    'tool.word-to-pdf.detail.title': 'Turn Word Documents into PDF with One Click',
+    'tool.word-to-pdf.detail.paragraph1': 'With the Word to PDF tool, you can convert DOC and DOCX files into PDFs that preserve layout, fonts, and pagination. This is ideal for resumes, reports, contracts, and any document that should look the same on every device.',
+    'tool.word-to-pdf.detail.paragraph2': 'Simply upload your Word file, wait a few seconds, and download a ready-to-share PDF. No installation, no registration. The conversion maintains your document\'s formatting, including headers, footers, tables, and images, ensuring that your PDF looks exactly as intended.',
+    'tool.word-to-pdf.detail.paragraph3': 'This tool is perfect for professionals who need to share documents that must appear consistent across different devices and operating systems. PDF format ensures that your document will look the same whether viewed on a computer, tablet, or smartphone.',
+    'tool.pdf-compress.detail.title': 'Compress Large PDF Files Without Losing Quality',
+    'tool.pdf-compress.detail.paragraph1': 'The PDF compression tool reduces file size so it\'s easier to send documents by email, upload to platforms, or store them in the cloud. We apply smart compression that tries to keep text and images readable while cutting unnecessary weight.',
+    'tool.pdf-compress.detail.paragraph2': 'You can use it for presentations, scanned documents, and multi-page reports. The compression algorithm analyzes your PDF and optimizes images, removes redundant data, and compresses content without significantly affecting visual quality.',
+    'tool.pdf-compress.detail.paragraph3': 'This is especially useful when you need to meet file size limits for email attachments or online submissions. Compress your PDF once, and you\'ll have a smaller file that\'s easier to share while maintaining professional appearance.',
+    'tool.pdf-merge.detail.title': 'Combine Multiple PDFs into a Single Document',
+    'tool.pdf-merge.detail.paragraph1': 'The merge tool allows you to upload several PDF files and join them into one. This is useful for combining chapters, invoices, or scanned pages into a single file that\'s easier to share and organize.',
+    'tool.pdf-merge.detail.paragraph2': 'You can choose the order of the files before merging and then download a consolidated PDF in just a few clicks. All pages from your selected PDFs will be combined in the order you specify, creating one seamless document.',
+    'tool.pdf-merge.detail.paragraph3': 'This tool is perfect for students combining lecture notes, professionals merging reports, or anyone who needs to organize multiple PDF documents into a single, easy-to-manage file. The merged PDF maintains the quality and formatting of all original documents.',
   },
   'pt-BR': {
     // Common UI
@@ -1048,6 +1254,109 @@ const translations: Record<Language, Translations> = {
     'error.invalid.file': 'Arquivo ou parâmetros inválidos.',
     'error.too.many.requests': 'Muitas conversões do seu IP. Por favor, tente novamente mais tarde.',
     'error.request.timeout': 'Tempo de requisição esgotado. Por favor, tente novamente.',
+    
+    // HomePage new sections
+    'home.what.title': 'O que é o PDFStation?',
+    'home.what.paragraph1': 'O PDFStation é uma plataforma online gratuita projetada para simplificar o gerenciamento de documentos e a conversão de arquivos. Se você precisa converter imagens para PDF, transformar documentos Word em formato PDF, comprimir arquivos grandes ou mesclar vários PDFs em um documento, o PDFStation oferece todas essas ferramentas em um só lugar.',
+    'home.what.paragraph2': 'Nossa missão é tornar as tarefas diárias de arquivos rápidas, intuitivas e acessíveis a partir de qualquer dispositivo. Você não precisa instalar software, criar uma conta ou se preocupar com configurações complexas. Basta fazer upload do seu arquivo, escolher o formato desejado e baixar o resultado em segundos.',
+    'home.what.paragraph3': 'O PDFStation foi criado como um projeto independente para fornecer uma alternativa limpa e com poucos anúncios ao software pesado de desktop. Focamos em simplicidade, segurança e desempenho, garantindo que seus arquivos sejam processados rapidamente e com segurança, sem complicações desnecessárias.',
+    'home.why.title': 'Por que usar o PDFStation em vez de software de desktop?',
+    'home.why.intro': 'Embora o software de desktop tenha seu lugar, ferramentas online como o PDFStation oferecem várias vantagens que as tornam ideais para conversões rápidas de arquivos e tarefas de gerenciamento de documentos.',
+    'home.why.noInstallation.title': 'Sem necessidade de instalação',
+    'home.why.noInstallation.body': 'Acesse o PDFStation de qualquer dispositivo com um navegador da web. Não é necessário baixar, instalar ou atualizar software. Isso é especialmente conveniente quando você está usando um computador compartilhado ou precisa converter arquivos em movimento.',
+    'home.why.worksAnyDevice.title': 'Funciona em qualquer dispositivo',
+    'home.why.worksAnyDevice.body': 'Seja no Windows, Mac, Linux ou em um dispositivo móvel, o PDFStation funciona da mesma forma. Seu sistema operacional não importa.',
+    'home.why.privacy.title': 'Privacidade e segurança',
+    'home.why.privacy.body': 'Os arquivos são processados com segurança e excluídos automaticamente após a conversão. Não armazenamos seus arquivos permanentemente nem os usamos para qualquer finalidade que não seja a conversão solicitada.',
+    'home.why.speed.title': 'Velocidade e conveniência',
+    'home.why.speed.body': 'A maioria das conversões é concluída em segundos. Não é necessário esperar o software carregar ou navegar por menus complexos. Basta fazer upload, converter e baixar.',
+    'home.why.upToDate.title': 'Sempre atualizado',
+    'home.why.upToDate.body': 'As ferramentas online são atualizadas automaticamente com os recursos e melhorias mais recentes. Você sempre tem acesso à versão mais recente sem atualizações manuais.',
+    'home.why.free.title': 'Grátis para sempre',
+    'home.why.free.body': 'Todas as ferramentas principais são gratuitas, sem custos ocultos ou taxas de assinatura. Podemos exibir anúncios para manter o serviço sustentável, mas as ferramentas permanecem gratuitas.',
+    'home.filesHandled.title': 'Como seus arquivos são tratados',
+    'home.filesHandled.intro': 'Sua privacidade e segurança são nossas principais prioridades. Quando você faz upload de um arquivo para o PDFStation, eis o que acontece:',
+    'home.filesHandled.secureUpload.title': 'Upload seguro',
+    'home.filesHandled.secureUpload.body': 'Os arquivos são enviados por uma conexão criptografada (HTTPS) para garantir que seus dados estejam protegidos durante a transmissão.',
+    'home.filesHandled.temporaryProcessing.title': 'Processamento temporário',
+    'home.filesHandled.temporaryProcessing.body': 'Seus arquivos são mantidos em nossos servidores apenas pelo tempo necessário para concluir a conversão, geralmente apenas alguns minutos.',
+    'home.filesHandled.automaticDeletion.title': 'Exclusão automática',
+    'home.filesHandled.automaticDeletion.body': 'Após o processamento ser concluído e você baixar seu arquivo, ele é automaticamente excluído de nossos servidores. Não armazenamos seus arquivos permanentemente.',
+    'home.filesHandled.noManualInspection.title': 'Sem inspeção manual',
+    'home.filesHandled.noManualInspection.body': 'Não visualizamos, lemos ou inspecionamos manualmente o conteúdo de seus arquivos. O processo de conversão é totalmente automatizado.',
+    'home.filesHandled.noSharing.title': 'Sem compartilhamento',
+    'home.filesHandled.noSharing.body': 'Nunca vendemos, compartilhamos ou distribuímos seus arquivos para terceiros. Seus arquivos permanecem privados e confidenciais.',
+    'home.filesHandled.privacyLink': 'Para obter informações mais detalhadas sobre nossas práticas de privacidade, leia nossa Política de Privacidade.',
+    'home.faq.title': 'Perguntas frequentes',
+    'home.faq.q1.question': 'Meus arquivos são armazenados permanentemente?',
+    'home.faq.q1.answer': 'Não. Os arquivos são mantidos apenas pelo tempo necessário para processar sua solicitação e são excluídos automaticamente depois. Não armazenamos seus arquivos permanentemente nem os usamos para qualquer finalidade que não seja a conversão solicitada.',
+    'home.faq.q2.question': 'O PDFStation é gratuito para usar?',
+    'home.faq.q2.answer': 'Sim. As ferramentas principais são completamente gratuitas. Podemos exibir anúncios para manter o projeto sustentável, mas todas as ferramentas de conversão permanecem gratuitas sem necessidade de assinatura ou pagamento.',
+    'home.faq.q3.question': 'Há um limite de tamanho de arquivo?',
+    'home.faq.q3.answer': 'Sim, existem limites técnicos dependendo da ferramenta e da configuração do servidor. Atualmente, suportamos arquivos de até 100MB. Se um arquivo for muito grande, mostraremos uma mensagem de erro e você pode tentar comprimi-lo localmente antes de fazer upload.',
+    'home.faq.q4.question': 'Preciso criar uma conta?',
+    'home.faq.q4.answer': 'Não. Você pode usar todas as ferramentas principais sem se registrar ou fazer login. Basta fazer upload do seu arquivo, convertê-lo e baixar o resultado. Não é necessária a criação de conta.',
+    'home.faq.q5.question': 'Quais formatos são suportados?',
+    'home.faq.q5.answer': 'Os formatos comuns incluem JPG, PNG, PDF e DOCX (para conversão de Word para PDF). O suporte pode expandir com o tempo com base no feedback e na demanda dos usuários. Verifique a página de cada ferramenta para requisitos específicos de formato.',
+    'home.faq.viewAll': 'Ver todas as perguntas frequentes →',
+    
+    // Privacy Policy new sections
+    'privacy.new.intro.title': 'Introdução',
+    'privacy.new.intro.text': 'Esta Política de Privacidade explica como o PDFStation ("nós", "nosso", "nos") trata as informações quando você usa nosso site e ferramentas. Estamos comprometidos em proteger sua privacidade e garantir a segurança de seus dados.',
+    'privacy.new.files.title': '1. Arquivos que você envia',
+    'privacy.new.files.intro': 'Os arquivos que você envia são usados apenas para realizar a operação solicitada (converter, comprimir, mesclar, etc.). Os arquivos são mantidos temporariamente em nossos servidores para processamento e são excluídos automaticamente após um curto período.',
+    'privacy.new.files.item1': 'Os arquivos são processados apenas pelo tempo necessário para concluir sua solicitação',
+    'privacy.new.files.item2': 'Não vendemos, compartilhamos ou inspecionamos manualmente o conteúdo de seus arquivos',
+    'privacy.new.files.item3': 'Os arquivos são automaticamente excluídos de nossos servidores após o processamento',
+    'privacy.new.files.item4': 'Não armazenamos seus arquivos permanentemente nem os usamos para qualquer finalidade que não seja a conversão solicitada',
+    'privacy.new.usage.title': '2. Dados de uso e análises',
+    'privacy.new.usage.intro': 'Podemos coletar dados de uso anônimos para entender como o site é usado (por exemplo, quais ferramentas são mais populares, localização aproximada, tipo de dispositivo). Isso pode ser feito usando ferramentas de análise de terceiros, como Mixpanel ou serviços similares.',
+    'privacy.new.usage.item1': 'Esses dados nos ajudam a melhorar o desempenho, a estabilidade e a experiência do usuário',
+    'privacy.new.usage.item2': 'Não coletamos informações pessoalmente identificáveis sem seu consentimento',
+    'privacy.new.usage.item3': 'Os dados de análise são agregados e anonimizados',
+    'privacy.new.usage.item4': 'Usamos essas informações para corrigir bugs e otimizar nossas ferramentas',
+    'privacy.new.usage.item5': 'Você pode optar por não participar do rastreamento de análise através das configurações do seu navegador',
+    'privacy.new.cookies.title': '3. Cookies e tecnologias similares',
+    'privacy.new.cookies.intro': 'Podemos usar cookies ou armazenamento local para lembrar sua preferência de idioma ou melhorar o desempenho de carregamento. Parceiros de publicidade, como o Google AdSense, podem usar cookies para veicular e personalizar anúncios, de acordo com suas próprias políticas.',
+    'privacy.new.cookies.item1': 'Os cookies são usados para lembrar suas preferências (como a seleção de idioma)',
+    'privacy.new.cookies.item2': 'Não usamos cookies para rastrear seu comportamento de navegação em outros sites',
+    'privacy.new.cookies.item3': 'Você pode desabilitar cookies nas configurações do seu navegador, embora isso possa afetar algumas funcionalidades',
+    'privacy.new.cookies.item4': 'Redes de publicidade de terceiros podem usar seus próprios cookies para personalização de anúncios',
+    'privacy.new.advertising.title': '4. Publicidade',
+    'privacy.new.advertising.text': 'O PDFStation pode exibir anúncios de redes de terceiros, como o Google AdSense. Essas redes podem usar cookies ou outros identificadores para mostrar anúncios relevantes de acordo com suas próprias políticas de publicidade e privacidade. Não controlamos o conteúdo desses anúncios, mas trabalhamos apenas com parceiros de publicidade respeitáveis.',
+    'privacy.new.personal.title': '5. Informações pessoais',
+    'privacy.new.personal.text': 'Não exigimos que você crie uma conta para usar as ferramentas principais. Se você entrar em contato conosco por e-mail, usaremos seu endereço de e-mail apenas para responder à sua mensagem. Não compartilhamos seu endereço de e-mail com terceiros.',
+    'privacy.new.retention.title': '6. Retenção de dados',
+    'privacy.new.retention.text': 'Os arquivos enviados para o PDFStation são excluídos automaticamente após o processamento, geralmente em minutos. Não retemos seus arquivos por mais tempo do que o necessário para concluir a conversão. Os dados de análise podem ser retidos em forma agregada por períodos mais longos para nos ajudar a melhorar o serviço.',
+    'privacy.new.rights.title': '7. Seus direitos',
+    'privacy.new.rights.intro': 'Você tem o direito de:',
+    'privacy.new.rights.item1': 'Acessar quaisquer informações pessoais que possamos ter sobre você',
+    'privacy.new.rights.item2': 'Solicitar a exclusão de seus dados',
+    'privacy.new.rights.item3': 'Optar por não participar do rastreamento de análise',
+    'privacy.new.rights.item4': 'Entrar em contato conosco com preocupações ou perguntas sobre privacidade',
+    'privacy.new.changes.title': '8. Alterações nesta política',
+    'privacy.new.changes.text': 'Podemos atualizar esta Política de Privacidade de tempos em tempos. A versão mais recente estará sempre disponível nesta página. Notificaremos os usuários sobre alterações significativas atualizando a data "Última atualização" no topo desta página.',
+    'privacy.new.contact.title': '9. Contato',
+    'privacy.new.contact.text': 'Se você tiver perguntas sobre esta Política de Privacidade ou como tratamos seus dados, pode entrar em contato conosco em:',
+    'privacy.new.contact.email': 'hi@pdfstation.app',
+    
+    // Tool page detailed explanations
+    'tool.images-to-pdf.detail.title': 'Converter JPG e PNG para PDF online',
+    'tool.images-to-pdf.detail.paragraph1': 'O PDFStation permite converter imagens em arquivos PDF de alta qualidade diretamente no seu navegador. Isso é útil quando você precisa agrupar várias fotos em um único documento, enviar digitalizações como PDF ou preparar arquivos para impressão.',
+    'tool.images-to-pdf.detail.paragraph2': 'O processo é simples: faça upload de uma ou mais imagens JPG ou PNG, organize-as na ordem desejada, se necessário, clique em converter e baixe seu PDF. Todas as conversões acontecem por uma conexão segura. Os arquivos são mantidos apenas o tempo suficiente para gerar seu PDF e são excluídos automaticamente depois.',
+    'tool.images-to-pdf.detail.paragraph3': 'Seja convertendo uma única foto ou combinando várias imagens em um PDF, nossa ferramenta preserva a qualidade da imagem enquanto cria um documento PDF profissional que é fácil de compartilhar, imprimir ou arquivar.',
+    'tool.word-to-pdf.detail.title': 'Transformar documentos Word em PDF com um clique',
+    'tool.word-to-pdf.detail.paragraph1': 'Com a ferramenta Word para PDF, você pode converter arquivos DOC e DOCX em PDFs que preservam layout, fontes e paginação. Isso é ideal para currículos, relatórios, contratos e qualquer documento que deva parecer o mesmo em todos os dispositivos.',
+    'tool.word-to-pdf.detail.paragraph2': 'Basta fazer upload do seu arquivo Word, aguardar alguns segundos e baixar um PDF pronto para compartilhar. Sem instalação, sem registro. A conversão mantém a formatação do seu documento, incluindo cabeçalhos, rodapés, tabelas e imagens, garantindo que seu PDF pareça exatamente como pretendido.',
+    'tool.word-to-pdf.detail.paragraph3': 'Esta ferramenta é perfeita para profissionais que precisam compartilhar documentos que devem aparecer consistentes em diferentes dispositivos e sistemas operacionais. O formato PDF garante que seu documento pareça o mesmo, seja visualizado em um computador, tablet ou smartphone.',
+    'tool.pdf-compress.detail.title': 'Comprimir arquivos PDF grandes sem perder qualidade',
+    'tool.pdf-compress.detail.paragraph1': 'A ferramenta de compressão de PDF reduz o tamanho do arquivo para facilitar o envio de documentos por e-mail, upload para plataformas ou armazenamento na nuvem. Aplicamos compressão inteligente que tenta manter texto e imagens legíveis enquanto reduz peso desnecessário.',
+    'tool.pdf-compress.detail.paragraph2': 'Você pode usá-la para apresentações, documentos digitalizados e relatórios de várias páginas. O algoritmo de compressão analisa seu PDF e otimiza imagens, remove dados redundantes e comprime o conteúdo sem afetar significativamente a qualidade visual.',
+    'tool.pdf-compress.detail.paragraph3': 'Isso é especialmente útil quando você precisa atender limites de tamanho de arquivo para anexos de e-mail ou envios online. Comprima seu PDF uma vez e você terá um arquivo menor que é mais fácil de compartilhar, mantendo a aparência profissional.',
+    'tool.pdf-merge.detail.title': 'Combinar vários PDFs em um único documento',
+    'tool.pdf-merge.detail.paragraph1': 'A ferramenta de mesclagem permite fazer upload de vários arquivos PDF e uni-los em um. Isso é útil para combinar capítulos, faturas ou páginas digitalizadas em um único arquivo que é mais fácil de compartilhar e organizar.',
+    'tool.pdf-merge.detail.paragraph2': 'Você pode escolher a ordem dos arquivos antes de mesclar e depois baixar um PDF consolidado com apenas alguns cliques. Todas as páginas dos PDFs selecionados serão combinadas na ordem que você especificar, criando um documento perfeito.',
+    'tool.pdf-merge.detail.paragraph3': 'Esta ferramenta é perfeita para estudantes que combinam anotações de aula, profissionais que mesclam relatórios ou qualquer pessoa que precise organizar vários documentos PDF em um único arquivo fácil de gerenciar. O PDF mesclado mantém a qualidade e a formatação de todos os documentos originais.',
   },
   es: {
     // Common UI
@@ -1397,6 +1706,105 @@ const translations: Record<Language, Translations> = {
     'error.invalid.file': 'Archivo o parámetros inválidos.',
     'error.too.many.requests': 'Demasiadas conversiones desde tu IP. Por favor, intenta de nuevo más tarde.',
     'error.request.timeout': 'Tiempo de solicitud agotado. Por favor, intenta de nuevo.',
+    
+    // HomePage new sections (using English as base for now)
+    'home.what.title': 'What is PDFStation?',
+    'home.what.paragraph1': 'PDFStation is a free online platform designed to simplify document management and file conversion. Whether you need to convert images to PDF, transform Word documents into PDF format, compress large files, or merge multiple PDFs into one document, PDFStation provides all these tools in one convenient place.',
+    'home.what.paragraph2': 'Our mission is to make everyday file tasks fast, intuitive, and accessible from any device. You don\'t need to install software, create an account, or worry about complex settings. Just upload your file, choose your desired format, and download the result in seconds.',
+    'home.what.paragraph3': 'PDFStation was created as an independent project to provide a clean, ad-light alternative to heavy desktop software. We focus on simplicity, security, and performance, ensuring that your files are processed quickly and safely without unnecessary complications.',
+    'home.why.title': 'Why Use PDFStation Instead of Desktop Software?',
+    'home.why.intro': 'While desktop software has its place, online tools like PDFStation offer several advantages that make them ideal for quick file conversions and document management tasks.',
+    'home.why.noInstallation.title': 'No Installation Required',
+    'home.why.noInstallation.body': 'Access PDFStation from any device with a web browser. No need to download, install, or update software. This is especially convenient when you\'re using a shared computer or need to convert files on the go.',
+    'home.why.worksAnyDevice.title': 'Works on Any Device',
+    'home.why.worksAnyDevice.body': 'Whether you\'re on Windows, Mac, Linux, or a mobile device, PDFStation works the same way. Your operating system doesn\'t matter.',
+    'home.why.privacy.title': 'Privacy and Security',
+    'home.why.privacy.body': 'Files are processed securely and deleted automatically after conversion. We don\'t store your files permanently or use them for any purpose other than the conversion you requested.',
+    'home.why.speed.title': 'Speed and Convenience',
+    'home.why.speed.body': 'Most conversions complete in seconds. No need to wait for software to load or navigate through complex menus. Just upload, convert, and download.',
+    'home.why.upToDate.title': 'Always Up-to-Date',
+    'home.why.upToDate.body': 'Online tools are automatically updated with the latest features and improvements. You always have access to the most recent version without manual updates.',
+    'home.why.free.title': 'Free Forever',
+    'home.why.free.body': 'All core tools are free to use, with no hidden costs or subscription fees. We may display ads to keep the service sustainable, but the tools themselves remain free.',
+    'home.filesHandled.title': 'How Your Files Are Handled',
+    'home.filesHandled.intro': 'Your privacy and security are our top priorities. When you upload a file to PDFStation, here\'s what happens:',
+    'home.filesHandled.secureUpload.title': 'Secure Upload',
+    'home.filesHandled.secureUpload.body': 'Files are uploaded over an encrypted connection (HTTPS) to ensure your data is protected during transmission.',
+    'home.filesHandled.temporaryProcessing.title': 'Temporary Processing',
+    'home.filesHandled.temporaryProcessing.body': 'Your files are kept on our servers only for the time needed to complete the conversion, typically just a few minutes.',
+    'home.filesHandled.automaticDeletion.title': 'Automatic Deletion',
+    'home.filesHandled.automaticDeletion.body': 'Once processing is complete and you\'ve downloaded your file, it\'s automatically deleted from our servers. We don\'t store your files permanently.',
+    'home.filesHandled.noManualInspection.title': 'No Manual Inspection',
+    'home.filesHandled.noManualInspection.body': 'We don\'t manually view, read, or inspect the content of your files. The conversion process is fully automated.',
+    'home.filesHandled.noSharing.title': 'No Sharing',
+    'home.filesHandled.noSharing.body': 'We never sell, share, or distribute your files to third parties. Your files remain private and confidential.',
+    'home.filesHandled.privacyLink': 'For more detailed information about our privacy practices, please read our Privacy Policy.',
+    'home.faq.title': 'Frequently Asked Questions',
+    'home.faq.q1.question': 'Are my files stored permanently?',
+    'home.faq.q1.answer': 'No. Files are kept only for the time needed to process your request and are deleted automatically afterwards. We don\'t store your files permanently or use them for any purpose other than the conversion you requested.',
+    'home.faq.q2.question': 'Is PDFStation free to use?',
+    'home.faq.q2.answer': 'Yes. The core tools are completely free. We may display ads to keep the project sustainable, but all conversion tools remain free to use without any subscription or payment required.',
+    'home.faq.q3.question': 'Is there a file size limit?',
+    'home.faq.q3.answer': 'Yes, there are technical limits depending on the tool and server configuration. Currently, we support files up to 100MB. If a file is too large, we will show an error message and you can try compressing it locally before uploading.',
+    'home.faq.q4.question': 'Do I need to create an account?',
+    'home.faq.q4.answer': 'No. You can use all the main tools without registering or logging in. Simply upload your file, convert it, and download the result. No account creation is required.',
+    'home.faq.q5.question': 'Which formats are supported?',
+    'home.faq.q5.answer': 'Common formats include JPG, PNG, PDF, and DOCX (for Word to PDF conversion). Support may expand over time based on user feedback and demand. Check each tool\'s page for specific format requirements.',
+    'home.faq.viewAll': 'View all FAQs →',
+    'privacy.new.intro.title': 'Introduction',
+    'privacy.new.intro.text': 'This Privacy Policy explains how PDFStation ("we", "our", "us") handles information when you use our website and tools. We are committed to protecting your privacy and ensuring the security of your data.',
+    'privacy.new.files.title': '1. Files You Upload',
+    'privacy.new.files.intro': 'Files you upload are used only to perform the requested operation (convert, compress, merge, etc.). Files are kept temporarily on our servers for processing and are deleted automatically after a short period.',
+    'privacy.new.files.item1': 'Files are processed only for the time needed to complete your request',
+    'privacy.new.files.item2': 'We do not sell, share, or manually inspect the content of your files',
+    'privacy.new.files.item3': 'Files are automatically deleted from our servers after processing',
+    'privacy.new.files.item4': 'We do not store your files permanently or use them for any purpose other than the conversion you requested',
+    'privacy.new.usage.title': '2. Usage Data and Analytics',
+    'privacy.new.usage.intro': 'We may collect anonymous usage data to understand how the site is used (for example, which tools are most popular, approximate location, device type). This may be done using third-party analytics tools such as Mixpanel or similar services.',
+    'privacy.new.usage.item1': 'This data helps us improve performance, stability, and user experience',
+    'privacy.new.usage.item2': 'We do not collect personally identifiable information without your consent',
+    'privacy.new.usage.item3': 'Analytics data is aggregated and anonymized',
+    'privacy.new.usage.item4': 'We use this information to fix bugs and optimize our tools',
+    'privacy.new.usage.item5': 'You can opt out of analytics tracking through your browser settings',
+    'privacy.new.cookies.title': '3. Cookies and Similar Technologies',
+    'privacy.new.cookies.intro': 'We may use cookies or local storage to remember your language preference or improve loading performance. Advertising partners such as Google AdSense may use cookies to serve and personalize ads, according to their own policies.',
+    'privacy.new.cookies.item1': 'Cookies are used to remember your preferences (like language selection)',
+    'privacy.new.cookies.item2': 'We do not use cookies to track your browsing behavior across other websites',
+    'privacy.new.cookies.item3': 'You can disable cookies in your browser settings, though this may affect some functionality',
+    'privacy.new.cookies.item4': 'Third-party advertising networks may use their own cookies for ad personalization',
+    'privacy.new.advertising.title': '4. Advertising',
+    'privacy.new.advertising.text': 'PDFStation may display ads from third-party networks such as Google AdSense. These networks may use cookies or other identifiers to show relevant ads in line with their own advertising and privacy policies. We do not control the content of these ads, but we work only with reputable advertising partners.',
+    'privacy.new.personal.title': '5. Personal Information',
+    'privacy.new.personal.text': 'We do not require you to create an account to use the core tools. If you contact us by email, we will use your email address only to reply to your message. We do not share your email address with third parties.',
+    'privacy.new.retention.title': '6. Data Retention',
+    'privacy.new.retention.text': 'Files uploaded to PDFStation are deleted automatically after processing, typically within minutes. We do not retain your files for longer than necessary to complete the conversion. Analytics data may be retained in aggregated form for longer periods to help us improve the service.',
+    'privacy.new.rights.title': '7. Your Rights',
+    'privacy.new.rights.intro': 'You have the right to:',
+    'privacy.new.rights.item1': 'Access any personal information we may have about you',
+    'privacy.new.rights.item2': 'Request deletion of your data',
+    'privacy.new.rights.item3': 'Opt out of analytics tracking',
+    'privacy.new.rights.item4': 'Contact us with privacy concerns or questions',
+    'privacy.new.changes.title': '8. Changes to This Policy',
+    'privacy.new.changes.text': 'We may update this Privacy Policy from time to time. The latest version will always be available on this page. We will notify users of significant changes by updating the "Last updated" date at the top of this page.',
+    'privacy.new.contact.title': '9. Contact',
+    'privacy.new.contact.text': 'If you have questions about this Privacy Policy or how we handle your data, you can contact us at:',
+    'privacy.new.contact.email': 'hi@pdfstation.app',
+    'tool.images-to-pdf.detail.title': 'Convert JPG and PNG to PDF Online',
+    'tool.images-to-pdf.detail.paragraph1': 'PDFStation lets you convert images to high-quality PDF files directly in your browser. This is useful when you need to group multiple photos into a single document, send scans as a PDF, or prepare files for printing.',
+    'tool.images-to-pdf.detail.paragraph2': 'The process is simple: upload one or more JPG or PNG images, arrange them in the desired order if needed, click convert, and download your PDF. All conversions happen over a secure connection. Files are kept only long enough to generate your PDF and are deleted automatically afterwards.',
+    'tool.images-to-pdf.detail.paragraph3': 'Whether you\'re converting a single photo or combining multiple images into one PDF, our tool preserves image quality while creating a professional PDF document that\'s easy to share, print, or archive.',
+    'tool.word-to-pdf.detail.title': 'Turn Word Documents into PDF with One Click',
+    'tool.word-to-pdf.detail.paragraph1': 'With the Word to PDF tool, you can convert DOC and DOCX files into PDFs that preserve layout, fonts, and pagination. This is ideal for resumes, reports, contracts, and any document that should look the same on every device.',
+    'tool.word-to-pdf.detail.paragraph2': 'Simply upload your Word file, wait a few seconds, and download a ready-to-share PDF. No installation, no registration. The conversion maintains your document\'s formatting, including headers, footers, tables, and images, ensuring that your PDF looks exactly as intended.',
+    'tool.word-to-pdf.detail.paragraph3': 'This tool is perfect for professionals who need to share documents that must appear consistent across different devices and operating systems. PDF format ensures that your document will look the same whether viewed on a computer, tablet, or smartphone.',
+    'tool.pdf-compress.detail.title': 'Compress Large PDF Files Without Losing Quality',
+    'tool.pdf-compress.detail.paragraph1': 'The PDF compression tool reduces file size so it\'s easier to send documents by email, upload to platforms, or store them in the cloud. We apply smart compression that tries to keep text and images readable while cutting unnecessary weight.',
+    'tool.pdf-compress.detail.paragraph2': 'You can use it for presentations, scanned documents, and multi-page reports. The compression algorithm analyzes your PDF and optimizes images, removes redundant data, and compresses content without significantly affecting visual quality.',
+    'tool.pdf-compress.detail.paragraph3': 'This is especially useful when you need to meet file size limits for email attachments or online submissions. Compress your PDF once, and you\'ll have a smaller file that\'s easier to share while maintaining professional appearance.',
+    'tool.pdf-merge.detail.title': 'Combine Multiple PDFs into a Single Document',
+    'tool.pdf-merge.detail.paragraph1': 'The merge tool allows you to upload several PDF files and join them into one. This is useful for combining chapters, invoices, or scanned pages into a single file that\'s easier to share and organize.',
+    'tool.pdf-merge.detail.paragraph2': 'You can choose the order of the files before merging and then download a consolidated PDF in just a few clicks. All pages from your selected PDFs will be combined in the order you specify, creating one seamless document.',
+    'tool.pdf-merge.detail.paragraph3': 'This tool is perfect for students combining lecture notes, professionals merging reports, or anyone who needs to organize multiple PDF documents into a single, easy-to-manage file. The merged PDF maintains the quality and formatting of all original documents.',
   },
   fr: {
     // Common UI
@@ -1746,6 +2154,109 @@ const translations: Record<Language, Translations> = {
     'error.invalid.file': 'Fichier ou paramètres invalides.',
     'error.too.many.requests': 'Trop de conversions depuis votre IP. Veuillez réessayer plus tard.',
     'error.request.timeout': 'Délai d\'attente de la requête dépassé. Veuillez réessayer.',
+    
+    // HomePage new sections
+    'home.what.title': 'Qu\'est-ce que PDFStation?',
+    'home.what.paragraph1': 'PDFStation est une plateforme en ligne gratuite conçue pour simplifier la gestion de documents et la conversion de fichiers. Que vous ayez besoin de convertir des images en PDF, transformer des documents Word en format PDF, compresser de gros fichiers ou fusionner plusieurs PDF en un seul document, PDFStation offre tous ces outils en un seul endroit pratique.',
+    'home.what.paragraph2': 'Notre mission est de rendre les tâches quotidiennes de fichiers rapides, intuitives et accessibles depuis n\'importe quel appareil. Vous n\'avez pas besoin d\'installer de logiciel, de créer un compte ou de vous soucier de paramètres complexes. Il suffit de télécharger votre fichier, de choisir le format souhaité et de télécharger le résultat en quelques secondes.',
+    'home.what.paragraph3': 'PDFStation a été créé comme un projet indépendant pour fournir une alternative propre et légère en publicités aux logiciels de bureau lourds. Nous nous concentrons sur la simplicité, la sécurité et les performances, garantissant que vos fichiers sont traités rapidement et en toute sécurité sans complications inutiles.',
+    'home.why.title': 'Pourquoi utiliser PDFStation au lieu d\'un logiciel de bureau?',
+    'home.why.intro': 'Bien que les logiciels de bureau aient leur place, les outils en ligne comme PDFStation offrent plusieurs avantages qui les rendent idéaux pour les conversions de fichiers rapides et les tâches de gestion de documents.',
+    'home.why.noInstallation.title': 'Aucune installation requise',
+    'home.why.noInstallation.body': 'Accédez à PDFStation depuis n\'importe quel appareil avec un navigateur Web. Pas besoin de télécharger, d\'installer ou de mettre à jour des logiciels. C\'est particulièrement pratique lorsque vous utilisez un ordinateur partagé ou devez convertir des fichiers en déplacement.',
+    'home.why.worksAnyDevice.title': 'Fonctionne sur n\'importe quel appareil',
+    'home.why.worksAnyDevice.body': 'Que vous soyez sur Windows, Mac, Linux ou un appareil mobile, PDFStation fonctionne de la même manière. Votre système d\'exploitation n\'a pas d\'importance.',
+    'home.why.privacy.title': 'Confidentialité et sécurité',
+    'home.why.privacy.body': 'Les fichiers sont traités en toute sécurité et supprimés automatiquement après la conversion. Nous ne stockons pas vos fichiers de manière permanente ni ne les utilisons à d\'autres fins que la conversion demandée.',
+    'home.why.speed.title': 'Vitesse et commodité',
+    'home.why.speed.body': 'La plupart des conversions se terminent en quelques secondes. Pas besoin d\'attendre le chargement du logiciel ou de naviguer dans des menus complexes. Il suffit de télécharger, convertir et télécharger.',
+    'home.why.upToDate.title': 'Toujours à jour',
+    'home.why.upToDate.body': 'Les outils en ligne sont automatiquement mis à jour avec les dernières fonctionnalités et améliorations. Vous avez toujours accès à la version la plus récente sans mises à jour manuelles.',
+    'home.why.free.title': 'Gratuit pour toujours',
+    'home.why.free.body': 'Tous les outils principaux sont gratuits, sans coûts cachés ni frais d\'abonnement. Nous pouvons afficher des publicités pour maintenir le service durable, mais les outils eux-mêmes restent gratuits.',
+    'home.filesHandled.title': 'Comment vos fichiers sont traités',
+    'home.filesHandled.intro': 'Votre confidentialité et votre sécurité sont nos priorités absolues. Lorsque vous téléchargez un fichier sur PDFStation, voici ce qui se passe:',
+    'home.filesHandled.secureUpload.title': 'Téléchargement sécurisé',
+    'home.filesHandled.secureUpload.body': 'Les fichiers sont téléchargés via une connexion cryptée (HTTPS) pour garantir que vos données sont protégées pendant la transmission.',
+    'home.filesHandled.temporaryProcessing.title': 'Traitement temporaire',
+    'home.filesHandled.temporaryProcessing.body': 'Vos fichiers sont conservés sur nos serveurs uniquement le temps nécessaire pour terminer la conversion, généralement quelques minutes seulement.',
+    'home.filesHandled.automaticDeletion.title': 'Suppression automatique',
+    'home.filesHandled.automaticDeletion.body': 'Une fois le traitement terminé et que vous avez téléchargé votre fichier, il est automatiquement supprimé de nos serveurs. Nous ne stockons pas vos fichiers de manière permanente.',
+    'home.filesHandled.noManualInspection.title': 'Aucune inspection manuelle',
+    'home.filesHandled.noManualInspection.body': 'Nous ne visualisons, ne lisons ni n\'inspectons manuellement le contenu de vos fichiers. Le processus de conversion est entièrement automatisé.',
+    'home.filesHandled.noSharing.title': 'Aucun partage',
+    'home.filesHandled.noSharing.body': 'Nous ne vendons, ne partageons ni ne distribuons jamais vos fichiers à des tiers. Vos fichiers restent privés et confidentiels.',
+    'home.filesHandled.privacyLink': 'Pour plus d\'informations détaillées sur nos pratiques de confidentialité, veuillez lire notre Politique de confidentialité.',
+    'home.faq.title': 'Questions fréquemment posées',
+    'home.faq.q1.question': 'Mes fichiers sont-ils stockés de manière permanente?',
+    'home.faq.q1.answer': 'Non. Les fichiers sont conservés uniquement le temps nécessaire pour traiter votre demande et sont supprimés automatiquement par la suite. Nous ne stockons pas vos fichiers de manière permanente ni ne les utilisons à d\'autres fins que la conversion demandée.',
+    'home.faq.q2.question': 'PDFStation est-il gratuit?',
+    'home.faq.q2.answer': 'Oui. Les outils principaux sont entièrement gratuits. Nous pouvons afficher des publicités pour maintenir le projet durable, mais tous les outils de conversion restent gratuits sans abonnement ni paiement requis.',
+    'home.faq.q3.question': 'Y a-t-il une limite de taille de fichier?',
+    'home.faq.q3.answer': 'Oui, il existe des limites techniques selon l\'outil et la configuration du serveur. Actuellement, nous prenons en charge les fichiers jusqu\'à 100 Mo. Si un fichier est trop volumineux, nous afficherons un message d\'erreur et vous pourrez essayer de le compresser localement avant de le télécharger.',
+    'home.faq.q4.question': 'Dois-je créer un compte?',
+    'home.faq.q4.answer': 'Non. Vous pouvez utiliser tous les outils principaux sans vous inscrire ou vous connecter. Il suffit de télécharger votre fichier, de le convertir et de télécharger le résultat. Aucune création de compte n\'est requise.',
+    'home.faq.q5.question': 'Quels formats sont pris en charge?',
+    'home.faq.q5.answer': 'Les formats courants incluent JPG, PNG, PDF et DOCX (pour la conversion Word en PDF). Le support peut s\'étendre au fil du temps en fonction des commentaires et de la demande des utilisateurs. Consultez la page de chaque outil pour les exigences de format spécifiques.',
+    'home.faq.viewAll': 'Voir toutes les questions fréquentes →',
+    
+    // Privacy Policy new sections
+    'privacy.new.intro.title': 'Introduction',
+    'privacy.new.intro.text': 'Cette Politique de confidentialité explique comment PDFStation ("nous", "notre", "nos") traite les informations lorsque vous utilisez notre site Web et nos outils. Nous nous engageons à protéger votre confidentialité et à assurer la sécurité de vos données.',
+    'privacy.new.files.title': '1. Fichiers que vous téléchargez',
+    'privacy.new.files.intro': 'Les fichiers que vous téléchargez sont utilisés uniquement pour effectuer l\'opération demandée (convertir, compresser, fusionner, etc.). Les fichiers sont conservés temporairement sur nos serveurs pour traitement et sont supprimés automatiquement après une courte période.',
+    'privacy.new.files.item1': 'Les fichiers sont traités uniquement le temps nécessaire pour terminer votre demande',
+    'privacy.new.files.item2': 'Nous ne vendons, ne partageons ni n\'inspectons manuellement le contenu de vos fichiers',
+    'privacy.new.files.item3': 'Les fichiers sont automatiquement supprimés de nos serveurs après traitement',
+    'privacy.new.files.item4': 'Nous ne stockons pas vos fichiers de manière permanente ni ne les utilisons à d\'autres fins que la conversion demandée',
+    'privacy.new.usage.title': '2. Données d\'utilisation et analyses',
+    'privacy.new.usage.intro': 'Nous pouvons collecter des données d\'utilisation anonymes pour comprendre comment le site est utilisé (par exemple, quels outils sont les plus populaires, emplacement approximatif, type d\'appareil). Cela peut être fait en utilisant des outils d\'analyse tiers tels que Mixpanel ou des services similaires.',
+    'privacy.new.usage.item1': 'Ces données nous aident à améliorer les performances, la stabilité et l\'expérience utilisateur',
+    'privacy.new.usage.item2': 'Nous ne collectons pas d\'informations personnellement identifiables sans votre consentement',
+    'privacy.new.usage.item3': 'Les données d\'analyse sont agrégées et anonymisées',
+    'privacy.new.usage.item4': 'Nous utilisons ces informations pour corriger les bugs et optimiser nos outils',
+    'privacy.new.usage.item5': 'Vous pouvez vous désinscrire du suivi d\'analyse via les paramètres de votre navigateur',
+    'privacy.new.cookies.title': '3. Cookies et technologies similaires',
+    'privacy.new.cookies.intro': 'Nous pouvons utiliser des cookies ou un stockage local pour mémoriser votre préférence de langue ou améliorer les performances de chargement. Les partenaires publicitaires tels que Google AdSense peuvent utiliser des cookies pour diffuser et personnaliser les publicités, conformément à leurs propres politiques.',
+    'privacy.new.cookies.item1': 'Les cookies sont utilisés pour mémoriser vos préférences (comme la sélection de langue)',
+    'privacy.new.cookies.item2': 'Nous n\'utilisons pas de cookies pour suivre votre comportement de navigation sur d\'autres sites Web',
+    'privacy.new.cookies.item3': 'Vous pouvez désactiver les cookies dans les paramètres de votre navigateur, bien que cela puisse affecter certaines fonctionnalités',
+    'privacy.new.cookies.item4': 'Les réseaux publicitaires tiers peuvent utiliser leurs propres cookies pour la personnalisation des publicités',
+    'privacy.new.advertising.title': '4. Publicité',
+    'privacy.new.advertising.text': 'PDFStation peut afficher des publicités provenant de réseaux tiers tels que Google AdSense. Ces réseaux peuvent utiliser des cookies ou d\'autres identifiants pour afficher des publicités pertinentes conformément à leurs propres politiques publicitaires et de confidentialité. Nous ne contrôlons pas le contenu de ces publicités, mais nous travaillons uniquement avec des partenaires publicitaires réputés.',
+    'privacy.new.personal.title': '5. Informations personnelles',
+    'privacy.new.personal.text': 'Nous ne vous demandons pas de créer un compte pour utiliser les outils principaux. Si vous nous contactez par e-mail, nous utiliserons votre adresse e-mail uniquement pour répondre à votre message. Nous ne partageons pas votre adresse e-mail avec des tiers.',
+    'privacy.new.retention.title': '6. Conservation des données',
+    'privacy.new.retention.text': 'Les fichiers téléchargés sur PDFStation sont supprimés automatiquement après traitement, généralement en quelques minutes. Nous ne conservons pas vos fichiers plus longtemps que nécessaire pour terminer la conversion. Les données d\'analyse peuvent être conservées sous forme agrégée pendant de plus longues périodes pour nous aider à améliorer le service.',
+    'privacy.new.rights.title': '7. Vos droits',
+    'privacy.new.rights.intro': 'Vous avez le droit de:',
+    'privacy.new.rights.item1': 'Accéder à toute information personnelle que nous pourrions avoir sur vous',
+    'privacy.new.rights.item2': 'Demander la suppression de vos données',
+    'privacy.new.rights.item3': 'Vous désinscrire du suivi d\'analyse',
+    'privacy.new.rights.item4': 'Nous contacter avec des préoccupations ou questions de confidentialité',
+    'privacy.new.changes.title': '8. Modifications de cette politique',
+    'privacy.new.changes.text': 'Nous pouvons mettre à jour cette Politique de confidentialité de temps à autre. La dernière version sera toujours disponible sur cette page. Nous informerons les utilisateurs des modifications importantes en mettant à jour la date "Dernière mise à jour" en haut de cette page.',
+    'privacy.new.contact.title': '9. Contact',
+    'privacy.new.contact.text': 'Si vous avez des questions sur cette Politique de confidentialité ou sur la façon dont nous traitons vos données, vous pouvez nous contacter à:',
+    'privacy.new.contact.email': 'hi@pdfstation.app',
+    
+    // Tool page detailed explanations
+    'tool.images-to-pdf.detail.title': 'Convertir JPG et PNG en PDF en ligne',
+    'tool.images-to-pdf.detail.paragraph1': 'PDFStation vous permet de convertir des images en fichiers PDF de haute qualité directement dans votre navigateur. C\'est utile lorsque vous devez regrouper plusieurs photos en un seul document, envoyer des scans en PDF ou préparer des fichiers pour l\'impression.',
+    'tool.images-to-pdf.detail.paragraph2': 'Le processus est simple: téléchargez une ou plusieurs images JPG ou PNG, organisez-les dans l\'ordre souhaité si nécessaire, cliquez sur convertir et téléchargez votre PDF. Toutes les conversions se font via une connexion sécurisée. Les fichiers sont conservés juste assez longtemps pour générer votre PDF et sont supprimés automatiquement par la suite.',
+    'tool.images-to-pdf.detail.paragraph3': 'Que vous convertissiez une seule photo ou combiniez plusieurs images en un PDF, notre outil préserve la qualité de l\'image tout en créant un document PDF professionnel facile à partager, imprimer ou archiver.',
+    'tool.word-to-pdf.detail.title': 'Transformer des documents Word en PDF en un clic',
+    'tool.word-to-pdf.detail.paragraph1': 'Avec l\'outil Word en PDF, vous pouvez convertir des fichiers DOC et DOCX en PDF qui préservent la mise en page, les polices et la pagination. C\'est idéal pour les CV, rapports, contrats et tout document qui doit avoir la même apparence sur tous les appareils.',
+    'tool.word-to-pdf.detail.paragraph2': 'Il suffit de télécharger votre fichier Word, d\'attendre quelques secondes et de télécharger un PDF prêt à être partagé. Aucune installation, aucun enregistrement. La conversion maintient la mise en forme de votre document, y compris les en-têtes, pieds de page, tableaux et images, garantissant que votre PDF ressemble exactement à ce qui était prévu.',
+    'tool.word-to-pdf.detail.paragraph3': 'Cet outil est parfait pour les professionnels qui doivent partager des documents qui doivent apparaître cohérents sur différents appareils et systèmes d\'exploitation. Le format PDF garantit que votre document aura la même apparence qu\'il soit visualisé sur un ordinateur, une tablette ou un smartphone.',
+    'tool.pdf-compress.detail.title': 'Compresser de gros fichiers PDF sans perdre en qualité',
+    'tool.pdf-compress.detail.paragraph1': 'L\'outil de compression PDF réduit la taille du fichier pour faciliter l\'envoi de documents par e-mail, le téléchargement sur des plateformes ou leur stockage dans le cloud. Nous appliquons une compression intelligente qui tente de garder le texte et les images lisibles tout en réduisant le poids inutile.',
+    'tool.pdf-compress.detail.paragraph2': 'Vous pouvez l\'utiliser pour les présentations, documents scannés et rapports multi-pages. L\'algorithme de compression analyse votre PDF et optimise les images, supprime les données redondantes et compresse le contenu sans affecter significativement la qualité visuelle.',
+    'tool.pdf-compress.detail.paragraph3': 'C\'est particulièrement utile lorsque vous devez respecter les limites de taille de fichier pour les pièces jointes e-mail ou les soumissions en ligne. Compressez votre PDF une fois et vous aurez un fichier plus petit plus facile à partager tout en maintenant une apparence professionnelle.',
+    'tool.pdf-merge.detail.title': 'Combiner plusieurs PDF en un seul document',
+    'tool.pdf-merge.detail.paragraph1': 'L\'outil de fusion vous permet de télécharger plusieurs fichiers PDF et de les joindre en un seul. C\'est utile pour combiner des chapitres, factures ou pages scannées en un seul fichier plus facile à partager et organiser.',
+    'tool.pdf-merge.detail.paragraph2': 'Vous pouvez choisir l\'ordre des fichiers avant de fusionner puis télécharger un PDF consolidé en quelques clics. Toutes les pages de vos PDF sélectionnés seront combinées dans l\'ordre que vous spécifiez, créant un document fluide.',
+    'tool.pdf-merge.detail.paragraph3': 'Cet outil est parfait pour les étudiants qui combinent des notes de cours, les professionnels qui fusionnent des rapports ou toute personne qui doit organiser plusieurs documents PDF en un seul fichier facile à gérer. Le PDF fusionné maintient la qualité et la mise en forme de tous les documents originaux.',
   },
   it: {
     // Common UI
@@ -2095,6 +2606,105 @@ const translations: Record<Language, Translations> = {
     'error.invalid.file': 'File o parametri non validi.',
     'error.too.many.requests': 'Troppe conversioni dal tuo IP. Riprova più tardi.',
     'error.request.timeout': 'Timeout della richiesta. Riprova.',
+    
+    // HomePage new sections (using English as base for now)
+    'home.what.title': 'What is PDFStation?',
+    'home.what.paragraph1': 'PDFStation is a free online platform designed to simplify document management and file conversion. Whether you need to convert images to PDF, transform Word documents into PDF format, compress large files, or merge multiple PDFs into one document, PDFStation provides all these tools in one convenient place.',
+    'home.what.paragraph2': 'Our mission is to make everyday file tasks fast, intuitive, and accessible from any device. You don\'t need to install software, create an account, or worry about complex settings. Just upload your file, choose your desired format, and download the result in seconds.',
+    'home.what.paragraph3': 'PDFStation was created as an independent project to provide a clean, ad-light alternative to heavy desktop software. We focus on simplicity, security, and performance, ensuring that your files are processed quickly and safely without unnecessary complications.',
+    'home.why.title': 'Why Use PDFStation Instead of Desktop Software?',
+    'home.why.intro': 'While desktop software has its place, online tools like PDFStation offer several advantages that make them ideal for quick file conversions and document management tasks.',
+    'home.why.noInstallation.title': 'No Installation Required',
+    'home.why.noInstallation.body': 'Access PDFStation from any device with a web browser. No need to download, install, or update software. This is especially convenient when you\'re using a shared computer or need to convert files on the go.',
+    'home.why.worksAnyDevice.title': 'Works on Any Device',
+    'home.why.worksAnyDevice.body': 'Whether you\'re on Windows, Mac, Linux, or a mobile device, PDFStation works the same way. Your operating system doesn\'t matter.',
+    'home.why.privacy.title': 'Privacy and Security',
+    'home.why.privacy.body': 'Files are processed securely and deleted automatically after conversion. We don\'t store your files permanently or use them for any purpose other than the conversion you requested.',
+    'home.why.speed.title': 'Speed and Convenience',
+    'home.why.speed.body': 'Most conversions complete in seconds. No need to wait for software to load or navigate through complex menus. Just upload, convert, and download.',
+    'home.why.upToDate.title': 'Always Up-to-Date',
+    'home.why.upToDate.body': 'Online tools are automatically updated with the latest features and improvements. You always have access to the most recent version without manual updates.',
+    'home.why.free.title': 'Free Forever',
+    'home.why.free.body': 'All core tools are free to use, with no hidden costs or subscription fees. We may display ads to keep the service sustainable, but the tools themselves remain free.',
+    'home.filesHandled.title': 'How Your Files Are Handled',
+    'home.filesHandled.intro': 'Your privacy and security are our top priorities. When you upload a file to PDFStation, here\'s what happens:',
+    'home.filesHandled.secureUpload.title': 'Secure Upload',
+    'home.filesHandled.secureUpload.body': 'Files are uploaded over an encrypted connection (HTTPS) to ensure your data is protected during transmission.',
+    'home.filesHandled.temporaryProcessing.title': 'Temporary Processing',
+    'home.filesHandled.temporaryProcessing.body': 'Your files are kept on our servers only for the time needed to complete the conversion, typically just a few minutes.',
+    'home.filesHandled.automaticDeletion.title': 'Automatic Deletion',
+    'home.filesHandled.automaticDeletion.body': 'Once processing is complete and you\'ve downloaded your file, it\'s automatically deleted from our servers. We don\'t store your files permanently.',
+    'home.filesHandled.noManualInspection.title': 'No Manual Inspection',
+    'home.filesHandled.noManualInspection.body': 'We don\'t manually view, read, or inspect the content of your files. The conversion process is fully automated.',
+    'home.filesHandled.noSharing.title': 'No Sharing',
+    'home.filesHandled.noSharing.body': 'We never sell, share, or distribute your files to third parties. Your files remain private and confidential.',
+    'home.filesHandled.privacyLink': 'For more detailed information about our privacy practices, please read our Privacy Policy.',
+    'home.faq.title': 'Frequently Asked Questions',
+    'home.faq.q1.question': 'Are my files stored permanently?',
+    'home.faq.q1.answer': 'No. Files are kept only for the time needed to process your request and are deleted automatically afterwards. We don\'t store your files permanently or use them for any purpose other than the conversion you requested.',
+    'home.faq.q2.question': 'Is PDFStation free to use?',
+    'home.faq.q2.answer': 'Yes. The core tools are completely free. We may display ads to keep the project sustainable, but all conversion tools remain free to use without any subscription or payment required.',
+    'home.faq.q3.question': 'Is there a file size limit?',
+    'home.faq.q3.answer': 'Yes, there are technical limits depending on the tool and server configuration. Currently, we support files up to 100MB. If a file is too large, we will show an error message and you can try compressing it locally before uploading.',
+    'home.faq.q4.question': 'Do I need to create an account?',
+    'home.faq.q4.answer': 'No. You can use all the main tools without registering or logging in. Simply upload your file, convert it, and download the result. No account creation is required.',
+    'home.faq.q5.question': 'Which formats are supported?',
+    'home.faq.q5.answer': 'Common formats include JPG, PNG, PDF, and DOCX (for Word to PDF conversion). Support may expand over time based on user feedback and demand. Check each tool\'s page for specific format requirements.',
+    'home.faq.viewAll': 'View all FAQs →',
+    'privacy.new.intro.title': 'Introduction',
+    'privacy.new.intro.text': 'This Privacy Policy explains how PDFStation ("we", "our", "us") handles information when you use our website and tools. We are committed to protecting your privacy and ensuring the security of your data.',
+    'privacy.new.files.title': '1. Files You Upload',
+    'privacy.new.files.intro': 'Files you upload are used only to perform the requested operation (convert, compress, merge, etc.). Files are kept temporarily on our servers for processing and are deleted automatically after a short period.',
+    'privacy.new.files.item1': 'Files are processed only for the time needed to complete your request',
+    'privacy.new.files.item2': 'We do not sell, share, or manually inspect the content of your files',
+    'privacy.new.files.item3': 'Files are automatically deleted from our servers after processing',
+    'privacy.new.files.item4': 'We do not store your files permanently or use them for any purpose other than the conversion you requested',
+    'privacy.new.usage.title': '2. Usage Data and Analytics',
+    'privacy.new.usage.intro': 'We may collect anonymous usage data to understand how the site is used (for example, which tools are most popular, approximate location, device type). This may be done using third-party analytics tools such as Mixpanel or similar services.',
+    'privacy.new.usage.item1': 'This data helps us improve performance, stability, and user experience',
+    'privacy.new.usage.item2': 'We do not collect personally identifiable information without your consent',
+    'privacy.new.usage.item3': 'Analytics data is aggregated and anonymized',
+    'privacy.new.usage.item4': 'We use this information to fix bugs and optimize our tools',
+    'privacy.new.usage.item5': 'You can opt out of analytics tracking through your browser settings',
+    'privacy.new.cookies.title': '3. Cookies and Similar Technologies',
+    'privacy.new.cookies.intro': 'We may use cookies or local storage to remember your language preference or improve loading performance. Advertising partners such as Google AdSense may use cookies to serve and personalize ads, according to their own policies.',
+    'privacy.new.cookies.item1': 'Cookies are used to remember your preferences (like language selection)',
+    'privacy.new.cookies.item2': 'We do not use cookies to track your browsing behavior across other websites',
+    'privacy.new.cookies.item3': 'You can disable cookies in your browser settings, though this may affect some functionality',
+    'privacy.new.cookies.item4': 'Third-party advertising networks may use their own cookies for ad personalization',
+    'privacy.new.advertising.title': '4. Advertising',
+    'privacy.new.advertising.text': 'PDFStation may display ads from third-party networks such as Google AdSense. These networks may use cookies or other identifiers to show relevant ads in line with their own advertising and privacy policies. We do not control the content of these ads, but we work only with reputable advertising partners.',
+    'privacy.new.personal.title': '5. Personal Information',
+    'privacy.new.personal.text': 'We do not require you to create an account to use the core tools. If you contact us by email, we will use your email address only to reply to your message. We do not share your email address with third parties.',
+    'privacy.new.retention.title': '6. Data Retention',
+    'privacy.new.retention.text': 'Files uploaded to PDFStation are deleted automatically after processing, typically within minutes. We do not retain your files for longer than necessary to complete the conversion. Analytics data may be retained in aggregated form for longer periods to help us improve the service.',
+    'privacy.new.rights.title': '7. Your Rights',
+    'privacy.new.rights.intro': 'You have the right to:',
+    'privacy.new.rights.item1': 'Access any personal information we may have about you',
+    'privacy.new.rights.item2': 'Request deletion of your data',
+    'privacy.new.rights.item3': 'Opt out of analytics tracking',
+    'privacy.new.rights.item4': 'Contact us with privacy concerns or questions',
+    'privacy.new.changes.title': '8. Changes to This Policy',
+    'privacy.new.changes.text': 'We may update this Privacy Policy from time to time. The latest version will always be available on this page. We will notify users of significant changes by updating the "Last updated" date at the top of this page.',
+    'privacy.new.contact.title': '9. Contact',
+    'privacy.new.contact.text': 'If you have questions about this Privacy Policy or how we handle your data, you can contact us at:',
+    'privacy.new.contact.email': 'hi@pdfstation.app',
+    'tool.images-to-pdf.detail.title': 'Convert JPG and PNG to PDF Online',
+    'tool.images-to-pdf.detail.paragraph1': 'PDFStation lets you convert images to high-quality PDF files directly in your browser. This is useful when you need to group multiple photos into a single document, send scans as a PDF, or prepare files for printing.',
+    'tool.images-to-pdf.detail.paragraph2': 'The process is simple: upload one or more JPG or PNG images, arrange them in the desired order if needed, click convert, and download your PDF. All conversions happen over a secure connection. Files are kept only long enough to generate your PDF and are deleted automatically afterwards.',
+    'tool.images-to-pdf.detail.paragraph3': 'Whether you\'re converting a single photo or combining multiple images into one PDF, our tool preserves image quality while creating a professional PDF document that\'s easy to share, print, or archive.',
+    'tool.word-to-pdf.detail.title': 'Turn Word Documents into PDF with One Click',
+    'tool.word-to-pdf.detail.paragraph1': 'With the Word to PDF tool, you can convert DOC and DOCX files into PDFs that preserve layout, fonts, and pagination. This is ideal for resumes, reports, contracts, and any document that should look the same on every device.',
+    'tool.word-to-pdf.detail.paragraph2': 'Simply upload your Word file, wait a few seconds, and download a ready-to-share PDF. No installation, no registration. The conversion maintains your document\'s formatting, including headers, footers, tables, and images, ensuring that your PDF looks exactly as intended.',
+    'tool.word-to-pdf.detail.paragraph3': 'This tool is perfect for professionals who need to share documents that must appear consistent across different devices and operating systems. PDF format ensures that your document will look the same whether viewed on a computer, tablet, or smartphone.',
+    'tool.pdf-compress.detail.title': 'Compress Large PDF Files Without Losing Quality',
+    'tool.pdf-compress.detail.paragraph1': 'The PDF compression tool reduces file size so it\'s easier to send documents by email, upload to platforms, or store them in the cloud. We apply smart compression that tries to keep text and images readable while cutting unnecessary weight.',
+    'tool.pdf-compress.detail.paragraph2': 'You can use it for presentations, scanned documents, and multi-page reports. The compression algorithm analyzes your PDF and optimizes images, removes redundant data, and compresses content without significantly affecting visual quality.',
+    'tool.pdf-compress.detail.paragraph3': 'This is especially useful when you need to meet file size limits for email attachments or online submissions. Compress your PDF once, and you\'ll have a smaller file that\'s easier to share while maintaining professional appearance.',
+    'tool.pdf-merge.detail.title': 'Combine Multiple PDFs into a Single Document',
+    'tool.pdf-merge.detail.paragraph1': 'The merge tool allows you to upload several PDF files and join them into one. This is useful for combining chapters, invoices, or scanned pages into a single file that\'s easier to share and organize.',
+    'tool.pdf-merge.detail.paragraph2': 'You can choose the order of the files before merging and then download a consolidated PDF in just a few clicks. All pages from your selected PDFs will be combined in the order you specify, creating one seamless document.',
+    'tool.pdf-merge.detail.paragraph3': 'This tool is perfect for students combining lecture notes, professionals merging reports, or anyone who needs to organize multiple PDF documents into a single, easy-to-manage file. The merged PDF maintains the quality and formatting of all original documents.',
   },
 };
 
