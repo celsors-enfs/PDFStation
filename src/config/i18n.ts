@@ -85,6 +85,9 @@ export interface Translations {
   'about.paragraph1': string;
   'about.paragraph2': string;
   'about.paragraph3': string;
+  'about.paragraph4': string;
+  'about.contact.link.text': string;
+  'about.contact.link.label': string;
   'about.values.title': string;
   'about.mission.title': string;
   'about.mission.description': string;
@@ -94,6 +97,23 @@ export interface Translations {
   'about.user.focused.description': string;
   'about.privacy.first.title': string;
   'about.privacy.first.description': string;
+  
+  // Contact Page
+  'contact.title': string;
+  'contact.subtitle': string;
+  'contact.email.title': string;
+  'contact.email.description': string;
+  'contact.bug.title': string;
+  'contact.bug.description': string;
+  'contact.feature.title': string;
+  'contact.feature.description': string;
+  'contact.translation.title': string;
+  'contact.translation.description': string;
+  'contact.inquiry.title': string;
+  'contact.inquiry.description': string;
+  'contact.response.title': string;
+  'contact.response.paragraph1': string;
+  'contact.response.paragraph2': string;
   
   // FAQ
   'faq.title': string;
@@ -153,6 +173,10 @@ export interface Translations {
   'tool.more.info.title': string;
   'tool.more.info.paragraph1': string;
   'tool.more.info.paragraph2': string;
+  'tool.nav.images-to-pdf': string;
+  'tool.nav.word-to-pdf': string;
+  'tool.nav.compress': string;
+  'tool.nav.merge': string;
   'tool.other.popular': string;
   'tool.not.found.title': string;
   'tool.not.found.description': string;
@@ -539,10 +563,30 @@ const translations: Record<Language, Translations> = {
     // About Page
     'about.title': 'About PDFStation',
     'about.subtitle': 'Smart file conversion in one simple place.',
-    'about.paragraph1': 'PDFStation was founded with a simple goal: to make file conversion as easy and accessible as possible. We understand that converting files between different formats can be frustrating, especially when you need to do it quickly or don\'t have the right software installed.',
-    'about.paragraph2': 'Our platform is built on modern technology that ensures fast, reliable conversions without compromising on quality. Whether you\'re a student, professional, or business, PDFStation provides the tools you need to work with your files efficiently. Best of all, our core conversion tools are free forever.',
-    'about.paragraph3': 'We\'re committed to maintaining the highest standards of security and privacy. Your files are processed securely and automatically deleted from our servers, so you can convert with confidence.',
+    'about.paragraph1': 'PDFStation is a free online platform for converting and managing documents in a simple and secure way. Our goal is to make everyday file tasks – like converting images to PDF, turning Word documents into PDF, compressing large files, and merging multiple PDFs – fast, intuitive, and accessible from any device.',
+    'about.paragraph2': 'PDFStation is an independent project created and maintained by Celso Silva, currently based in Canada. The idea came from a simple need: having a clean, ad-light, no-nonsense tool to handle files without installing heavy desktop software.',
+    'about.paragraph3': 'We focus on simplicity, security, and performance. No complicated menus, just the tools you need. Files are processed only for the time needed to convert or compress, then removed automatically. Conversions are optimized so you don\'t waste time waiting.',
+    'about.paragraph4': 'The platform is constantly evolving, and new tools and improvements are added over time based on real usage and feedback. If you have suggestions or find any issues, you\'re always welcome to reach out through our',
+    'about.contact.link.text': 'contact page',
+    'about.contact.link.label': 'contact page',
     'about.values.title': 'Our Values',
+    
+    // Contact Page
+    'contact.title': 'Contact',
+    'contact.subtitle': 'We\'d love to hear from you. Get in touch with any questions, suggestions, or feedback.',
+    'contact.email.title': 'Email Us',
+    'contact.email.description': 'If you have questions, suggestions, or feedback about PDFStation, you can reach us by email:',
+    'contact.bug.title': 'Report a Bug',
+    'contact.bug.description': 'Found an issue with file conversion or noticed something not working as expected? Let us know and we\'ll fix it as soon as possible.',
+    'contact.feature.title': 'Suggest a Feature',
+    'contact.feature.description': 'Have an idea for a new tool or improvement? We\'re always looking to make PDFStation better based on user feedback.',
+    'contact.translation.title': 'Translation Fix',
+    'contact.translation.description': 'Spotted a typo or found a translation that doesn\'t make sense? Help us improve the multilingual experience.',
+    'contact.inquiry.title': 'General Inquiry',
+    'contact.inquiry.description': 'Have a question about how PDFStation works, our privacy practices, or anything else? We\'re here to help.',
+    'contact.response.title': 'Response Time',
+    'contact.response.paragraph1': 'We read all messages and do our best to reply as soon as possible. Typically, you can expect a response within 24-48 hours during business days.',
+    'contact.response.paragraph2': 'For urgent matters related to file conversion issues or security concerns, please mention "URGENT" in your subject line, and we\'ll prioritize your message.',
     'about.mission.title': 'Our Mission',
     'about.mission.description': 'To make file conversion simple, fast, and accessible to everyone, regardless of technical expertise. Free forever.',
     'about.innovation.title': 'Innovation',
@@ -610,6 +654,10 @@ const translations: Record<Language, Translations> = {
     'tool.more.info.title': 'Additional Information',
     'tool.more.info.paragraph1': 'Our {toolName} converter uses advanced algorithms to ensure accurate conversion while preserving the original formatting and structure of your documents.',
     'tool.more.info.paragraph2': 'All conversions are performed in the cloud, so you don\'t need to install any software. Simply upload your file and download the converted result. Free forever.',
+    'tool.nav.images-to-pdf': 'JPG/PNG → PDF',
+    'tool.nav.word-to-pdf': 'Word → PDF',
+    'tool.nav.compress': 'Compress',
+    'tool.nav.merge': 'Merge',
     'tool.other.popular': 'Other Popular Tools',
     'category.tools.title': '{category} Tools',
     'category.word': 'Word',
@@ -993,10 +1041,30 @@ const translations: Record<Language, Translations> = {
     // About Page
     'about.title': 'Sobre o PDFStation',
     'about.subtitle': 'Conversão inteligente de arquivos em um só lugar.',
-    'about.paragraph1': 'O PDFStation foi fundado com um objetivo simples: tornar a conversão de arquivos o mais fácil e acessível possível. Entendemos que converter arquivos entre diferentes formatos pode ser frustrante, especialmente quando você precisa fazer isso rapidamente ou não tem o software certo instalado.',
-    'about.paragraph2': 'Nossa plataforma é construída com tecnologia moderna que garante conversões rápidas e confiáveis sem comprometer a qualidade. Seja você um estudante, profissional ou empresa, o PDFStation fornece as ferramentas necessárias para trabalhar com seus arquivos com eficiência. O melhor de tudo, nossas ferramentas de conversão principais são gratuitas para sempre.',
-    'about.paragraph3': 'Estamos comprometidos em manter os mais altos padrões de segurança e privacidade. Seus arquivos são processados com segurança e automaticamente excluídos de nossos servidores, para que você possa converter com confiança.',
+    'about.paragraph1': 'O PDFStation é uma plataforma online gratuita para converter e gerenciar documentos de forma simples e segura. Nosso objetivo é tornar as tarefas diárias com arquivos – como converter imagens para PDF, transformar documentos Word em PDF, comprimir arquivos grandes e unir vários PDFs – rápidas, intuitivas e acessíveis de qualquer dispositivo.',
+    'about.paragraph2': 'O PDFStation é um projeto independente criado e mantido por Celso Silva, atualmente baseado no Canadá. A ideia surgiu de uma necessidade simples: ter uma ferramenta limpa, com poucos anúncios e direta para lidar com arquivos sem instalar software pesado no desktop.',
+    'about.paragraph3': 'Focamos em simplicidade, segurança e desempenho. Sem menus complicados, apenas as ferramentas que você precisa. Os arquivos são processados apenas pelo tempo necessário para converter ou comprimir, depois removidos automaticamente. As conversões são otimizadas para que você não perca tempo esperando.',
+    'about.paragraph4': 'A plataforma está em constante evolução, e novas ferramentas e melhorias são adicionadas ao longo do tempo com base no uso real e no feedback. Se você tiver sugestões ou encontrar algum problema, sempre será bem-vindo para entrar em contato através da nossa',
+    'about.contact.link.text': 'página de contato',
+    'about.contact.link.label': 'página de contato',
     'about.values.title': 'Nossos Valores',
+    
+    // Contact Page
+    'contact.title': 'Contato',
+    'contact.subtitle': 'Adoraríamos ouvir de você. Entre em contato com qualquer dúvida, sugestão ou feedback.',
+    'contact.email.title': 'Envie-nos um Email',
+    'contact.email.description': 'Se você tiver dúvidas, sugestões ou feedback sobre o PDFStation, pode nos contatar por email:',
+    'contact.bug.title': 'Reportar um Bug',
+    'contact.bug.description': 'Encontrou um problema com a conversão de arquivos ou notou algo que não está funcionando como esperado? Avise-nos e corrigiremos o mais rápido possível.',
+    'contact.feature.title': 'Sugerir uma Funcionalidade',
+    'contact.feature.description': 'Tem uma ideia para uma nova ferramenta ou melhoria? Estamos sempre procurando tornar o PDFStation melhor com base no feedback dos usuários.',
+    'contact.translation.title': 'Correção de Tradução',
+    'contact.translation.description': 'Encontrou um erro de digitação ou uma tradução que não faz sentido? Ajude-nos a melhorar a experiência multilíngue.',
+    'contact.inquiry.title': 'Consulta Geral',
+    'contact.inquiry.description': 'Tem uma pergunta sobre como o PDFStation funciona, nossas práticas de privacidade ou qualquer outra coisa? Estamos aqui para ajudar.',
+    'contact.response.title': 'Tempo de Resposta',
+    'contact.response.paragraph1': 'Lemos todas as mensagens e fazemos o nosso melhor para responder o mais rápido possível. Normalmente, você pode esperar uma resposta em 24-48 horas durante os dias úteis.',
+    'contact.response.paragraph2': 'Para questões urgentes relacionadas a problemas de conversão de arquivos ou preocupações de segurança, por favor mencione "URGENTE" na linha de assunto, e priorizaremos sua mensagem.',
     'about.mission.title': 'Nossa Missão',
     'about.mission.description': 'Tornar a conversão de arquivos simples, rápida e acessível para todos, independentemente da experiência técnica. Grátis para sempre.',
     'about.innovation.title': 'Inovação',
@@ -1064,6 +1132,10 @@ const translations: Record<Language, Translations> = {
     'tool.more.info.title': 'Informações Adicionais',
     'tool.more.info.paragraph1': 'Nosso conversor {toolName} usa algoritmos avançados para garantir conversão precisa, preservando a formatação e estrutura originais de seus documentos.',
     'tool.more.info.paragraph2': 'Todas as conversões são realizadas na nuvem, então você não precisa instalar nenhum software. Simplesmente faça upload do seu arquivo e baixe o resultado convertido. Grátis para sempre.',
+    'tool.nav.images-to-pdf': 'JPG/PNG → PDF',
+    'tool.nav.word-to-pdf': 'Word → PDF',
+    'tool.nav.compress': 'Comprimir',
+    'tool.nav.merge': 'Unir',
     'tool.other.popular': 'Outras Ferramentas Populares',
     'category.tools.title': 'Ferramentas {category}',
     'category.word': 'Word',
@@ -1447,10 +1519,30 @@ const translations: Record<Language, Translations> = {
     // About Page
     'about.title': 'Acerca de PDFStation',
     'about.subtitle': 'Conversión inteligente de archivos en un solo lugar.',
-    'about.paragraph1': 'PDFStation fue fundado con un objetivo simple: hacer que la conversión de archivos sea lo más fácil y accesible posible. Entendemos que convertir archivos entre diferentes formatos puede ser frustrante, especialmente cuando necesitas hacerlo rápidamente o no tienes el software adecuado instalado.',
-    'about.paragraph2': 'Nuestra plataforma está construida con tecnología moderna que garantiza conversiones rápidas y confiables sin comprometer la calidad. Ya seas estudiante, profesional o empresa, PDFStation proporciona las herramientas que necesitas para trabajar con tus archivos de manera eficiente. Lo mejor de todo, nuestras herramientas de conversión principales son gratuitas para siempre.',
-    'about.paragraph3': 'Estamos comprometidos a mantener los más altos estándares de seguridad y privacidad. Tus archivos se procesan de forma segura y se eliminan automáticamente de nuestros servidores, para que puedas convertir con confianza.',
+    'about.paragraph1': 'PDFStation es una plataforma en línea gratuita para convertir y gestionar documentos de forma simple y segura. Nuestro objetivo es hacer que las tareas diarias con archivos – como convertir imágenes a PDF, transformar documentos Word a PDF, comprimir archivos grandes y unir varios PDFs – sean rápidas, intuitivas y accesibles desde cualquier dispositivo.',
+    'about.paragraph2': 'PDFStation es un proyecto independiente creado y mantenido por Celso Silva, actualmente con base en Canadá. La idea surgió de una necesidad simple: tener una herramienta limpia, con pocos anuncios y directa para manejar archivos sin instalar software pesado en el escritorio.',
+    'about.paragraph3': 'Nos enfocamos en simplicidad, seguridad y rendimiento. Sin menús complicados, solo las herramientas que necesitas. Los archivos se procesan solo el tiempo necesario para convertir o comprimir, luego se eliminan automáticamente. Las conversiones están optimizadas para que no pierdas tiempo esperando.',
+    'about.paragraph4': 'La plataforma está en constante evolución, y se agregan nuevas herramientas y mejoras con el tiempo basadas en el uso real y los comentarios. Si tienes sugerencias o encuentras algún problema, siempre serás bienvenido a contactarnos a través de nuestra',
+    'about.contact.link.text': 'página de contacto',
+    'about.contact.link.label': 'página de contacto',
     'about.values.title': 'Nuestros Valores',
+    
+    // Contact Page
+    'contact.title': 'Contacto',
+    'contact.subtitle': 'Nos encantaría saber de ti. Ponte en contacto con cualquier pregunta, sugerencia o comentario.',
+    'contact.email.title': 'Envíanos un Email',
+    'contact.email.description': 'Si tienes preguntas, sugerencias o comentarios sobre PDFStation, puedes contactarnos por email:',
+    'contact.bug.title': 'Reportar un Error',
+    'contact.bug.description': '¿Encontraste un problema con la conversión de archivos o notaste algo que no funciona como se esperaba? Avísanos y lo corregiremos lo antes posible.',
+    'contact.feature.title': 'Sugerir una Funcionalidad',
+    'contact.feature.description': '¿Tienes una idea para una nueva herramienta o mejora? Siempre estamos buscando hacer PDFStation mejor basándonos en los comentarios de los usuarios.',
+    'contact.translation.title': 'Corrección de Traducción',
+    'contact.translation.description': '¿Encontraste un error tipográfico o una traducción que no tiene sentido? Ayúdanos a mejorar la experiencia multilingüe.',
+    'contact.inquiry.title': 'Consulta General',
+    'contact.inquiry.description': '¿Tienes una pregunta sobre cómo funciona PDFStation, nuestras prácticas de privacidad o cualquier otra cosa? Estamos aquí para ayudar.',
+    'contact.response.title': 'Tiempo de Respuesta',
+    'contact.response.paragraph1': 'Leemos todos los mensajes y hacemos nuestro mejor esfuerzo para responder lo antes posible. Típicamente, puedes esperar una respuesta en 24-48 horas durante los días laborables.',
+    'contact.response.paragraph2': 'Para asuntos urgentes relacionados con problemas de conversión de archivos o preocupaciones de seguridad, por favor menciona "URGENTE" en la línea de asunto, y priorizaremos tu mensaje.',
     'about.mission.title': 'Nuestra Misión',
     'about.mission.description': 'Hacer que la conversión de archivos sea simple, rápida y accesible para todos, independientemente de la experiencia técnica. Gratis para siempre.',
     'about.innovation.title': 'Innovación',
@@ -1518,6 +1610,10 @@ const translations: Record<Language, Translations> = {
     'tool.more.info.title': 'Información Adicional',
     'tool.more.info.paragraph1': 'Nuestro conversor {toolName} usa algoritmos avanzados para garantizar una conversión precisa mientras preserva el formato y la estructura originales de tus documentos.',
     'tool.more.info.paragraph2': 'Todas las conversiones se realizan en la nuvem, por lo que no necesitas instalar ningún software. Simplemente sube tu archivo y descarga el resultado convertido. Gratis para siempre.',
+    'tool.nav.images-to-pdf': 'JPG/PNG → PDF',
+    'tool.nav.word-to-pdf': 'Word → PDF',
+    'tool.nav.compress': 'Comprimir',
+    'tool.nav.merge': 'Unir',
     'tool.other.popular': 'Otras Herramientas Populares',
     'category.tools.title': 'Herramientas {category}',
     'category.word': 'Word',
@@ -1797,22 +1893,22 @@ const translations: Record<Language, Translations> = {
     'privacy.new.contact.title': '9. Contacto',
     'privacy.new.contact.text': 'Si tienes preguntas sobre esta Política de Privacidad o cómo manejamos tus datos, puedes contactarnos en:',
     'privacy.new.contact.email': 'hi@pdfstation.app',
-    'tool.images-to-pdf.detail.title': 'Convert JPG and PNG to PDF Online',
-    'tool.images-to-pdf.detail.paragraph1': 'PDFStation lets you convert images to high-quality PDF files directly in your browser. This is useful when you need to group multiple photos into a single document, send scans as a PDF, or prepare files for printing.',
-    'tool.images-to-pdf.detail.paragraph2': 'The process is simple: upload one or more JPG or PNG images, arrange them in the desired order if needed, click convert, and download your PDF. All conversions happen over a secure connection. Files are kept only long enough to generate your PDF and are deleted automatically afterwards.',
-    'tool.images-to-pdf.detail.paragraph3': 'Whether you\'re converting a single photo or combining multiple images into one PDF, our tool preserves image quality while creating a professional PDF document that\'s easy to share, print, or archive.',
-    'tool.word-to-pdf.detail.title': 'Turn Word Documents into PDF with One Click',
-    'tool.word-to-pdf.detail.paragraph1': 'With the Word to PDF tool, you can convert DOC and DOCX files into PDFs that preserve layout, fonts, and pagination. This is ideal for resumes, reports, contracts, and any document that should look the same on every device.',
-    'tool.word-to-pdf.detail.paragraph2': 'Simply upload your Word file, wait a few seconds, and download a ready-to-share PDF. No installation, no registration. The conversion maintains your document\'s formatting, including headers, footers, tables, and images, ensuring that your PDF looks exactly as intended.',
-    'tool.word-to-pdf.detail.paragraph3': 'This tool is perfect for professionals who need to share documents that must appear consistent across different devices and operating systems. PDF format ensures that your document will look the same whether viewed on a computer, tablet, or smartphone.',
-    'tool.pdf-compress.detail.title': 'Compress Large PDF Files Without Losing Quality',
-    'tool.pdf-compress.detail.paragraph1': 'The PDF compression tool reduces file size so it\'s easier to send documents by email, upload to platforms, or store them in the cloud. We apply smart compression that tries to keep text and images readable while cutting unnecessary weight.',
-    'tool.pdf-compress.detail.paragraph2': 'You can use it for presentations, scanned documents, and multi-page reports. The compression algorithm analyzes your PDF and optimizes images, removes redundant data, and compresses content without significantly affecting visual quality.',
-    'tool.pdf-compress.detail.paragraph3': 'This is especially useful when you need to meet file size limits for email attachments or online submissions. Compress your PDF once, and you\'ll have a smaller file that\'s easier to share while maintaining professional appearance.',
-    'tool.pdf-merge.detail.title': 'Combine Multiple PDFs into a Single Document',
-    'tool.pdf-merge.detail.paragraph1': 'The merge tool allows you to upload several PDF files and join them into one. This is useful for combining chapters, invoices, or scanned pages into a single file that\'s easier to share and organize.',
-    'tool.pdf-merge.detail.paragraph2': 'You can choose the order of the files before merging and then download a consolidated PDF in just a few clicks. All pages from your selected PDFs will be combined in the order you specify, creating one seamless document.',
-    'tool.pdf-merge.detail.paragraph3': 'This tool is perfect for students combining lecture notes, professionals merging reports, or anyone who needs to organize multiple PDF documents into a single, easy-to-manage file. The merged PDF maintains the quality and formatting of all original documents.',
+    'tool.images-to-pdf.detail.title': 'Convertir JPG y PNG a PDF en Línea',
+    'tool.images-to-pdf.detail.paragraph1': 'PDFStation te permite convertir imágenes en archivos PDF de alta calidad directamente en tu navegador. Esto es útil cuando necesitas agrupar varias fotos en un solo documento, enviar escaneos como PDF o preparar archivos para imprimir.',
+    'tool.images-to-pdf.detail.paragraph2': 'El proceso es simple: sube una o más imágenes JPG o PNG, organízalas en el orden deseado si es necesario, haz clic en convertir y descarga tu PDF. Todas las conversiones se realizan a través de una conexión segura. Los archivos se mantienen solo el tiempo suficiente para generar tu PDF y se eliminan automáticamente después.',
+    'tool.images-to-pdf.detail.paragraph3': 'Ya sea que estés convirtiendo una sola foto o combinando varias imágenes en un PDF, nuestra herramienta preserva la calidad de la imagen mientras crea un documento PDF profesional que es fácil de compartir, imprimir o archivar.',
+    'tool.word-to-pdf.detail.title': 'Convertir Documentos Word a PDF con Un Clic',
+    'tool.word-to-pdf.detail.paragraph1': 'Con la herramienta Word a PDF, puedes convertir archivos DOC y DOCX en PDFs que preservan el diseño, las fuentes y la paginación. Esto es ideal para currículums, informes, contratos y cualquier documento que deba verse igual en todos los dispositivos.',
+    'tool.word-to-pdf.detail.paragraph2': 'Simplemente sube tu archivo Word, espera unos segundos y descarga un PDF listo para compartir. Sin instalación, sin registro. La conversión mantiene el formato de tu documento, incluyendo encabezados, pies de página, tablas e imágenes, asegurando que tu PDF se vea exactamente como se pretende.',
+    'tool.word-to-pdf.detail.paragraph3': 'Esta herramienta es perfecta para profesionales que necesitan compartir documentos que deben aparecer consistentes en diferentes dispositivos y sistemas operativos. El formato PDF asegura que tu documento se verá igual ya sea visto en una computadora, tableta o smartphone.',
+    'tool.pdf-compress.detail.title': 'Comprimir Archivos PDF Grandes Sin Perder Calidad',
+    'tool.pdf-compress.detail.paragraph1': 'La herramienta de compresión de PDF reduce el tamaño del archivo para que sea más fácil enviar documentos por email, subirlos a plataformas o almacenarlos en la nube. Aplicamos compresión inteligente que intenta mantener el texto y las imágenes legibles mientras reduce el peso innecesario.',
+    'tool.pdf-compress.detail.paragraph2': 'Puedes usarla para presentaciones, documentos escaneados e informes de varias páginas. El algoritmo de compresión analiza tu PDF y optimiza imágenes, elimina datos redundantes y comprime el contenido sin afectar significativamente la calidad visual.',
+    'tool.pdf-compress.detail.paragraph3': 'Esto es especialmente útil cuando necesitas cumplir con límites de tamaño de archivo para adjuntos de email o envíos en línea. Comprime tu PDF una vez y tendrás un archivo más pequeño que es más fácil de compartir manteniendo la apariencia profesional.',
+    'tool.pdf-merge.detail.title': 'Combinar Múltiples PDFs en un Solo Documento',
+    'tool.pdf-merge.detail.paragraph1': 'La herramienta de unión te permite subir varios archivos PDF y unirlos en uno. Esto es útil para combinar capítulos, facturas o páginas escaneadas en un solo archivo que es más fácil de compartir y organizar.',
+    'tool.pdf-merge.detail.paragraph2': 'Puedes elegir el orden de los archivos antes de unir y luego descargar un PDF consolidado con solo unos clics. Todas las páginas de tus PDFs seleccionados se combinarán en el orden que especifiques, creando un documento perfecto.',
+    'tool.pdf-merge.detail.paragraph3': 'Esta herramienta es perfecta para estudiantes que combinan notas de clase, profesionales que unen informes o cualquiera que necesite organizar múltiples documentos PDF en un solo archivo fácil de gestionar. El PDF unido mantiene la calidad y el formato de todos los documentos originales.',
   },
   fr: {
     // Common UI
@@ -1897,10 +1993,30 @@ const translations: Record<Language, Translations> = {
     // About Page
     'about.title': 'À Propos de PDFStation',
     'about.subtitle': 'Conversion intelligente de fichiers en un seul endroit.',
-    'about.paragraph1': 'PDFStation a été fondé avec un objectif simple: rendre la conversion de fichiers aussi simple et accessible que possible. Nous comprenons que convertir des fichiers entre différents formats peut être frustrant, surtout lorsque vous devez le faire rapidement ou que vous n\'avez pas le bon logiciel installé.',
-    'about.paragraph2': 'Notre plateforme est construite avec une technologie moderne qui garantit des conversions rapides et fiables sans compromettre la qualité. Que vous soyez étudiant, professionnel ou entreprise, PDFStation fournit les outils dont vous avez besoin pour travailler efficacement avec vos fichiers. Le meilleur de tout, nos outils de conversion principaux sont gratuits pour toujours.',
-    'about.paragraph3': 'Nous nous engageons à maintenir les plus hauts standards de sécurité et de confidentialité. Vos fichiers sont traités en toute sécurité et automatiquement supprimés de nos serveurs, vous pouvez donc convertir en toute confiance.',
+    'about.paragraph1': 'PDFStation est une plateforme en ligne gratuite pour convertir et gérer des documents de manière simple et sécurisée. Notre objectif est de rendre les tâches quotidiennes avec les fichiers – comme convertir des images en PDF, transformer des documents Word en PDF, compresser de gros fichiers et fusionner plusieurs PDFs – rapides, intuitives et accessibles depuis n\'importe quel appareil.',
+    'about.paragraph2': 'PDFStation est un projet indépendant créé et maintenu par Celso Silva, actuellement basé au Canada. L\'idée est venue d\'un besoin simple: avoir un outil propre, avec peu de publicités et direct pour gérer les fichiers sans installer de logiciel lourd sur le bureau.',
+    'about.paragraph3': 'Nous nous concentrons sur la simplicité, la sécurité et les performances. Pas de menus compliqués, juste les outils dont vous avez besoin. Les fichiers sont traités uniquement le temps nécessaire pour convertir ou compresser, puis supprimés automatiquement. Les conversions sont optimisées pour que vous ne perdiez pas de temps à attendre.',
+    'about.paragraph4': 'La plateforme évolue constamment, et de nouveaux outils et améliorations sont ajoutés au fil du temps en fonction de l\'utilisation réelle et des commentaires. Si vous avez des suggestions ou trouvez des problèmes, vous êtes toujours le bienvenu pour nous contacter via notre',
+    'about.contact.link.text': 'page de contact',
+    'about.contact.link.label': 'page de contact',
     'about.values.title': 'Nos Valeurs',
+    
+    // Contact Page
+    'contact.title': 'Contact',
+    'contact.subtitle': 'Nous serions ravis d\'avoir de vos nouvelles. Contactez-nous pour toute question, suggestion ou commentaire.',
+    'contact.email.title': 'Envoyez-nous un Email',
+    'contact.email.description': 'Si vous avez des questions, des suggestions ou des commentaires sur PDFStation, vous pouvez nous contacter par email:',
+    'contact.bug.title': 'Signaler un Bug',
+    'contact.bug.description': 'Vous avez trouvé un problème avec la conversion de fichiers ou remarqué que quelque chose ne fonctionne pas comme prévu? Faites-le nous savoir et nous le corrigerons dès que possible.',
+    'contact.feature.title': 'Suggérer une Fonctionnalité',
+    'contact.feature.description': 'Vous avez une idée pour un nouvel outil ou une amélioration? Nous cherchons toujours à améliorer PDFStation en fonction des commentaires des utilisateurs.',
+    'contact.translation.title': 'Correction de Traduction',
+    'contact.translation.description': 'Vous avez repéré une faute de frappe ou trouvé une traduction qui n\'a pas de sens? Aidez-nous à améliorer l\'expérience multilingue.',
+    'contact.inquiry.title': 'Demande Générale',
+    'contact.inquiry.description': 'Vous avez une question sur le fonctionnement de PDFStation, nos pratiques de confidentialité ou autre chose? Nous sommes là pour vous aider.',
+    'contact.response.title': 'Délai de Réponse',
+    'contact.response.paragraph1': 'Nous lisons tous les messages et faisons de notre mieux pour répondre dès que possible. En général, vous pouvez vous attendre à une réponse dans les 24-48 heures pendant les jours ouvrables.',
+    'contact.response.paragraph2': 'Pour les questions urgentes liées aux problèmes de conversion de fichiers ou aux préoccupations de sécurité, veuillez mentionner "URGENT" dans la ligne d\'objet, et nous prioriserons votre message.',
     'about.mission.title': 'Notre Mission',
     'about.mission.description': 'Rendre la conversion de fichiers simple, rapide et accessible à tous, quelle que soit l\'expertise technique. Gratuit pour toujours.',
     'about.innovation.title': 'Innovation',
@@ -1968,6 +2084,10 @@ const translations: Record<Language, Translations> = {
     'tool.more.info.title': 'Informations Supplémentaires',
     'tool.more.info.paragraph1': 'Notre convertisseur {toolName} utilise des algorithmes avancés pour garantir une conversion précise tout en préservant le formatage et la structure originaux de vos documents.',
     'tool.more.info.paragraph2': 'Toutes les conversions sont effectuées dans le cloud, vous n\'avez donc pas besoin d\'installer de logiciel. Téléchargez simplement votre fichier et téléchargez le résultat converti. Gratuit pour toujours.',
+    'tool.nav.images-to-pdf': 'JPG/PNG → PDF',
+    'tool.nav.word-to-pdf': 'Word → PDF',
+    'tool.nav.compress': 'Compresser',
+    'tool.nav.merge': 'Fusionner',
     'tool.other.popular': 'Autres Outils Populaires',
     'category.tools.title': 'Outils {category}',
     'category.word': 'Word',
@@ -2351,10 +2471,30 @@ const translations: Record<Language, Translations> = {
     // About Page
     'about.title': 'Informazioni su PDFStation',
     'about.subtitle': 'Conversione intelligente di file in un unico posto.',
-    'about.paragraph1': 'PDFStation è stato fondato con un obiettivo semplice: rendere la conversione di file il più semplice e accessibile possibile. Capiamo che convertire file tra diversi formati può essere frustrante, soprattutto quando devi farlo rapidamente o non hai il software giusto installato.',
-    'about.paragraph2': 'La nostra piattaforma è costruita con tecnologia moderna che garantisce conversioni rapide e affidabili senza compromettere la qualità. Che tu sia uno studente, un professionista o un\'azienda, PDFStation fornisce gli strumenti necessari per lavorare in modo efficiente con i tuoi file. Il meglio di tutto, i nostri strumenti di conversione principali sono gratuiti per sempre.',
-    'about.paragraph3': 'Siamo impegnati a mantenere i più alti standard di sicurezza e privacy. I tuoi file vengono elaborati in modo sicuro ed eliminati automaticamente dai nostri server, quindi puoi convertire con fiducia.',
+    'about.paragraph1': 'PDFStation è una piattaforma online gratuita per convertire e gestire documenti in modo semplice e sicuro. Il nostro obiettivo è rendere le attività quotidiane con i file – come convertire immagini in PDF, trasformare documenti Word in PDF, comprimere file grandi e unire più PDF – veloci, intuitive e accessibili da qualsiasi dispositivo.',
+    'about.paragraph2': 'PDFStation è un progetto indipendente creato e mantenuto da Celso Silva, attualmente con base in Canada. L\'idea è nata da un bisogno semplice: avere uno strumento pulito, con pochi annunci e diretto per gestire i file senza installare software pesanti sul desktop.',
+    'about.paragraph3': 'Ci concentriamo su semplicità, sicurezza e prestazioni. Nessun menu complicato, solo gli strumenti di cui hai bisogno. I file vengono elaborati solo per il tempo necessario per convertire o comprimere, poi rimossi automaticamente. Le conversioni sono ottimizzate per non farti perdere tempo ad aspettare.',
+    'about.paragraph4': 'La piattaforma è in costante evoluzione, e nuovi strumenti e miglioramenti vengono aggiunti nel tempo in base all\'uso reale e ai feedback. Se hai suggerimenti o trovi problemi, sei sempre il benvenuto a contattarci tramite la nostra',
+    'about.contact.link.text': 'pagina di contatto',
+    'about.contact.link.label': 'pagina di contatto',
     'about.values.title': 'I Nostri Valori',
+    
+    // Contact Page
+    'contact.title': 'Contatto',
+    'contact.subtitle': 'Ci piacerebbe sentirti. Mettiti in contatto con qualsiasi domanda, suggerimento o feedback.',
+    'contact.email.title': 'Inviaci un\'Email',
+    'contact.email.description': 'Se hai domande, suggerimenti o feedback su PDFStation, puoi contattarci via email:',
+    'contact.bug.title': 'Segnala un Bug',
+    'contact.bug.description': 'Hai trovato un problema con la conversione di file o notato qualcosa che non funziona come previsto? Faccelo sapere e lo risolveremo il prima possibile.',
+    'contact.feature.title': 'Suggerisci una Funzionalità',
+    'contact.feature.description': 'Hai un\'idea per un nuovo strumento o miglioramento? Cerchiamo sempre di migliorare PDFStation in base al feedback degli utenti.',
+    'contact.translation.title': 'Correzione Traduzione',
+    'contact.translation.description': 'Hai trovato un errore di battitura o una traduzione che non ha senso? Aiutaci a migliorare l\'esperienza multilingue.',
+    'contact.inquiry.title': 'Richiesta Generale',
+    'contact.inquiry.description': 'Hai una domanda su come funziona PDFStation, le nostre pratiche sulla privacy o altro? Siamo qui per aiutare.',
+    'contact.response.title': 'Tempo di Risposta',
+    'contact.response.paragraph1': 'Leggiamo tutti i messaggi e facciamo del nostro meglio per rispondere il prima possibile. In genere, puoi aspettarti una risposta entro 24-48 ore durante i giorni lavorativi.',
+    'contact.response.paragraph2': 'Per questioni urgenti relative a problemi di conversione di file o preoccupazioni di sicurezza, si prega di menzionare "URGENTE" nella riga dell\'oggetto, e daremo priorità al tuo messaggio.',
     'about.mission.title': 'La Nostra Missione',
     'about.mission.description': 'Rendere la conversione di file semplice, veloce e accessibile a tutti, indipendentemente dall\'esperienza tecnica. Gratuito per sempre.',
     'about.innovation.title': 'Innovazione',
@@ -2422,6 +2562,10 @@ const translations: Record<Language, Translations> = {
     'tool.more.info.title': 'Informazioni Aggiuntive',
     'tool.more.info.paragraph1': 'Il nostro convertitore {toolName} utilizza algoritmi avanzati per garantire una conversione accurata preservando la formattazione e la struttura originali dei tuoi documenti.',
     'tool.more.info.paragraph2': 'Tutte le conversioni vengono eseguite nel cloud, quindi non è necessario installare alcun software. Carica semplicemente il tuo file e scarica il risultato convertito. Gratuito per sempre.',
+    'tool.nav.images-to-pdf': 'JPG/PNG → PDF',
+    'tool.nav.word-to-pdf': 'Word → PDF',
+    'tool.nav.compress': 'Comprimi',
+    'tool.nav.merge': 'Unisci',
     'tool.other.popular': 'Altri Strumenti Popolari',
     'category.tools.title': 'Strumenti {category}',
     'category.word': 'Word',
@@ -2701,22 +2845,22 @@ const translations: Record<Language, Translations> = {
     'privacy.new.contact.title': '9. Contatto',
     'privacy.new.contact.text': 'Se hai domande su questa Informativa sulla Privacy o su come gestiamo i tuoi dati, puoi contattarci a:',
     'privacy.new.contact.email': 'hi@pdfstation.app',
-    'tool.images-to-pdf.detail.title': 'Convert JPG and PNG to PDF Online',
-    'tool.images-to-pdf.detail.paragraph1': 'PDFStation lets you convert images to high-quality PDF files directly in your browser. This is useful when you need to group multiple photos into a single document, send scans as a PDF, or prepare files for printing.',
-    'tool.images-to-pdf.detail.paragraph2': 'The process is simple: upload one or more JPG or PNG images, arrange them in the desired order if needed, click convert, and download your PDF. All conversions happen over a secure connection. Files are kept only long enough to generate your PDF and are deleted automatically afterwards.',
-    'tool.images-to-pdf.detail.paragraph3': 'Whether you\'re converting a single photo or combining multiple images into one PDF, our tool preserves image quality while creating a professional PDF document that\'s easy to share, print, or archive.',
-    'tool.word-to-pdf.detail.title': 'Turn Word Documents into PDF with One Click',
-    'tool.word-to-pdf.detail.paragraph1': 'With the Word to PDF tool, you can convert DOC and DOCX files into PDFs that preserve layout, fonts, and pagination. This is ideal for resumes, reports, contracts, and any document that should look the same on every device.',
-    'tool.word-to-pdf.detail.paragraph2': 'Simply upload your Word file, wait a few seconds, and download a ready-to-share PDF. No installation, no registration. The conversion maintains your document\'s formatting, including headers, footers, tables, and images, ensuring that your PDF looks exactly as intended.',
-    'tool.word-to-pdf.detail.paragraph3': 'This tool is perfect for professionals who need to share documents that must appear consistent across different devices and operating systems. PDF format ensures that your document will look the same whether viewed on a computer, tablet, or smartphone.',
-    'tool.pdf-compress.detail.title': 'Compress Large PDF Files Without Losing Quality',
-    'tool.pdf-compress.detail.paragraph1': 'The PDF compression tool reduces file size so it\'s easier to send documents by email, upload to platforms, or store them in the cloud. We apply smart compression that tries to keep text and images readable while cutting unnecessary weight.',
-    'tool.pdf-compress.detail.paragraph2': 'You can use it for presentations, scanned documents, and multi-page reports. The compression algorithm analyzes your PDF and optimizes images, removes redundant data, and compresses content without significantly affecting visual quality.',
-    'tool.pdf-compress.detail.paragraph3': 'This is especially useful when you need to meet file size limits for email attachments or online submissions. Compress your PDF once, and you\'ll have a smaller file that\'s easier to share while maintaining professional appearance.',
-    'tool.pdf-merge.detail.title': 'Combine Multiple PDFs into a Single Document',
-    'tool.pdf-merge.detail.paragraph1': 'The merge tool allows you to upload several PDF files and join them into one. This is useful for combining chapters, invoices, or scanned pages into a single file that\'s easier to share and organize.',
-    'tool.pdf-merge.detail.paragraph2': 'You can choose the order of the files before merging and then download a consolidated PDF in just a few clicks. All pages from your selected PDFs will be combined in the order you specify, creating one seamless document.',
-    'tool.pdf-merge.detail.paragraph3': 'This tool is perfect for students combining lecture notes, professionals merging reports, or anyone who needs to organize multiple PDF documents into a single, easy-to-manage file. The merged PDF maintains the quality and formatting of all original documents.',
+    'tool.images-to-pdf.detail.title': 'Converti JPG e PNG in PDF Online',
+    'tool.images-to-pdf.detail.paragraph1': 'PDFStation ti permette di convertire immagini in file PDF di alta qualità direttamente nel tuo browser. Questo è utile quando devi raggruppare più foto in un unico documento, inviare scansioni come PDF o preparare file per la stampa.',
+    'tool.images-to-pdf.detail.paragraph2': 'Il processo è semplice: carica una o più immagini JPG o PNG, organizza nell\'ordine desiderato se necessario, fai clic su converti e scarica il tuo PDF. Tutte le conversioni avvengono tramite una connessione sicura. I file vengono mantenuti solo il tempo necessario per generare il tuo PDF e vengono eliminati automaticamente dopo.',
+    'tool.images-to-pdf.detail.paragraph3': 'Sia che tu stia convertendo una singola foto o combinando più immagini in un PDF, il nostro strumento preserva la qualità dell\'immagine mentre crea un documento PDF professionale facile da condividere, stampare o archiviare.',
+    'tool.word-to-pdf.detail.title': 'Converti Documenti Word in PDF con Un Clic',
+    'tool.word-to-pdf.detail.paragraph1': 'Con lo strumento Word a PDF, puoi convertire file DOC e DOCX in PDF che preservano layout, font e paginazione. Questo è ideale per curriculum, rapporti, contratti e qualsiasi documento che dovrebbe apparire uguale su ogni dispositivo.',
+    'tool.word-to-pdf.detail.paragraph2': 'Basta caricare il tuo file Word, attendere alcuni secondi e scaricare un PDF pronto per la condivisione. Nessuna installazione, nessuna registrazione. La conversione mantiene la formattazione del tuo documento, inclusi intestazioni, piè di pagina, tabelle e immagini, assicurando che il tuo PDF appaia esattamente come previsto.',
+    'tool.word-to-pdf.detail.paragraph3': 'Questo strumento è perfetto per i professionisti che devono condividere documenti che devono apparire coerenti su diversi dispositivi e sistemi operativi. Il formato PDF assicura che il tuo documento appaia uguale sia visualizzato su computer, tablet o smartphone.',
+    'tool.pdf-compress.detail.title': 'Comprimi File PDF Grandi Senza Perdere Qualità',
+    'tool.pdf-compress.detail.paragraph1': 'Lo strumento di compressione PDF riduce la dimensione del file per facilitare l\'invio di documenti via email, il caricamento su piattaforme o l\'archiviazione nel cloud. Applichiamo una compressione intelligente che cerca di mantenere testo e immagini leggibili riducendo il peso non necessario.',
+    'tool.pdf-compress.detail.paragraph2': 'Puoi usarlo per presentazioni, documenti scansionati e rapporti multi-pagina. L\'algoritmo di compressione analizza il tuo PDF e ottimizza le immagini, rimuove dati ridondanti e comprime il contenuto senza influenzare significativamente la qualità visiva.',
+    'tool.pdf-compress.detail.paragraph3': 'Questo è particolarmente utile quando devi rispettare i limiti di dimensione del file per allegati email o invii online. Comprimi il tuo PDF una volta e avrai un file più piccolo più facile da condividere mantenendo l\'aspetto professionale.',
+    'tool.pdf-merge.detail.title': 'Combina Più PDF in un Unico Documento',
+    'tool.pdf-merge.detail.paragraph1': 'Lo strumento di unione ti consente di caricare diversi file PDF e unirli in uno. Questo è utile per combinare capitoli, fatture o pagine scansionate in un unico file più facile da condividere e organizzare.',
+    'tool.pdf-merge.detail.paragraph2': 'Puoi scegliere l\'ordine dei file prima di unire e poi scaricare un PDF consolidato con pochi clic. Tutte le pagine dei tuoi PDF selezionati saranno combinate nell\'ordine che specifichi, creando un documento perfetto.',
+    'tool.pdf-merge.detail.paragraph3': 'Questo strumento è perfetto per studenti che combinano appunti di lezione, professionisti che uniscono rapporti o chiunque abbia bisogno di organizzare più documenti PDF in un unico file facile da gestire. Il PDF unito mantiene la qualità e la formattazione di tutti i documenti originali.',
   },
 };
 

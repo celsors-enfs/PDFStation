@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Layout } from '@/layouts/Layout';
 import { GoogleAd } from '@/components/GoogleAd';
 import { Seo } from '@/components/Seo';
@@ -54,16 +55,19 @@ export const AboutPage: React.FC = () => {
 
             <div className="prose prose-lg max-w-none mb-12">
               <p className="text-muted-foreground mb-4">
-                PDFStation is a free online platform for converting and managing documents in a simple and secure way. Our goal is to make everyday file tasks – like converting images to PDF, turning Word documents into PDF, compressing large files, and merging multiple PDFs – fast, intuitive, and accessible from any device.
+                {t('about.paragraph1')}
               </p>
               <p className="text-muted-foreground mb-4">
-                PDFStation is an independent project created and maintained by Celso Silva, currently based in Canada. The idea came from a simple need: having a clean, ad-light, no-nonsense tool to handle files without installing heavy desktop software.
+                {t('about.paragraph2')}
               </p>
               <p className="text-muted-foreground mb-4">
-                We focus on simplicity, security, and performance. No complicated menus, just the tools you need. Files are processed only for the time needed to convert or compress, then removed automatically. Conversions are optimized so you don't waste time waiting.
+                {t('about.paragraph3')}
               </p>
               <p className="text-muted-foreground">
-                The platform is constantly evolving, and new tools and improvements are added over time based on real usage and feedback. If you have suggestions or find any issues, you're always welcome to reach out through our <a href="/contact" className="text-primary hover:underline">contact page</a>.
+                {t('about.paragraph4')}{' '}
+                <Link to="/contact" className="text-primary hover:underline">
+                  {t('about.contact.link.label')}
+                </Link>.
               </p>
             </div>
           </div>

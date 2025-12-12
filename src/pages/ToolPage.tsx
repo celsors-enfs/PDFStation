@@ -215,7 +215,7 @@ export const ToolPage: React.FC = () => {
               onClick={() => navigate('/tools/images-to-pdf')}
               aria-label="JPG/PNG to PDF converter"
             >
-              JPG/PNG → PDF
+              {t('tool.nav.images-to-pdf')}
             </Button>
             <Button
               variant={tool?.slug === 'word-to-pdf' ? 'default' : 'outline'}
@@ -223,7 +223,7 @@ export const ToolPage: React.FC = () => {
               onClick={() => navigate('/tools/word-to-pdf')}
               aria-label="Word to PDF converter"
             >
-              Word → PDF
+              {t('tool.nav.word-to-pdf')}
             </Button>
             <Button
               variant={tool?.slug === 'pdf-compress' ? 'default' : 'outline'}
@@ -231,7 +231,7 @@ export const ToolPage: React.FC = () => {
               onClick={() => navigate('/tools/pdf-compress')}
               aria-label="Compress PDF"
             >
-              Compress
+              {t('tool.nav.compress')}
             </Button>
             <Button
               variant={tool?.slug === 'pdf-merge' ? 'default' : 'outline'}
@@ -239,7 +239,7 @@ export const ToolPage: React.FC = () => {
               onClick={() => navigate('/tools/pdf-merge')}
               aria-label="Merge PDF"
             >
-              Merge
+              {t('tool.nav.merge')}
             </Button>
           </div>
         </div>
