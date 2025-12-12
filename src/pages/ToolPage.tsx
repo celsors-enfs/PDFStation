@@ -170,10 +170,9 @@ export const ToolPage: React.FC = () => {
         />
       )}
 
-      <div className="container mx-auto px-4 py-4">
-        <GoogleAd slotKey="TOOL_HEADER" />
-      </div>
-
+      {/* TOOL_HEADER ad removed per AdSense policy: Ads must not render before H1 title */}
+      {/* Ads will only render after editorial content sections below */}
+      
       <div className="container mx-auto px-4 py-4">
         <Breadcrumbs
           items={[
@@ -490,7 +489,8 @@ export const ToolPage: React.FC = () => {
 
           <div className="lg:col-span-1">
             <div className="sticky top-20 space-y-6">
-              <GoogleAd slotKey="SIDEBAR" />
+              {/* Sidebar ads disabled globally per AdSense policy compliance */}
+              {/* Sidebar ads can create "empty screen + ad" scenarios on mobile/tablet */}
 
               <Card>
                 <CardHeader>

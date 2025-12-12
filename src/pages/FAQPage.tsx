@@ -1,7 +1,6 @@
 import React from 'react';
 import { Layout } from '@/layouts/Layout';
 import { FaqAccordion } from '@/components/FaqAccordion';
-import { GoogleAd } from '@/components/GoogleAd';
 import { Seo } from '@/components/Seo';
 
 export const FAQPage: React.FC = () => {
@@ -13,28 +12,14 @@ export const FAQPage: React.FC = () => {
         canonical="/faq"
       />
 
-      <div className="container mx-auto px-4 py-4">
-        <GoogleAd slotKey="TOOL_HEADER" />
-      </div>
-
+      {/* Ads removed from FAQ page per AdSense policy: "Ads served on screens without publisher content" */}
+      {/* FAQ pages are primarily navigation/functional, so ads are disabled */}
+      
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          <div className="lg:col-span-3">
-            <FaqAccordion />
-          </div>
-          <div className="lg:col-span-1">
-            <GoogleAd slotKey="SIDEBAR" className="sticky top-20" />
-          </div>
-        </div>
+        <FaqAccordion />
       </div>
-
-      <div className="container mx-auto px-4 py-8">
-        <GoogleAd slotKey="IN_CONTENT" />
-      </div>
-
-      <div className="container mx-auto px-4 py-8">
-        <GoogleAd slotKey="FOOTER" />
-      </div>
+      
+      {/* All ads removed from FAQ page per AdSense policy compliance */}
     </Layout>
   );
 };

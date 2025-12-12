@@ -1,6 +1,5 @@
 import React from 'react';
 import { Layout } from '@/layouts/Layout';
-import { GoogleAd } from '@/components/GoogleAd';
 import { Seo } from '@/components/Seo';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, MessageSquare, Bug, Lightbulb, FileText } from 'lucide-react';
@@ -16,10 +15,9 @@ export const ContactPage: React.FC = () => {
         canonical="/contact"
       />
 
-      <div className="container mx-auto px-4 py-4">
-        <GoogleAd slotKey="TOOL_HEADER" />
-      </div>
-
+      {/* Ads removed from Contact page per AdSense policy: "Ads served on screens without publisher content" */}
+      {/* This page is primarily functional (contact form/email), so ads are disabled */}
+      
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
@@ -113,20 +111,7 @@ export const ContactPage: React.FC = () => {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          <div className="lg:col-span-3">
-            <GoogleAd slotKey="IN_CONTENT" />
-          </div>
-          <div className="lg:col-span-1">
-            <GoogleAd slotKey="SIDEBAR" className="sticky top-20" />
-          </div>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 py-8">
-        <GoogleAd slotKey="FOOTER" />
-      </div>
+      {/* All ads removed from Contact page per AdSense policy compliance */}
     </Layout>
   );
 };

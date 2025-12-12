@@ -6,9 +6,16 @@ import { ADSENSE_CLIENT_ID, ADSENSE_SLOTS, AdSlotKey } from '@/config/adsense';
  * 
  * Componente reutilizável para exibir anúncios do Google AdSense.
  * 
+ * ADSense POLICY COMPLIANCE:
+ * - Ads must NOT render before H1 title or first content section
+ * - Ads must NOT render on pages without substantial editorial content
+ * - Placeholders are disabled in production (return null if slot not configured)
+ * - Sidebar ads are disabled globally to prevent "empty screen + ad" scenarios
+ * 
  * Como usar:
  * 1. Importe: import { GoogleAd } from '@/components/GoogleAd';
  * 2. Use: <GoogleAd slotKey="TOP_BANNER" className="..." />
+ * 3. Ensure ads render ONLY after at least ~300 words of editorial content
  * 
  * Para adicionar slots reais:
  * 1. Acesse o painel do Google AdSense
@@ -31,6 +38,13 @@ export const GoogleAd: React.FC<GoogleAdProps> = ({
   style,
 }) => {
   const slotId = ADSENSE_SLOTS[slotKey];
+
+  // AdSense Policy Compliance: Disable sidebar ads globally
+  // Sidebar ads can create "empty screen + ad" scenarios on mobile/tablet devices
+  // This violates "Ads served on screens without publisher content" policy
+  if (slotKey === 'SIDEBAR') {
+    return null;
+  }
 
   // Inicializar AdSense quando o componente montar
   useEffect(() => {
@@ -69,25 +83,11 @@ export const GoogleAd: React.FC<GoogleAdProps> = ({
     }
   }, [slotId]);
 
-  // Se o slot ainda não foi configurado, mostrar placeholder
+  // AdSense Policy Compliance: Do NOT show placeholders in production
+  // Placeholders violate "Ads served on screens without publisher content" policy
+  // If slot is not configured, return null instead of showing placeholder
   if (!slotId) {
-    return (
-      <div
-        className={`
-          border-2 border-dashed border-border rounded-lg 
-          bg-muted/50 flex items-center justify-center
-          text-xs text-muted-foreground
-          min-h-[80px]
-          ${className}
-        `}
-        style={style}
-      >
-        <div className="text-center p-2">
-          <p className="font-semibold mb-1">Ad Space</p>
-          <p className="text-xs opacity-70">Slot: {slotKey}</p>
-        </div>
-      </div>
-    );
+    return null;
   }
 
   // Renderizar o anúncio do AdSense

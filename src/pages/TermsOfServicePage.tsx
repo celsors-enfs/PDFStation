@@ -5,7 +5,6 @@ import { Seo } from '@/components/Seo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
-import { GoogleAd } from '@/components/GoogleAd';
 
 export const TermsOfServicePage: React.FC = () => {
   const navigate = useNavigate();
@@ -18,10 +17,9 @@ export const TermsOfServicePage: React.FC = () => {
         canonical="/terms-of-service"
       />
 
-      <div className="container mx-auto px-4 py-4">
-        <GoogleAd slotKey="TOOL_HEADER" />
-      </div>
-
+      {/* Ads removed from Terms of Service page per AdSense policy: "Ads served on screens without publisher content" */}
+      {/* Legal pages are primarily navigation/functional, so ads are disabled */}
+      
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto">
           <Button
@@ -139,9 +137,7 @@ export const TermsOfServicePage: React.FC = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8">
-        <GoogleAd slotKey="FOOTER" />
-      </div>
+      {/* All ads removed from Terms of Service page per AdSense policy compliance */}
     </Layout>
   );
 };
