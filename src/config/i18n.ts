@@ -594,12 +594,12 @@ const translations: Record<Language, Translations> = {
     'home.useCases.mergePdf.cta': 'Try PDF Merger →',
     
     // Trust Section
-    'trust.thousands': 'Trusted by thousands',
-    'trust.active.users': 'Active users worldwide',
+    'trust.thousands': 'High-quality conversions',
+    'trust.active.users': 'Professional results every time',
     'trust.no.files': 'No files stored',
     'trust.ssl.encrypted': 'SSL encrypted',
-    'trust.files.converted': '10,000+ files converted',
-    'trust.every.month': 'Every month',
+    'trust.files.converted': 'Lightning fast processing',
+    'trust.every.month': 'Complete in seconds',
     
     // Supported Formats
     'supported.formats.title': 'Supported File Formats',
@@ -1151,12 +1151,12 @@ const translations: Record<Language, Translations> = {
     'home.useCases.mergePdf.cta': 'Experimente Unir PDFs →',
     
     // Trust Section
-    'trust.thousands': 'Confiado por milhares',
-    'trust.active.users': 'Usuários ativos em todo o mundo',
+    'trust.thousands': 'Conversões de alta qualidade',
+    'trust.active.users': 'Resultados profissionais sempre',
     'trust.no.files': 'Nenhum arquivo armazenado',
     'trust.ssl.encrypted': 'Criptografado SSL',
-    'trust.files.converted': 'Mais de 10.000 arquivos convertidos',
-    'trust.every.month': 'Todo mês',
+    'trust.files.converted': 'Processamento ultrarrápido',
+    'trust.every.month': 'Concluído em segundos',
     
     // Supported Formats
     'supported.formats.title': 'Formatos de Arquivo Suportados',
@@ -1708,12 +1708,12 @@ const translations: Record<Language, Translations> = {
     'home.useCases.mergePdf.cta': 'Prueba Combinar PDFs →',
     
     // Trust Section
-    'trust.thousands': 'Confiado por miles',
-    'trust.active.users': 'Usuarios activos en todo el mundo',
+    'trust.thousands': 'Conversiones de alta calidad',
+    'trust.active.users': 'Resultados profesionales siempre',
     'trust.no.files': 'No se almacenan archivos',
     'trust.ssl.encrypted': 'Cifrado SSL',
-    'trust.files.converted': 'Más de 10.000 archivos convertidos',
-    'trust.every.month': 'Cada mes',
+    'trust.files.converted': 'Procesamiento ultrarrápido',
+    'trust.every.month': 'Completado en segundos',
     
     // Supported Formats
     'supported.formats.title': 'Formatos de Archivo Soportados',
@@ -2261,12 +2261,12 @@ const translations: Record<Language, Translations> = {
     'home.useCases.mergePdf.cta': 'Essayez Fusionner PDFs →',
     
     // Trust Section
-    'trust.thousands': 'Fait confiance par des milliers',
-    'trust.active.users': 'Utilisateurs actifs dans le monde entier',
+    'trust.thousands': 'Conversions de haute qualité',
+    'trust.active.users': 'Résultats professionnels à chaque fois',
     'trust.no.files': 'Aucun fichier stocké',
     'trust.ssl.encrypted': 'Chiffré SSL',
-    'trust.files.converted': 'Plus de 10 000 fichiers convertis',
-    'trust.every.month': 'Chaque mois',
+    'trust.files.converted': 'Traitement ultra-rapide',
+    'trust.every.month': 'Terminé en quelques secondes',
     
     // Supported Formats
     'supported.formats.title': 'Formats de Fichier Pris en Charge',
@@ -2818,12 +2818,12 @@ const translations: Record<Language, Translations> = {
     'home.useCases.mergePdf.cta': 'Prova Unire PDF →',
     
     // Trust Section
-    'trust.thousands': 'Fidato da migliaia',
-    'trust.active.users': 'Utenti attivi in tutto il mondo',
+    'trust.thousands': 'Conversioni di alta qualità',
+    'trust.active.users': 'Risultati professionali sempre',
     'trust.no.files': 'Nessun file memorizzato',
     'trust.ssl.encrypted': 'Crittografato SSL',
-    'trust.files.converted': 'Più di 10.000 file convertiti',
-    'trust.every.month': 'Ogni mese',
+    'trust.files.converted': 'Elaborazione ultra-veloce',
+    'trust.every.month': 'Completato in secondi',
     
     // Supported Formats
     'supported.formats.title': 'Formati di File Supportati',
