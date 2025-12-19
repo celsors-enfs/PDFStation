@@ -6,6 +6,7 @@ import { UploadBox } from '@/components/UploadBox';
 import { GoogleAd } from '@/components/GoogleAd';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Seo } from '@/components/Seo';
+import { ToolEditorial } from '@/components/editorial/ToolEditorial';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { getToolBySlug, Tool } from '@/config/tools';
@@ -247,22 +248,37 @@ export const ToolPage: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <div className="lg:col-span-3">
-            <UploadBox
-              compact
-              defaultTargetFormat={tool?.defaultTargetFormat}
-              outputLabel={tool?.category === 'compress' || tool?.category === 'merge' 
-                ? undefined 
-                : tool?.category === 'images' && tool?.inputType !== 'PDF'
-                  ? t('convert.to.format', { format: translateFormat(tool?.outputType) })
-                  : tool?.category === 'images' && tool?.inputType === 'PDF'
+            {/* Editorial Content - Intro paragraphs */}
+            {tool?.slug && <ToolEditorial toolSlug={tool.slug} showSection="intro" />}
+            
+            {/* How It Works section */}
+            {tool?.slug && <ToolEditorial toolSlug={tool.slug} showSection="howItWorks" />}
+
+            {/* Upload Box - positioned after "How it works" */}
+            <div className="my-8">
+              <UploadBox
+                compact
+                defaultTargetFormat={tool?.defaultTargetFormat}
+                outputLabel={tool?.category === 'compress' || tool?.category === 'merge' 
+                  ? undefined 
+                  : tool?.category === 'images' && tool?.inputType !== 'PDF'
                     ? t('convert.to.format', { format: translateFormat(tool?.outputType) })
-                    : tool?.category === 'pdf' && tool?.inputType !== 'PDF'
+                    : tool?.category === 'images' && tool?.inputType === 'PDF'
                       ? t('convert.to.format', { format: translateFormat(tool?.outputType) })
-                      : t('convert.to')}
-              outputType={tool?.outputType}
-              tool={tool}
-              mode={tool?.category === 'compress' ? 'compress' : tool?.category === 'merge' ? 'merge' : 'convert'}
-            />
+                      : tool?.category === 'pdf' && tool?.inputType !== 'PDF'
+                        ? t('convert.to.format', { format: translateFormat(tool?.outputType) })
+                        : t('convert.to')}
+                outputType={tool?.outputType}
+                tool={tool}
+                mode={tool?.category === 'compress' ? 'compress' : tool?.category === 'merge' ? 'merge' : 'convert'}
+              />
+            </div>
+
+            {/* Quality & Privacy section */}
+            {tool?.slug && <ToolEditorial toolSlug={tool.slug} showSection="qualityPrivacy" />}
+
+            {/* FAQ section */}
+            {tool?.slug && <ToolEditorial toolSlug={tool.slug} showSection="faq" />}
 
             {/* Detailed Tool Explanation Section */}
             {tool?.slug === 'images-to-pdf' && (

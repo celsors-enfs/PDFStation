@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/contact" className="text-muted-foreground hover:text-primary">
-                  Contact
+                  {t('nav.contact')}
                 </Link>
               </li>
             </ul>

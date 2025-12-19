@@ -1,0 +1,16 @@
+# Robots.txt for PDFStation
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow login/signup pages (not useful for search engines)
+Disallow: /login
+Disallow: /signup
+
+# Allow all tool pages
+Allow: /tools/
+
+# Sitemap location
+Sitemap: https://pdfstation.app/sitemap.xml
+

@@ -21,6 +21,21 @@ export interface Translations {
   'home.hero.cta.choose': string;
   'home.hero.cta.explore': string;
   
+  // Common Use Cases
+  'home.useCases.title': string;
+  'home.useCases.wordToPdf.title': string;
+  'home.useCases.wordToPdf.description': string;
+  'home.useCases.wordToPdf.cta': string;
+  'home.useCases.imagesToPdf.title': string;
+  'home.useCases.imagesToPdf.description': string;
+  'home.useCases.imagesToPdf.cta': string;
+  'home.useCases.compressPdf.title': string;
+  'home.useCases.compressPdf.description': string;
+  'home.useCases.compressPdf.cta': string;
+  'home.useCases.mergePdf.title': string;
+  'home.useCases.mergePdf.description': string;
+  'home.useCases.mergePdf.cta': string;
+  
   // Trust Section
   'trust.thousands': string;
   'trust.active.users': string;
@@ -164,6 +179,66 @@ export interface Translations {
   'tool.formats.output': string;
   'tool.formats.files': string;
   'tool.faq.title': string;
+  'tool.editorial.howItWorks': string;
+  'tool.editorial.qualityPrivacy': string;
+  'tool.editorial.faq': string;
+  // Editorial content for tools
+  'tool.editorial.images-to-pdf.introP1': string;
+  'tool.editorial.images-to-pdf.introP2': string;
+  'tool.editorial.images-to-pdf.howItWorks.step1': string;
+  'tool.editorial.images-to-pdf.howItWorks.step2': string;
+  'tool.editorial.images-to-pdf.howItWorks.step3': string;
+  'tool.editorial.images-to-pdf.quality.bullet1': string;
+  'tool.editorial.images-to-pdf.quality.bullet2': string;
+  'tool.editorial.images-to-pdf.quality.bullet3': string;
+  'tool.editorial.images-to-pdf.faq1.q': string;
+  'tool.editorial.images-to-pdf.faq1.a': string;
+  'tool.editorial.images-to-pdf.faq2.q': string;
+  'tool.editorial.images-to-pdf.faq2.a': string;
+  'tool.editorial.images-to-pdf.faq3.q': string;
+  'tool.editorial.images-to-pdf.faq3.a': string;
+  'tool.editorial.word-to-pdf.introP1': string;
+  'tool.editorial.word-to-pdf.introP2': string;
+  'tool.editorial.word-to-pdf.howItWorks.step1': string;
+  'tool.editorial.word-to-pdf.howItWorks.step2': string;
+  'tool.editorial.word-to-pdf.howItWorks.step3': string;
+  'tool.editorial.word-to-pdf.quality.bullet1': string;
+  'tool.editorial.word-to-pdf.quality.bullet2': string;
+  'tool.editorial.word-to-pdf.quality.bullet3': string;
+  'tool.editorial.word-to-pdf.faq1.q': string;
+  'tool.editorial.word-to-pdf.faq1.a': string;
+  'tool.editorial.word-to-pdf.faq2.q': string;
+  'tool.editorial.word-to-pdf.faq2.a': string;
+  'tool.editorial.word-to-pdf.faq3.q': string;
+  'tool.editorial.word-to-pdf.faq3.a': string;
+  'tool.editorial.pdf-compress.introP1': string;
+  'tool.editorial.pdf-compress.introP2': string;
+  'tool.editorial.pdf-compress.howItWorks.step1': string;
+  'tool.editorial.pdf-compress.howItWorks.step2': string;
+  'tool.editorial.pdf-compress.howItWorks.step3': string;
+  'tool.editorial.pdf-compress.quality.bullet1': string;
+  'tool.editorial.pdf-compress.quality.bullet2': string;
+  'tool.editorial.pdf-compress.quality.bullet3': string;
+  'tool.editorial.pdf-compress.faq1.q': string;
+  'tool.editorial.pdf-compress.faq1.a': string;
+  'tool.editorial.pdf-compress.faq2.q': string;
+  'tool.editorial.pdf-compress.faq2.a': string;
+  'tool.editorial.pdf-compress.faq3.q': string;
+  'tool.editorial.pdf-compress.faq3.a': string;
+  'tool.editorial.pdf-merge.introP1': string;
+  'tool.editorial.pdf-merge.introP2': string;
+  'tool.editorial.pdf-merge.howItWorks.step1': string;
+  'tool.editorial.pdf-merge.howItWorks.step2': string;
+  'tool.editorial.pdf-merge.howItWorks.step3': string;
+  'tool.editorial.pdf-merge.quality.bullet1': string;
+  'tool.editorial.pdf-merge.quality.bullet2': string;
+  'tool.editorial.pdf-merge.quality.bullet3': string;
+  'tool.editorial.pdf-merge.faq1.q': string;
+  'tool.editorial.pdf-merge.faq1.a': string;
+  'tool.editorial.pdf-merge.faq2.q': string;
+  'tool.editorial.pdf-merge.faq2.a': string;
+  'tool.editorial.pdf-merge.faq3.q': string;
+  'tool.editorial.pdf-merge.faq3.a': string;
   'tool.faq.size.question': string;
   'tool.faq.size.answer': string;
   'tool.faq.time.question': string;
@@ -236,6 +311,7 @@ export interface Translations {
   'nav.tools': string;
   'nav.faq': string;
   'nav.about': string;
+  'nav.contact': string;
   'nav.login': string;
   'nav.signup': string;
   'nav.account': string;
@@ -496,11 +572,26 @@ const translations: Record<Language, Translations> = {
     'completed': 'Completed',
     
     // Homepage Hero
-    'home.hero.title': 'Online PDF Converter – JPG/PNG to PDF, Word to PDF, Compress & Merge',
-    'home.hero.subtitle': 'Free online PDF converter and tools. Convert images, Word documents, compress and merge PDFs instantly.',
-    'home.hero.description': 'Convert JPG and PNG images to PDF, Word documents to PDF, compress PDF files, and merge multiple PDFs into one. Fast, secure, and completely free up to 100MB per file. No signup required.',
+    'home.hero.title': 'Free online PDF converter and tools. Convert images, Word documents, compress and merge PDFs instantly.',
+    'home.hero.subtitle': 'What is PDFStation?',
+    'home.hero.description': 'PDFStation is a free, secure online platform for converting and managing documents. Convert images to PDF, Word documents to PDF, compress large files, and merge multiple PDFs—all without installing software or creating an account. Our mission is to make file conversion simple, fast, and accessible to everyone. All tools are free forever, supported by ads, with a 100MB file size limit per file.',
     'home.hero.cta.choose': 'Choose files',
     'home.hero.cta.explore': 'Explore tools',
+    
+    // Common Use Cases
+    'home.useCases.title': 'Common Use Cases',
+    'home.useCases.wordToPdf.title': 'Convert Word to PDF',
+    'home.useCases.wordToPdf.description': 'Need to share a resume or document? Convert Word files to PDF to ensure consistent formatting across devices.',
+    'home.useCases.wordToPdf.cta': 'Try Word to PDF →',
+    'home.useCases.imagesToPdf.title': 'Convert Images to PDF',
+    'home.useCases.imagesToPdf.description': 'Turn photos, scanned receipts, or multiple images into a single PDF document. Perfect for organizing and sharing.',
+    'home.useCases.imagesToPdf.cta': 'Try JPG/PNG to PDF →',
+    'home.useCases.compressPdf.title': 'Compress PDF Files',
+    'home.useCases.compressPdf.description': 'Reduce PDF file size without significant quality loss. Great for emailing large documents or saving storage space.',
+    'home.useCases.compressPdf.cta': 'Try PDF Compressor →',
+    'home.useCases.mergePdf.title': 'Merge Multiple PDFs',
+    'home.useCases.mergePdf.description': 'Combine multiple PDF files into one document. Ideal for bundling contracts, reports, or project documents.',
+    'home.useCases.mergePdf.cta': 'Try PDF Merger →',
     
     // Trust Section
     'trust.thousands': 'Trusted by thousands',
@@ -645,6 +736,69 @@ const translations: Record<Language, Translations> = {
     'tool.formats.output': 'Output formats:',
     'tool.formats.files': 'files',
     'tool.faq.title': 'Frequently Asked Questions',
+    'tool.editorial.howItWorks': 'How it works',
+    'tool.editorial.qualityPrivacy': 'Quality & privacy',
+    'tool.editorial.faq': 'Frequently asked questions',
+    // Editorial content - images-to-pdf
+    'tool.editorial.images-to-pdf.introP1': 'Combine one or multiple JPG images into a single PDF, ideal for printing or sharing as one file.',
+    'tool.editorial.images-to-pdf.introP2': 'Great for scanned receipts, handwritten notes, or photo-based documents you want in a standard format.',
+    'tool.editorial.images-to-pdf.howItWorks.step1': 'Upload one or more JPG images.',
+    'tool.editorial.images-to-pdf.howItWorks.step2': 'Arrange order if available.',
+    'tool.editorial.images-to-pdf.howItWorks.step3': 'Download a single PDF.',
+    'tool.editorial.images-to-pdf.quality.bullet1': 'Image quality depends on the original photos.',
+    'tool.editorial.images-to-pdf.quality.bullet2': 'PDFs can be optimized for size if compression is enabled.',
+    'tool.editorial.images-to-pdf.quality.bullet3': 'Files are processed automatically; ownership stays with you.',
+    'tool.editorial.images-to-pdf.faq1.q': 'Can I merge multiple images into one PDF?',
+    'tool.editorial.images-to-pdf.faq1.a': 'Yes—upload multiple JPGs and we\'ll assemble them.',
+    'tool.editorial.images-to-pdf.faq2.q': 'Will it keep the same image quality?',
+    'tool.editorial.images-to-pdf.faq2.a': 'It will be close to the original; some compression may apply based on settings.',
+    'tool.editorial.images-to-pdf.faq3.q': 'Can I add margins?',
+    'tool.editorial.images-to-pdf.faq3.a': 'If supported, adjust page fit/scale; otherwise you can print with margins from your viewer.',
+    // Editorial content - word-to-pdf
+    'tool.editorial.word-to-pdf.introP1': 'Turn your Word document into a clean PDF that looks consistent on any device.',
+    'tool.editorial.word-to-pdf.introP2': 'Perfect for sharing resumes, proposals, and documents that should not change formatting when opened elsewhere.',
+    'tool.editorial.word-to-pdf.howItWorks.step1': 'Upload your .doc or .docx file.',
+    'tool.editorial.word-to-pdf.howItWorks.step2': 'We export it as a PDF.',
+    'tool.editorial.word-to-pdf.howItWorks.step3': 'Download your PDF and share confidently.',
+    'tool.editorial.word-to-pdf.quality.bullet1': 'Embedded fonts help preserve layout across devices.',
+    'tool.editorial.word-to-pdf.quality.bullet2': 'Large images can increase file size.',
+    'tool.editorial.word-to-pdf.quality.bullet3': 'Your document remains yours; conversion is automated.',
+    'tool.editorial.word-to-pdf.faq1.q': 'Will my fonts look the same?',
+    'tool.editorial.word-to-pdf.faq1.a': 'PDFs preserve layout well, especially when fonts are embedded. Some rare fonts may be substituted.',
+    'tool.editorial.word-to-pdf.faq2.q': 'Can I convert a Google Docs file?',
+    'tool.editorial.word-to-pdf.faq2.a': 'Download it as .docx first, then upload it here.',
+    'tool.editorial.word-to-pdf.faq3.q': 'Is the output print-ready?',
+    'tool.editorial.word-to-pdf.faq3.a': 'For most documents, yes. Always check margins if you need strict print specs.',
+    // Editorial content - pdf-compress
+    'tool.editorial.pdf-compress.introP1': 'Reduce PDF file size so it\'s easier to email, upload, and share—without unnecessary quality loss.',
+    'tool.editorial.pdf-compress.introP2': 'Use compression for large PDFs with images, scanned pages, or heavy graphics.',
+    'tool.editorial.pdf-compress.howItWorks.step1': 'Upload your PDF.',
+    'tool.editorial.pdf-compress.howItWorks.step2': 'Choose a compression level (if available).',
+    'tool.editorial.pdf-compress.howItWorks.step3': 'Download the smaller PDF.',
+    'tool.editorial.pdf-compress.quality.bullet1': 'Higher compression reduces size more but may soften images.',
+    'tool.editorial.pdf-compress.quality.bullet2': 'Text stays crisp in most cases.',
+    'tool.editorial.pdf-compress.quality.bullet3': 'We process your file automatically; your content remains yours.',
+    'tool.editorial.pdf-compress.faq1.q': 'How much will it compress?',
+    'tool.editorial.pdf-compress.faq1.a': 'It depends on what\'s inside the PDF. Image-heavy files compress more.',
+    'tool.editorial.pdf-compress.faq2.q': 'Will my text become blurry?',
+    'tool.editorial.pdf-compress.faq2.a': 'Text usually remains sharp; images are most affected.',
+    'tool.editorial.pdf-compress.faq3.q': 'Is compression reversible?',
+    'tool.editorial.pdf-compress.faq3.a': 'No—keep the original if you may need maximum quality later.',
+    // Editorial content - pdf-merge
+    'tool.editorial.pdf-merge.introP1': 'Combine multiple PDFs into a single file in the order you choose.',
+    'tool.editorial.pdf-merge.introP2': 'Ideal for bundling contracts, invoices, chapters, or project documents into one shareable PDF.',
+    'tool.editorial.pdf-merge.howItWorks.step1': 'Upload multiple PDF files.',
+    'tool.editorial.pdf-merge.howItWorks.step2': 'Arrange them in the desired order.',
+    'tool.editorial.pdf-merge.howItWorks.step3': 'Download one merged PDF.',
+    'tool.editorial.pdf-merge.quality.bullet1': 'Original page quality is preserved.',
+    'tool.editorial.pdf-merge.quality.bullet2': 'Large merges may take longer depending on file size.',
+    'tool.editorial.pdf-merge.quality.bullet3': 'Your files are processed automatically; you keep ownership.',
+    'tool.editorial.pdf-merge.faq1.q': 'Can I reorder files before merging?',
+    'tool.editorial.pdf-merge.faq1.a': 'Yes—drag and drop if the interface supports it.',
+    'tool.editorial.pdf-merge.faq2.q': 'Will it change page quality?',
+    'tool.editorial.pdf-merge.faq2.a': 'No—merging keeps original pages intact.',
+    'tool.editorial.pdf-merge.faq3.q': 'Is there a file limit?',
+    'tool.editorial.pdf-merge.faq3.a': 'Limits depend on server configuration; check the upload limits shown in the UI.',
     'tool.faq.size.question': 'What file sizes are supported?',
     'tool.faq.size.answer': 'You can convert files up to 100MB. PDFStation is free forever with no signup required.',
     'tool.faq.time.question': 'How long does conversion take?',
@@ -716,6 +870,7 @@ const translations: Record<Language, Translations> = {
     'nav.tools': 'Tools',
     'nav.faq': 'FAQ',
     'nav.about': 'About',
+    'nav.contact': 'Contact',
     'nav.login': 'Login',
     'nav.signup': 'Sign Up',
     'nav.account': 'My Account',
@@ -974,11 +1129,26 @@ const translations: Record<Language, Translations> = {
     'completed': 'Concluído',
     
     // Homepage Hero
-    'home.hero.title': 'Conversor de PDF Online – JPG/PNG para PDF, Word para PDF, Comprimir e Unir',
-    'home.hero.subtitle': 'Conversor de PDF online gratuito e ferramentas. Converta imagens, documentos Word, comprima e una PDFs instantaneamente.',
-    'home.hero.description': 'Converta imagens JPG e PNG para PDF, documentos Word para PDF, comprima arquivos PDF e una vários PDFs em um. Rápido, seguro e completamente gratuito até 100MB por arquivo. Sem necessidade de cadastro.',
+    'home.hero.title': 'Conversor de PDF online gratuito e ferramentas. Converta imagens, documentos Word, comprima e una PDFs instantaneamente.',
+    'home.hero.subtitle': 'O que é o PDFStation?',
+    'home.hero.description': 'O PDFStation é uma plataforma online gratuita e segura para converter e gerenciar documentos. Converta imagens para PDF, documentos Word para PDF, comprima arquivos grandes e una vários PDFs em um—tudo sem instalar software ou criar uma conta. Nossa missão é tornar a conversão de arquivos simples, rápida e acessível para todos. Todas as ferramentas são gratuitas para sempre, suportadas por anúncios, com limite de tamanho de arquivo de 100MB por arquivo.',
     'home.hero.cta.choose': 'Escolher arquivos',
     'home.hero.cta.explore': 'Explorar ferramentas',
+    
+    // Common Use Cases
+    'home.useCases.title': 'Casos de Uso Comuns',
+    'home.useCases.wordToPdf.title': 'Converter Word para PDF',
+    'home.useCases.wordToPdf.description': 'Precisa compartilhar um currículo ou documento? Converta arquivos Word para PDF para garantir formatação consistente em todos os dispositivos.',
+    'home.useCases.wordToPdf.cta': 'Experimente Word para PDF →',
+    'home.useCases.imagesToPdf.title': 'Converter Imagens para PDF',
+    'home.useCases.imagesToPdf.description': 'Transforme fotos, recibos digitalizados ou múltiplas imagens em um único documento PDF. Perfeito para organizar e compartilhar.',
+    'home.useCases.imagesToPdf.cta': 'Experimente JPG/PNG para PDF →',
+    'home.useCases.compressPdf.title': 'Comprimir Arquivos PDF',
+    'home.useCases.compressPdf.description': 'Reduza o tamanho do arquivo PDF sem perda significativa de qualidade. Ótimo para enviar documentos grandes por e-mail ou economizar espaço de armazenamento.',
+    'home.useCases.compressPdf.cta': 'Experimente Compressor de PDF →',
+    'home.useCases.mergePdf.title': 'Unir Múltiplos PDFs',
+    'home.useCases.mergePdf.description': 'Combine vários arquivos PDF em um único documento. Ideal para agrupar contratos, relatórios ou documentos de projeto.',
+    'home.useCases.mergePdf.cta': 'Experimente Unir PDFs →',
     
     // Trust Section
     'trust.thousands': 'Confiado por milhares',
@@ -1123,6 +1293,69 @@ const translations: Record<Language, Translations> = {
     'tool.formats.output': 'Formatos de saída:',
     'tool.formats.files': 'arquivos',
     'tool.faq.title': 'Perguntas Frequentes',
+    'tool.editorial.howItWorks': 'Como funciona',
+    'tool.editorial.qualityPrivacy': 'Qualidade e privacidade',
+    'tool.editorial.faq': 'Perguntas frequentes',
+    // Editorial content - images-to-pdf
+    'tool.editorial.images-to-pdf.introP1': 'Combine uma ou múltiplas imagens JPG em um único PDF, ideal para impressão ou compartilhamento como um único arquivo.',
+    'tool.editorial.images-to-pdf.introP2': 'Ótimo para recibos digitalizados, notas escritas à mão ou documentos baseados em fotos que você deseja em um formato padrão.',
+    'tool.editorial.images-to-pdf.howItWorks.step1': 'Faça upload de uma ou mais imagens JPG.',
+    'tool.editorial.images-to-pdf.howItWorks.step2': 'Organize a ordem, se disponível.',
+    'tool.editorial.images-to-pdf.howItWorks.step3': 'Baixe um único PDF.',
+    'tool.editorial.images-to-pdf.quality.bullet1': 'A qualidade da imagem depende das fotos originais.',
+    'tool.editorial.images-to-pdf.quality.bullet2': 'Os PDFs podem ser otimizados para tamanho se a compactação estiver habilitada.',
+    'tool.editorial.images-to-pdf.quality.bullet3': 'Os arquivos são processados automaticamente; você mantém a propriedade.',
+    'tool.editorial.images-to-pdf.faq1.q': 'Posso combinar várias imagens em um PDF?',
+    'tool.editorial.images-to-pdf.faq1.a': 'Sim—faça upload de vários JPGs e nós os montaremos.',
+    'tool.editorial.images-to-pdf.faq2.q': 'Vai manter a mesma qualidade de imagem?',
+    'tool.editorial.images-to-pdf.faq2.a': 'Ficará próximo do original; alguma compactação pode ser aplicada com base nas configurações.',
+    'tool.editorial.images-to-pdf.faq3.q': 'Posso adicionar margens?',
+    'tool.editorial.images-to-pdf.faq3.a': 'Se suportado, ajuste o ajuste/escala da página; caso contrário, você pode imprimir com margens do seu visualizador.',
+    // Editorial content - word-to-pdf
+    'tool.editorial.word-to-pdf.introP1': 'Transforme seu documento Word em um PDF limpo que parece consistente em qualquer dispositivo.',
+    'tool.editorial.word-to-pdf.introP2': 'Perfeito para compartilhar currículos, propostas e documentos que não devem alterar a formatação quando abertos em outro lugar.',
+    'tool.editorial.word-to-pdf.howItWorks.step1': 'Faça upload do seu arquivo .doc ou .docx.',
+    'tool.editorial.word-to-pdf.howItWorks.step2': 'Exportamos como PDF.',
+    'tool.editorial.word-to-pdf.howItWorks.step3': 'Baixe seu PDF e compartilhe com confiança.',
+    'tool.editorial.word-to-pdf.quality.bullet1': 'Fontes incorporadas ajudam a preservar o layout entre dispositivos.',
+    'tool.editorial.word-to-pdf.quality.bullet2': 'Imagens grandes podem aumentar o tamanho do arquivo.',
+    'tool.editorial.word-to-pdf.quality.bullet3': 'Seu documento permanece seu; a conversão é automatizada.',
+    'tool.editorial.word-to-pdf.faq1.q': 'Minhas fontes ficarão iguais?',
+    'tool.editorial.word-to-pdf.faq1.a': 'Os PDFs preservam bem o layout, especialmente quando as fontes estão incorporadas. Algumas fontes raras podem ser substituídas.',
+    'tool.editorial.word-to-pdf.faq2.q': 'Posso converter um arquivo do Google Docs?',
+    'tool.editorial.word-to-pdf.faq2.a': 'Baixe como .docx primeiro, depois faça upload aqui.',
+    'tool.editorial.word-to-pdf.faq3.q': 'A saída está pronta para impressão?',
+    'tool.editorial.word-to-pdf.faq3.a': 'Para a maioria dos documentos, sim. Sempre verifique as margens se precisar de especificações de impressão rigorosas.',
+    // Editorial content - pdf-compress
+    'tool.editorial.pdf-compress.introP1': 'Reduza o tamanho do arquivo PDF para facilitar o envio por e-mail, upload e compartilhamento—sem perda desnecessária de qualidade.',
+    'tool.editorial.pdf-compress.introP2': 'Use compactação para PDFs grandes com imagens, páginas digitalizadas ou gráficos pesados.',
+    'tool.editorial.pdf-compress.howItWorks.step1': 'Faça upload do seu PDF.',
+    'tool.editorial.pdf-compress.howItWorks.step2': 'Escolha um nível de compactação (se disponível).',
+    'tool.editorial.pdf-compress.howItWorks.step3': 'Baixe o PDF menor.',
+    'tool.editorial.pdf-compress.quality.bullet1': 'Maior compactação reduz mais o tamanho, mas pode suavizar imagens.',
+    'tool.editorial.pdf-compress.quality.bullet2': 'O texto permanece nítido na maioria dos casos.',
+    'tool.editorial.pdf-compress.quality.bullet3': 'Processamos seu arquivo automaticamente; seu conteúdo permanece seu.',
+    'tool.editorial.pdf-compress.faq1.q': 'Quanto vai compactar?',
+    'tool.editorial.pdf-compress.faq1.a': 'Depende do que está dentro do PDF. Arquivos com muitas imagens compactam mais.',
+    'tool.editorial.pdf-compress.faq2.q': 'Meu texto ficará borrado?',
+    'tool.editorial.pdf-compress.faq2.a': 'O texto geralmente permanece nítido; as imagens são mais afetadas.',
+    'tool.editorial.pdf-compress.faq3.q': 'A compactação é reversível?',
+    'tool.editorial.pdf-compress.faq3.a': 'Não—mantenha o original se precisar de qualidade máxima depois.',
+    // Editorial content - pdf-merge
+    'tool.editorial.pdf-merge.introP1': 'Combine vários PDFs em um único arquivo na ordem que você escolher.',
+    'tool.editorial.pdf-merge.introP2': 'Ideal para agrupar contratos, faturas, capítulos ou documentos de projeto em um PDF compartilhável.',
+    'tool.editorial.pdf-merge.howItWorks.step1': 'Faça upload de vários arquivos PDF.',
+    'tool.editorial.pdf-merge.howItWorks.step2': 'Organize-os na ordem desejada.',
+    'tool.editorial.pdf-merge.howItWorks.step3': 'Baixe um PDF mesclado.',
+    'tool.editorial.pdf-merge.quality.bullet1': 'A qualidade original da página é preservada.',
+    'tool.editorial.pdf-merge.quality.bullet2': 'Mesclagens grandes podem demorar mais, dependendo do tamanho do arquivo.',
+    'tool.editorial.pdf-merge.quality.bullet3': 'Seus arquivos são processados automaticamente; você mantém a propriedade.',
+    'tool.editorial.pdf-merge.faq1.q': 'Posso reordenar arquivos antes de mesclar?',
+    'tool.editorial.pdf-merge.faq1.a': 'Sim—arraste e solte se a interface suportar.',
+    'tool.editorial.pdf-merge.faq2.q': 'Vai mudar a qualidade da página?',
+    'tool.editorial.pdf-merge.faq2.a': 'Não—a mesclagem mantém as páginas originais intactas.',
+    'tool.editorial.pdf-merge.faq3.q': 'Há um limite de arquivos?',
+    'tool.editorial.pdf-merge.faq3.a': 'Os limites dependem da configuração do servidor; verifique os limites de upload mostrados na interface.',
     'tool.faq.size.question': 'Quais tamanhos de arquivo são suportados?',
     'tool.faq.size.answer': 'Você pode converter arquivos de até 100MB. O PDFStation é gratuito para sempre, sem necessidade de cadastro.',
     'tool.faq.time.question': 'Quanto tempo leva a conversão?',
@@ -1194,6 +1427,7 @@ const translations: Record<Language, Translations> = {
     'nav.tools': 'Ferramentas',
     'nav.faq': 'FAQ',
     'nav.about': 'Sobre',
+    'nav.contact': 'Contato',
     'nav.login': 'Entrar',
     'nav.signup': 'Cadastrar',
     'nav.account': 'Minha Conta',
@@ -1452,11 +1686,26 @@ const translations: Record<Language, Translations> = {
     'completed': 'Completado',
     
     // Homepage Hero
-    'home.hero.title': 'Conversor de PDF Online – JPG/PNG a PDF, Word a PDF, Comprimir y Combinar',
-    'home.hero.subtitle': 'Conversor de PDF online gratuito y herramientas. Convierte imágenes, documentos Word, comprime y combina PDFs al instante.',
-    'home.hero.description': 'Convierte imágenes JPG y PNG a PDF, documentos Word a PDF, comprime archivos PDF y combina varios PDFs en uno. Rápido, seguro y completamente gratuito hasta 100MB por archivo. Sin necesidad de registro.',
+    'home.hero.title': 'Conversor de PDF online gratuito y herramientas. Convierte imágenes, documentos Word, comprime y combina PDFs al instante.',
+    'home.hero.subtitle': '¿Qué es PDFStation?',
+    'home.hero.description': 'PDFStation es una plataforma online gratuita y segura para convertir y gestionar documentos. Convierte imágenes a PDF, documentos Word a PDF, comprime archivos grandes y combina varios PDFs en uno—todo sin instalar software o crear una cuenta. Nuestra misión es hacer que la conversión de archivos sea simple, rápida y accesible para todos. Todas las herramientas son gratuitas para siempre, apoyadas por anuncios, con un límite de tamaño de archivo de 100MB por archivo.',
     'home.hero.cta.choose': 'Elegir archivos',
     'home.hero.cta.explore': 'Explorar herramientas',
+    
+    // Common Use Cases
+    'home.useCases.title': 'Casos de Uso Comunes',
+    'home.useCases.wordToPdf.title': 'Convertir Word a PDF',
+    'home.useCases.wordToPdf.description': '¿Necesitas compartir un currículum o documento? Convierte archivos Word a PDF para asegurar un formato consistente en todos los dispositivos.',
+    'home.useCases.wordToPdf.cta': 'Prueba Word a PDF →',
+    'home.useCases.imagesToPdf.title': 'Convertir Imágenes a PDF',
+    'home.useCases.imagesToPdf.description': 'Convierte fotos, recibos escaneados o múltiples imágenes en un único documento PDF. Perfecto para organizar y compartir.',
+    'home.useCases.imagesToPdf.cta': 'Prueba JPG/PNG a PDF →',
+    'home.useCases.compressPdf.title': 'Comprimir Archivos PDF',
+    'home.useCases.compressPdf.description': 'Reduce el tamaño del archivo PDF sin pérdida significativa de calidad. Ideal para enviar documentos grandes por correo o ahorrar espacio de almacenamiento.',
+    'home.useCases.compressPdf.cta': 'Prueba Compresor de PDF →',
+    'home.useCases.mergePdf.title': 'Combinar Múltiples PDFs',
+    'home.useCases.mergePdf.description': 'Combina varios archivos PDF en un solo documento. Ideal para agrupar contratos, informes o documentos de proyecto.',
+    'home.useCases.mergePdf.cta': 'Prueba Combinar PDFs →',
     
     // Trust Section
     'trust.thousands': 'Confiado por miles',
@@ -1601,6 +1850,69 @@ const translations: Record<Language, Translations> = {
     'tool.formats.output': 'Formatos de salida:',
     'tool.formats.files': 'archivos',
     'tool.faq.title': 'Preguntas Frecuentes',
+    'tool.editorial.howItWorks': 'Cómo funciona',
+    'tool.editorial.qualityPrivacy': 'Calidad y privacidad',
+    'tool.editorial.faq': 'Preguntas frecuentes',
+    // Editorial content - images-to-pdf
+    'tool.editorial.images-to-pdf.introP1': 'Combina una o múltiples imágenes JPG en un único PDF, ideal para imprimir o compartir como un archivo.',
+    'tool.editorial.images-to-pdf.introP2': 'Excelente para recibos escaneados, notas escritas a mano o documentos basados en fotos que desees en un formato estándar.',
+    'tool.editorial.images-to-pdf.howItWorks.step1': 'Sube una o más imágenes JPG.',
+    'tool.editorial.images-to-pdf.howItWorks.step2': 'Organiza el orden si está disponible.',
+    'tool.editorial.images-to-pdf.howItWorks.step3': 'Descarga un único PDF.',
+    'tool.editorial.images-to-pdf.quality.bullet1': 'La calidad de la imagen depende de las fotos originales.',
+    'tool.editorial.images-to-pdf.quality.bullet2': 'Los PDFs pueden optimizarse para tamaño si la compresión está habilitada.',
+    'tool.editorial.images-to-pdf.quality.bullet3': 'Los archivos se procesan automáticamente; mantienes la propiedad.',
+    'tool.editorial.images-to-pdf.faq1.q': '¿Puedo combinar múltiples imágenes en un PDF?',
+    'tool.editorial.images-to-pdf.faq1.a': 'Sí—sube múltiples JPGs y los ensamblaremos.',
+    'tool.editorial.images-to-pdf.faq2.q': '¿Mantendrá la misma calidad de imagen?',
+    'tool.editorial.images-to-pdf.faq2.a': 'Estará cerca del original; puede aplicarse algo de compresión según la configuración.',
+    'tool.editorial.images-to-pdf.faq3.q': '¿Puedo agregar márgenes?',
+    'tool.editorial.images-to-pdf.faq3.a': 'Si está soportado, ajusta el ajuste/escala de página; de lo contrario, puedes imprimir con márgenes desde tu visor.',
+    // Editorial content - word-to-pdf
+    'tool.editorial.word-to-pdf.introP1': 'Convierte tu documento Word en un PDF limpio que se ve consistente en cualquier dispositivo.',
+    'tool.editorial.word-to-pdf.introP2': 'Perfecto para compartir currículos, propuestas y documentos que no deben cambiar de formato al abrirlos en otro lugar.',
+    'tool.editorial.word-to-pdf.howItWorks.step1': 'Sube tu archivo .doc o .docx.',
+    'tool.editorial.word-to-pdf.howItWorks.step2': 'Lo exportamos como PDF.',
+    'tool.editorial.word-to-pdf.howItWorks.step3': 'Descarga tu PDF y comparte con confianza.',
+    'tool.editorial.word-to-pdf.quality.bullet1': 'Las fuentes incrustadas ayudan a preservar el diseño entre dispositivos.',
+    'tool.editorial.word-to-pdf.quality.bullet2': 'Las imágenes grandes pueden aumentar el tamaño del archivo.',
+    'tool.editorial.word-to-pdf.quality.bullet3': 'Tu documento permanece tuyo; la conversión es automatizada.',
+    'tool.editorial.word-to-pdf.faq1.q': '¿Se verán igual mis fuentes?',
+    'tool.editorial.word-to-pdf.faq1.a': 'Los PDFs preservan bien el diseño, especialmente cuando las fuentes están incrustadas. Algunas fuentes raras pueden ser sustituidas.',
+    'tool.editorial.word-to-pdf.faq2.q': '¿Puedo convertir un archivo de Google Docs?',
+    'tool.editorial.word-to-pdf.faq2.a': 'Descárgalo como .docx primero, luego súbelo aquí.',
+    'tool.editorial.word-to-pdf.faq3.q': '¿Está listo para imprimir?',
+    'tool.editorial.word-to-pdf.faq3.a': 'Para la mayoría de documentos, sí. Siempre verifica los márgenes si necesitas especificaciones de impresión estrictas.',
+    // Editorial content - pdf-compress
+    'tool.editorial.pdf-compress.introP1': 'Reduce el tamaño del archivo PDF para facilitar el envío por correo, subida y compartición—sin pérdida innecesaria de calidad.',
+    'tool.editorial.pdf-compress.introP2': 'Usa compresión para PDFs grandes con imágenes, páginas escaneadas o gráficos pesados.',
+    'tool.editorial.pdf-compress.howItWorks.step1': 'Sube tu PDF.',
+    'tool.editorial.pdf-compress.howItWorks.step2': 'Elige un nivel de compresión (si está disponible).',
+    'tool.editorial.pdf-compress.howItWorks.step3': 'Descarga el PDF más pequeño.',
+    'tool.editorial.pdf-compress.quality.bullet1': 'Mayor compresión reduce más el tamaño pero puede suavizar imágenes.',
+    'tool.editorial.pdf-compress.quality.bullet2': 'El texto permanece nítido en la mayoría de los casos.',
+    'tool.editorial.pdf-compress.quality.bullet3': 'Procesamos tu archivo automáticamente; tu contenido permanece tuyo.',
+    'tool.editorial.pdf-compress.faq1.q': '¿Cuánto comprimirá?',
+    'tool.editorial.pdf-compress.faq1.a': 'Depende de lo que hay dentro del PDF. Los archivos con muchas imágenes se comprimen más.',
+    'tool.editorial.pdf-compress.faq2.q': '¿Mi texto se volverá borroso?',
+    'tool.editorial.pdf-compress.faq2.a': 'El texto generalmente permanece nítido; las imágenes son las más afectadas.',
+    'tool.editorial.pdf-compress.faq3.q': '¿La compresión es reversible?',
+    'tool.editorial.pdf-compress.faq3.a': 'No—guarda el original si puedes necesitar calidad máxima después.',
+    // Editorial content - pdf-merge
+    'tool.editorial.pdf-merge.introP1': 'Combina múltiples PDFs en un único archivo en el orden que elijas.',
+    'tool.editorial.pdf-merge.introP2': 'Ideal para agrupar contratos, facturas, capítulos o documentos de proyecto en un PDF compartible.',
+    'tool.editorial.pdf-merge.howItWorks.step1': 'Sube múltiples archivos PDF.',
+    'tool.editorial.pdf-merge.howItWorks.step2': 'Organízalos en el orden deseado.',
+    'tool.editorial.pdf-merge.howItWorks.step3': 'Descarga un PDF combinado.',
+    'tool.editorial.pdf-merge.quality.bullet1': 'Se preserva la calidad original de la página.',
+    'tool.editorial.pdf-merge.quality.bullet2': 'Las combinaciones grandes pueden tardar más dependiendo del tamaño del archivo.',
+    'tool.editorial.pdf-merge.quality.bullet3': 'Tus archivos se procesan automáticamente; mantienes la propiedad.',
+    'tool.editorial.pdf-merge.faq1.q': '¿Puedo reordenar archivos antes de combinar?',
+    'tool.editorial.pdf-merge.faq1.a': 'Sí—arrastra y suelta si la interfaz lo soporta.',
+    'tool.editorial.pdf-merge.faq2.q': '¿Cambiará la calidad de la página?',
+    'tool.editorial.pdf-merge.faq2.a': 'No—la combinación mantiene las páginas originales intactas.',
+    'tool.editorial.pdf-merge.faq3.q': '¿Hay un límite de archivos?',
+    'tool.editorial.pdf-merge.faq3.a': 'Los límites dependen de la configuración del servidor; verifica los límites de carga mostrados en la interfaz.',
     'tool.faq.size.question': '¿Qué tamaños de archivo son compatibles?',
     'tool.faq.size.answer': 'Puedes convertir archivos de hasta 100MB. PDFStation es gratuito para siempre, sin necesidad de registro.',
     'tool.faq.time.question': '¿Cuánto tiempo tarda la conversión?',
@@ -1672,6 +1984,7 @@ const translations: Record<Language, Translations> = {
     'nav.tools': 'Herramientas',
     'nav.faq': 'FAQ',
     'nav.about': 'Acerca de',
+    'nav.contact': 'Contacto',
     'nav.login': 'Iniciar Sesión',
     'nav.signup': 'Registrarse',
     'nav.account': 'Mi Cuenta',
@@ -1926,11 +2239,26 @@ const translations: Record<Language, Translations> = {
     'completed': 'Terminé',
     
     // Homepage Hero
-    'home.hero.title': 'Converseur de PDF en Ligne – JPG/PNG en PDF, Word en PDF, Compresser et Fusionner',
-    'home.hero.subtitle': 'Converseur de PDF en ligne gratuit et outils. Convertissez des images, documents Word, compressez et fusionnez des PDFs instantanément.',
-    'home.hero.description': 'Convertissez des images JPG et PNG en PDF, documents Word en PDF, compressez des fichiers PDF et fusionnez plusieurs PDFs en un. Rapide, sécurisé et entièrement gratuit jusqu\'à 100MB par fichier. Aucune inscription requise.',
+    'home.hero.title': 'Converseur de PDF en ligne gratuit et outils. Convertissez des images, documents Word, compressez et fusionnez des PDFs instantanément.',
+    'home.hero.subtitle': 'Qu\'est-ce que PDFStation?',
+    'home.hero.description': 'PDFStation est une plateforme en ligne gratuite et sécurisée pour convertir et gérer des documents. Convertissez des images en PDF, documents Word en PDF, compressez de gros fichiers et fusionnez plusieurs PDFs en un—tout sans installer de logiciel ou créer de compte. Notre mission est de rendre la conversion de fichiers simple, rapide et accessible à tous. Tous les outils sont gratuits à vie, pris en charge par des publicités, avec une limite de taille de fichier de 100MB par fichier.',
     'home.hero.cta.choose': 'Choisir des fichiers',
     'home.hero.cta.explore': 'Explorer les outils',
+    
+    // Common Use Cases
+    'home.useCases.title': 'Cas d\'Usage Courants',
+    'home.useCases.wordToPdf.title': 'Convertir Word en PDF',
+    'home.useCases.wordToPdf.description': 'Besoin de partager un CV ou un document? Convertissez les fichiers Word en PDF pour garantir un formatage cohérent sur tous les appareils.',
+    'home.useCases.wordToPdf.cta': 'Essayez Word en PDF →',
+    'home.useCases.imagesToPdf.title': 'Convertir des Images en PDF',
+    'home.useCases.imagesToPdf.description': 'Transformez des photos, des reçus scannés ou plusieurs images en un seul document PDF. Parfait pour organiser et partager.',
+    'home.useCases.imagesToPdf.cta': 'Essayez JPG/PNG en PDF →',
+    'home.useCases.compressPdf.title': 'Compresser des Fichiers PDF',
+    'home.useCases.compressPdf.description': 'Réduisez la taille du fichier PDF sans perte significative de qualité. Idéal pour envoyer de gros documents par e-mail ou économiser de l\'espace de stockage.',
+    'home.useCases.compressPdf.cta': 'Essayez Compresseur de PDF →',
+    'home.useCases.mergePdf.title': 'Fusionner Plusieurs PDFs',
+    'home.useCases.mergePdf.description': 'Combinez plusieurs fichiers PDF en un seul document. Idéal pour regrouper des contrats, rapports ou documents de projet.',
+    'home.useCases.mergePdf.cta': 'Essayez Fusionner PDFs →',
     
     // Trust Section
     'trust.thousands': 'Fait confiance par des milliers',
@@ -2075,6 +2403,69 @@ const translations: Record<Language, Translations> = {
     'tool.formats.output': 'Formats de sortie:',
     'tool.formats.files': 'fichiers',
     'tool.faq.title': 'Questions Fréquemment Posées',
+    'tool.editorial.howItWorks': 'Comment ça marche',
+    'tool.editorial.qualityPrivacy': 'Qualité et confidentialité',
+    'tool.editorial.faq': 'Questions fréquemment posées',
+    // Editorial content - images-to-pdf
+    'tool.editorial.images-to-pdf.introP1': 'Combinez une ou plusieurs images JPG en un seul PDF, idéal pour l\'impression ou le partage comme un seul fichier.',
+    'tool.editorial.images-to-pdf.introP2': 'Parfait pour les reçus scannés, notes manuscrites ou documents basés sur des photos que vous souhaitez dans un format standard.',
+    'tool.editorial.images-to-pdf.howItWorks.step1': 'Téléchargez une ou plusieurs images JPG.',
+    'tool.editorial.images-to-pdf.howItWorks.step2': 'Organisez l\'ordre si disponible.',
+    'tool.editorial.images-to-pdf.howItWorks.step3': 'Téléchargez un seul PDF.',
+    'tool.editorial.images-to-pdf.quality.bullet1': 'La qualité de l\'image dépend des photos originales.',
+    'tool.editorial.images-to-pdf.quality.bullet2': 'Les PDFs peuvent être optimisés pour la taille si la compression est activée.',
+    'tool.editorial.images-to-pdf.quality.bullet3': 'Les fichiers sont traités automatiquement; vous gardez la propriété.',
+    'tool.editorial.images-to-pdf.faq1.q': 'Puis-je combiner plusieurs images en un PDF?',
+    'tool.editorial.images-to-pdf.faq1.a': 'Oui—téléchargez plusieurs JPG et nous les assemblerons.',
+    'tool.editorial.images-to-pdf.faq2.q': 'Conservera-t-il la même qualité d\'image?',
+    'tool.editorial.images-to-pdf.faq2.a': 'Il sera proche de l\'original; une compression peut être appliquée selon les paramètres.',
+    'tool.editorial.images-to-pdf.faq3.q': 'Puis-je ajouter des marges?',
+    'tool.editorial.images-to-pdf.faq3.a': 'Si pris en charge, ajustez l\'ajustement/échelle de page; sinon, vous pouvez imprimer avec des marges depuis votre visualiseur.',
+    // Editorial content - word-to-pdf
+    'tool.editorial.word-to-pdf.introP1': 'Transformez votre document Word en un PDF propre qui semble cohérent sur n\'importe quel appareil.',
+    'tool.editorial.word-to-pdf.introP2': 'Parfait pour partager des CV, propositions et documents qui ne doivent pas changer de formatage lorsqu\'ouverts ailleurs.',
+    'tool.editorial.word-to-pdf.howItWorks.step1': 'Téléchargez votre fichier .doc ou .docx.',
+    'tool.editorial.word-to-pdf.howItWorks.step2': 'Nous l\'exportons en PDF.',
+    'tool.editorial.word-to-pdf.howItWorks.step3': 'Téléchargez votre PDF et partagez en toute confiance.',
+    'tool.editorial.word-to-pdf.quality.bullet1': 'Les polices intégrées aident à préserver la mise en page entre les appareils.',
+    'tool.editorial.word-to-pdf.quality.bullet2': 'Les grandes images peuvent augmenter la taille du fichier.',
+    'tool.editorial.word-to-pdf.quality.bullet3': 'Votre document reste le vôtre; la conversion est automatisée.',
+    'tool.editorial.word-to-pdf.faq1.q': 'Mes polices auront-elles le même aspect?',
+    'tool.editorial.word-to-pdf.faq1.a': 'Les PDFs préservent bien la mise en page, surtout lorsque les polices sont intégrées. Certaines polices rares peuvent être substituées.',
+    'tool.editorial.word-to-pdf.faq2.q': 'Puis-je convertir un fichier Google Docs?',
+    'tool.editorial.word-to-pdf.faq2.a': 'Téléchargez-le d\'abord en .docx, puis téléchargez-le ici.',
+    'tool.editorial.word-to-pdf.faq3.q': 'La sortie est-elle prête à l\'impression?',
+    'tool.editorial.word-to-pdf.faq3.a': 'Pour la plupart des documents, oui. Vérifiez toujours les marges si vous avez besoin de spécifications d\'impression strictes.',
+    // Editorial content - pdf-compress
+    'tool.editorial.pdf-compress.introP1': 'Réduisez la taille du fichier PDF pour faciliter l\'envoi par e-mail, le téléchargement et le partage—sans perte de qualité inutile.',
+    'tool.editorial.pdf-compress.introP2': 'Utilisez la compression pour les PDFs volumineux avec images, pages scannées ou graphiques lourds.',
+    'tool.editorial.pdf-compress.howItWorks.step1': 'Téléchargez votre PDF.',
+    'tool.editorial.pdf-compress.howItWorks.step2': 'Choisissez un niveau de compression (si disponible).',
+    'tool.editorial.pdf-compress.howItWorks.step3': 'Téléchargez le PDF plus petit.',
+    'tool.editorial.pdf-compress.quality.bullet1': 'Une compression plus élevée réduit davantage la taille mais peut adoucir les images.',
+    'tool.editorial.pdf-compress.quality.bullet2': 'Le texte reste net dans la plupart des cas.',
+    'tool.editorial.pdf-compress.quality.bullet3': 'Nous traitons votre fichier automatiquement; votre contenu reste le vôtre.',
+    'tool.editorial.pdf-compress.faq1.q': 'Combien comprimera-t-il?',
+    'tool.editorial.pdf-compress.faq1.a': 'Cela dépend de ce qu\'il y a dans le PDF. Les fichiers avec beaucoup d\'images se compriment davantage.',
+    'tool.editorial.pdf-compress.faq2.q': 'Mon texte deviendra-t-il flou?',
+    'tool.editorial.pdf-compress.faq2.a': 'Le texte reste généralement net; les images sont les plus affectées.',
+    'tool.editorial.pdf-compress.faq3.q': 'La compression est-elle réversible?',
+    'tool.editorial.pdf-compress.faq3.a': 'Non—gardez l\'original si vous pouvez avoir besoin d\'une qualité maximale plus tard.',
+    // Editorial content - pdf-merge
+    'tool.editorial.pdf-merge.introP1': 'Combinez plusieurs PDFs en un seul fichier dans l\'ordre que vous choisissez.',
+    'tool.editorial.pdf-merge.introP2': 'Idéal pour regrouper des contrats, factures, chapitres ou documents de projet en un PDF partageable.',
+    'tool.editorial.pdf-merge.howItWorks.step1': 'Téléchargez plusieurs fichiers PDF.',
+    'tool.editorial.pdf-merge.howItWorks.step2': 'Organisez-les dans l\'ordre souhaité.',
+    'tool.editorial.pdf-merge.howItWorks.step3': 'Téléchargez un PDF fusionné.',
+    'tool.editorial.pdf-merge.quality.bullet1': 'La qualité originale de la page est préservée.',
+    'tool.editorial.pdf-merge.quality.bullet2': 'Les grandes fusions peuvent prendre plus de temps selon la taille du fichier.',
+    'tool.editorial.pdf-merge.quality.bullet3': 'Vos fichiers sont traités automatiquement; vous gardez la propriété.',
+    'tool.editorial.pdf-merge.faq1.q': 'Puis-je réorganiser les fichiers avant de fusionner?',
+    'tool.editorial.pdf-merge.faq1.a': 'Oui—glissez-déposez si l\'interface le prend en charge.',
+    'tool.editorial.pdf-merge.faq2.q': 'Cela changera-t-il la qualité de la page?',
+    'tool.editorial.pdf-merge.faq2.a': 'Non—la fusion garde les pages originales intactes.',
+    'tool.editorial.pdf-merge.faq3.q': 'Y a-t-il une limite de fichiers?',
+    'tool.editorial.pdf-merge.faq3.a': 'Les limites dépendent de la configuration du serveur; vérifiez les limites de téléchargement affichées dans l\'interface.',
     'tool.faq.size.question': 'Quelles tailles de fichier sont prises en charge?',
     'tool.faq.size.answer': 'Vous pouvez convertir des fichiers jusqu\'à 100MB. PDFStation est gratuit pour toujours, aucune inscription requise.',
     'tool.faq.time.question': 'Combien de temps prend la conversion?',
@@ -2146,6 +2537,7 @@ const translations: Record<Language, Translations> = {
     'nav.tools': 'Outils',
     'nav.faq': 'FAQ',
     'nav.about': 'À Propos',
+    'nav.contact': 'Contact',
     'nav.login': 'Connexion',
     'nav.signup': 'S\'inscrire',
     'nav.account': 'Mon Compte',
@@ -2404,11 +2796,26 @@ const translations: Record<Language, Translations> = {
     'completed': 'Completato',
     
     // Homepage Hero
-    'home.hero.title': 'Convertitore PDF Online – JPG/PNG in PDF, Word in PDF, Comprimi e Unisci',
-    'home.hero.subtitle': 'Convertitore PDF online gratuito e strumenti. Converti immagini, documenti Word, comprimi e unisci PDF all\'istante.',
-    'home.hero.description': 'Converti immagini JPG e PNG in PDF, documenti Word in PDF, comprimi file PDF e unisci più PDF in uno. Veloce, sicuro e completamente gratuito fino a 100MB per file. Nessuna registrazione richiesta.',
+    'home.hero.title': 'Convertitore PDF online gratuito e strumenti. Converti immagini, documenti Word, comprimi e unisci PDF all\'istante.',
+    'home.hero.subtitle': 'Cos\'è PDFStation?',
+    'home.hero.description': 'PDFStation è una piattaforma online gratuita e sicura per convertire e gestire documenti. Converti immagini in PDF, documenti Word in PDF, comprimi file di grandi dimensioni e unisci più PDF in uno—tutto senza installare software o creare un account. La nostra missione è rendere la conversione di file semplice, veloce e accessibile a tutti. Tutti gli strumenti sono gratuiti per sempre, supportati da annunci, con un limite di dimensione file di 100MB per file.',
     'home.hero.cta.choose': 'Scegli file',
     'home.hero.cta.explore': 'Esplora strumenti',
+    
+    // Common Use Cases
+    'home.useCases.title': 'Casi d\'Uso Comuni',
+    'home.useCases.wordToPdf.title': 'Convertire Word in PDF',
+    'home.useCases.wordToPdf.description': 'Devi condividere un curriculum o un documento? Converti file Word in PDF per garantire una formattazione coerente su tutti i dispositivi.',
+    'home.useCases.wordToPdf.cta': 'Prova Word in PDF →',
+    'home.useCases.imagesToPdf.title': 'Convertire Immagini in PDF',
+    'home.useCases.imagesToPdf.description': 'Trasforma foto, ricevute scansionate o più immagini in un unico documento PDF. Perfetto per organizzare e condividere.',
+    'home.useCases.imagesToPdf.cta': 'Prova JPG/PNG in PDF →',
+    'home.useCases.compressPdf.title': 'Comprimere File PDF',
+    'home.useCases.compressPdf.description': 'Riduci la dimensione del file PDF senza perdita significativa di qualità. Ottimo per inviare documenti grandi via email o risparmiare spazio di archiviazione.',
+    'home.useCases.compressPdf.cta': 'Prova Compressore PDF →',
+    'home.useCases.mergePdf.title': 'Unire Più PDF',
+    'home.useCases.mergePdf.description': 'Combina più file PDF in un unico documento. Ideale per raggruppare contratti, report o documenti di progetto.',
+    'home.useCases.mergePdf.cta': 'Prova Unire PDF →',
     
     // Trust Section
     'trust.thousands': 'Fidato da migliaia',
@@ -2553,6 +2960,69 @@ const translations: Record<Language, Translations> = {
     'tool.formats.output': 'Formati di output:',
     'tool.formats.files': 'file',
     'tool.faq.title': 'Domande Frequenti',
+    'tool.editorial.howItWorks': 'Come funziona',
+    'tool.editorial.qualityPrivacy': 'Qualità e privacy',
+    'tool.editorial.faq': 'Domande frequenti',
+    // Editorial content - images-to-pdf
+    'tool.editorial.images-to-pdf.introP1': 'Combina una o più immagini JPG in un unico PDF, ideale per la stampa o la condivisione come un unico file.',
+    'tool.editorial.images-to-pdf.introP2': 'Ottimo per ricevute scansionate, appunti scritti a mano o documenti basati su foto che desideri in un formato standard.',
+    'tool.editorial.images-to-pdf.howItWorks.step1': 'Carica una o più immagini JPG.',
+    'tool.editorial.images-to-pdf.howItWorks.step2': 'Organizza l\'ordine se disponibile.',
+    'tool.editorial.images-to-pdf.howItWorks.step3': 'Scarica un singolo PDF.',
+    'tool.editorial.images-to-pdf.quality.bullet1': 'La qualità dell\'immagine dipende dalle foto originali.',
+    'tool.editorial.images-to-pdf.quality.bullet2': 'I PDF possono essere ottimizzati per la dimensione se la compressione è abilitata.',
+    'tool.editorial.images-to-pdf.quality.bullet3': 'I file vengono elaborati automaticamente; mantieni la proprietà.',
+    'tool.editorial.images-to-pdf.faq1.q': 'Posso combinare più immagini in un PDF?',
+    'tool.editorial.images-to-pdf.faq1.a': 'Sì—carica più JPG e li assembleremo.',
+    'tool.editorial.images-to-pdf.faq2.q': 'Conserverà la stessa qualità dell\'immagine?',
+    'tool.editorial.images-to-pdf.faq2.a': 'Sarà vicino all\'originale; può essere applicata una compressione in base alle impostazioni.',
+    'tool.editorial.images-to-pdf.faq3.q': 'Posso aggiungere margini?',
+    'tool.editorial.images-to-pdf.faq3.a': 'Se supportato, regola l\'adattamento/scala della pagina; altrimenti puoi stampare con margini dal tuo visualizzatore.',
+    // Editorial content - word-to-pdf
+    'tool.editorial.word-to-pdf.introP1': 'Trasforma il tuo documento Word in un PDF pulito che appare coerente su qualsiasi dispositivo.',
+    'tool.editorial.word-to-pdf.introP2': 'Perfetto per condividere curriculum, proposte e documenti che non devono cambiare formattazione quando aperti altrove.',
+    'tool.editorial.word-to-pdf.howItWorks.step1': 'Carica il tuo file .doc o .docx.',
+    'tool.editorial.word-to-pdf.howItWorks.step2': 'Lo esportiamo come PDF.',
+    'tool.editorial.word-to-pdf.howItWorks.step3': 'Scarica il tuo PDF e condividi con fiducia.',
+    'tool.editorial.word-to-pdf.quality.bullet1': 'I caratteri incorporati aiutano a preservare il layout tra i dispositivi.',
+    'tool.editorial.word-to-pdf.quality.bullet2': 'Le immagini grandi possono aumentare la dimensione del file.',
+    'tool.editorial.word-to-pdf.quality.bullet3': 'Il tuo documento rimane tuo; la conversione è automatizzata.',
+    'tool.editorial.word-to-pdf.faq1.q': 'I miei caratteri avranno lo stesso aspetto?',
+    'tool.editorial.word-to-pdf.faq1.a': 'I PDF preservano bene il layout, specialmente quando i caratteri sono incorporati. Alcuni caratteri rari possono essere sostituiti.',
+    'tool.editorial.word-to-pdf.faq2.q': 'Posso convertire un file Google Docs?',
+    'tool.editorial.word-to-pdf.faq2.a': 'Scaricalo prima come .docx, poi caricarlo qui.',
+    'tool.editorial.word-to-pdf.faq3.q': 'L\'output è pronto per la stampa?',
+    'tool.editorial.word-to-pdf.faq3.a': 'Per la maggior parte dei documenti, sì. Controlla sempre i margini se hai bisogno di specifiche di stampa rigorose.',
+    // Editorial content - pdf-compress
+    'tool.editorial.pdf-compress.introP1': 'Riduci la dimensione del file PDF per facilitare l\'invio via email, il caricamento e la condivisione—senza perdita di qualità inutile.',
+    'tool.editorial.pdf-compress.introP2': 'Usa la compressione per PDF grandi con immagini, pagine scansionate o grafica pesante.',
+    'tool.editorial.pdf-compress.howItWorks.step1': 'Carica il tuo PDF.',
+    'tool.editorial.pdf-compress.howItWorks.step2': 'Scegli un livello di compressione (se disponibile).',
+    'tool.editorial.pdf-compress.howItWorks.step3': 'Scarica il PDF più piccolo.',
+    'tool.editorial.pdf-compress.quality.bullet1': 'Una compressione più alta riduce maggiormente la dimensione ma può ammorbidire le immagini.',
+    'tool.editorial.pdf-compress.quality.bullet2': 'Il testo rimane nitido nella maggior parte dei casi.',
+    'tool.editorial.pdf-compress.quality.bullet3': 'Elaboriamo il tuo file automaticamente; il tuo contenuto rimane tuo.',
+    'tool.editorial.pdf-compress.faq1.q': 'Quanto comprimerà?',
+    'tool.editorial.pdf-compress.faq1.a': 'Dipende da cosa c\'è dentro il PDF. I file con molte immagini si comprimono di più.',
+    'tool.editorial.pdf-compress.faq2.q': 'Il mio testo diventerà sfocato?',
+    'tool.editorial.pdf-compress.faq2.a': 'Il testo solitamente rimane nitido; le immagini sono le più colpite.',
+    'tool.editorial.pdf-compress.faq3.q': 'La compressione è reversibile?',
+    'tool.editorial.pdf-compress.faq3.a': 'No—tieni l\'originale se potresti aver bisogno di qualità massima in seguito.',
+    // Editorial content - pdf-merge
+    'tool.editorial.pdf-merge.introP1': 'Combina più PDF in un unico file nell\'ordine che scegli.',
+    'tool.editorial.pdf-merge.introP2': 'Ideale per raggruppare contratti, fatture, capitoli o documenti di progetto in un PDF condivisibile.',
+    'tool.editorial.pdf-merge.howItWorks.step1': 'Carica più file PDF.',
+    'tool.editorial.pdf-merge.howItWorks.step2': 'Organizzali nell\'ordine desiderato.',
+    'tool.editorial.pdf-merge.howItWorks.step3': 'Scarica un PDF unito.',
+    'tool.editorial.pdf-merge.quality.bullet1': 'La qualità originale della pagina è preservata.',
+    'tool.editorial.pdf-merge.quality.bullet2': 'Le unioni grandi possono richiedere più tempo a seconda della dimensione del file.',
+    'tool.editorial.pdf-merge.quality.bullet3': 'I tuoi file vengono elaborati automaticamente; mantieni la proprietà.',
+    'tool.editorial.pdf-merge.faq1.q': 'Posso riordinare i file prima di unire?',
+    'tool.editorial.pdf-merge.faq1.a': 'Sì—trascina e rilascia se l\'interfaccia lo supporta.',
+    'tool.editorial.pdf-merge.faq2.q': 'Cambierà la qualità della pagina?',
+    'tool.editorial.pdf-merge.faq2.a': 'No—l\'unione mantiene le pagine originali intatte.',
+    'tool.editorial.pdf-merge.faq3.q': 'C\'è un limite di file?',
+    'tool.editorial.pdf-merge.faq3.a': 'I limiti dipendono dalla configurazione del server; controlla i limiti di caricamento mostrati nell\'interfaccia.',
     'tool.faq.size.question': 'Quali dimensioni di file sono supportate?',
     'tool.faq.size.answer': 'Puoi convertire file fino a 100MB. PDFStation è gratuito per sempre, nessuna registrazione richiesta.',
     'tool.faq.time.question': 'Quanto tempo richiede la conversione?',
@@ -2624,6 +3094,7 @@ const translations: Record<Language, Translations> = {
     'nav.tools': 'Strumenti',
     'nav.faq': 'FAQ',
     'nav.about': 'Chi Siamo',
+    'nav.contact': 'Contatto',
     'nav.login': 'Accedi',
     'nav.signup': 'Registrati',
     'nav.account': 'Il Mio Account',

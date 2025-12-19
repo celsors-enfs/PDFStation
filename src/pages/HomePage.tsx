@@ -21,22 +21,17 @@ export const HomePage: React.FC = () => {
         canonical="/"
       />
 
-      {/* Top Banner Ad - positioned before hero section */}
-      <div className="pt-4">
-        <GoogleAd slotKey="TOP_BANNER" className="w-full flex justify-center" />
-      </div>
-
-      {/* Hero Section */}
+      {/* Hero Section - H1 title must appear before any ads per AdSense policy */}
       <section className="py-4 md:py-8">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
               {t('home.hero.title')}
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-2">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
               {t('home.hero.subtitle')}
-            </p>
-            <p className="text-sm md:text-base text-muted-foreground mb-6">
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground mb-6">
               {t('home.hero.description')}
             </p>
           </div>
@@ -48,7 +43,50 @@ export const HomePage: React.FC = () => {
         <PopularToolsGrid showTitle={false} />
       </div>
 
-      {/* Google Ad Banner - positioned directly below converters grid */}
+      {/* Common Use Cases Section */}
+      <section className="py-8 md:py-12 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">{t('home.useCases.title')}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div className="p-4 bg-background rounded-lg">
+                <h3 className="font-semibold mb-2">📄 {t('home.useCases.wordToPdf.title')}</h3>
+                <p className="text-sm text-muted-foreground">
+                  {t('home.useCases.wordToPdf.description')}
+                  {' '}
+                  <Link to="/tools/word-to-pdf" className="text-primary hover:underline ml-1">{t('home.useCases.wordToPdf.cta')}</Link>
+                </p>
+              </div>
+              <div className="p-4 bg-background rounded-lg">
+                <h3 className="font-semibold mb-2">📷 {t('home.useCases.imagesToPdf.title')}</h3>
+                <p className="text-sm text-muted-foreground">
+                  {t('home.useCases.imagesToPdf.description')}
+                  {' '}
+                  <Link to="/tools/images-to-pdf" className="text-primary hover:underline ml-1">{t('home.useCases.imagesToPdf.cta')}</Link>
+                </p>
+              </div>
+              <div className="p-4 bg-background rounded-lg">
+                <h3 className="font-semibold mb-2">🗜️ {t('home.useCases.compressPdf.title')}</h3>
+                <p className="text-sm text-muted-foreground">
+                  {t('home.useCases.compressPdf.description')}
+                  {' '}
+                  <Link to="/tools/pdf-compress" className="text-primary hover:underline ml-1">{t('home.useCases.compressPdf.cta')}</Link>
+                </p>
+              </div>
+              <div className="p-4 bg-background rounded-lg">
+                <h3 className="font-semibold mb-2">📚 {t('home.useCases.mergePdf.title')}</h3>
+                <p className="text-sm text-muted-foreground">
+                  {t('home.useCases.mergePdf.description')}
+                  {' '}
+                  <Link to="/tools/pdf-merge" className="text-primary hover:underline ml-1">{t('home.useCases.mergePdf.cta')}</Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Google Ad Banner - positioned AFTER substantial editorial content */}
       <div className="container mx-auto px-4 py-4">
         <GoogleAd slotKey="IN_CONTENT" />
       </div>

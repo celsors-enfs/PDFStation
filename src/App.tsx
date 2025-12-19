@@ -9,6 +9,7 @@ import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsOfServicePage } from './pages/TermsOfServicePage';
 import { CookiePolicyPage } from './pages/CookiePolicyPage';
 import { ContactPage } from './pages/ContactPage';
+import { CopyrightPage } from './pages/CopyrightPage';
 import { ScrollToTop } from './components/ScrollToTop';
 import { usePageTracking } from './hooks/usePageTracking';
 
@@ -31,6 +32,7 @@ function AppContent() {
         <Route path="/terms-of-service" element={<TermsOfServicePage />} />
         <Route path="/cookie-policy" element={<CookiePolicyPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/copyright" element={<CopyrightPage />} />
       </Routes>
     </>
   );
